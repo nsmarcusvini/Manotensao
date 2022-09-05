@@ -1,2 +1,3 @@
 # Manotensão
-Manutenção de serviçoso
+Conectando prestadores de serviço e clientes!
+

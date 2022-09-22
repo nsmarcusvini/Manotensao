@@ -14,19 +14,19 @@ public class Plano {
     @Size(max = 45,min = 3)
     private String tipoPlano;
 
-    public Integer getIdTipoServico() {
+    public Integer getIdPlano() {
         return idPlano;
     }
 
-    public void setIdTipoServico(Integer idTipoServico) {
-        this.idPlano = idTipoServico;
+    public void setIdPlano(Integer idPlano) {
+        this.idPlano = idPlano;
     }
 
-    public String getTipoServico() {
+    public String getTipoPlano() {
         return tipoPlano;
     }
 
-    public void setTipoServico(String tipoServico) {
-        this.tipoPlano = tipoServico;
+    public void setTipoPlano(String tipoPlano) {
+        this.tipoPlano = tipoPlano;
     }
 }

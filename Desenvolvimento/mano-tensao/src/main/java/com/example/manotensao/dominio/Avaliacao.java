@@ -26,4 +26,52 @@ public class Avaliacao {
 
     @Max(255)
     private String comentario;
+
+    public Integer getIdAvaliacao() {
+        return idAvaliacao;
+    }
+
+    public void setIdAvaliacao(Integer idAvaliacao) {
+        this.idAvaliacao = idAvaliacao;
+    }
+
+    public Integer getFkUsuario() {
+        return fkUsuario;
+    }
+
+    public void setFkUsuario(Integer fkUsuario) {
+        this.fkUsuario = fkUsuario;
+    }
+
+    public Integer getFkPrestadorServico() {
+        return fkPrestadorServico;
+    }
+
+    public void setFkPrestadorServico(Integer fkPrestadorServico) {
+        this.fkPrestadorServico = fkPrestadorServico;
+    }
+
+    public Integer getFkProposta() {
+        return fkProposta;
+    }
+
+    public void setFkProposta(Integer fkProposta) {
+        this.fkProposta = fkProposta;
+    }
+
+    public Double getNota() {
+        return nota;
+    }
+
+    public void setNota(Double nota) {
+        this.nota = nota;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
 }

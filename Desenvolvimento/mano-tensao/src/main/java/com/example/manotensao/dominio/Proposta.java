@@ -1,28 +1,32 @@
 package com.example.manotensao.dominio;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Entity
-public class Proposta {
+@Table(name = "Proposta")
+public class Proposta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idUsuario")
     private Integer idUsuario;
 
     @Min(0)
+    @Column(name = "fkUsuario")
     private Integer fkUsuario;
 
     @Min(0)
+    @Column(name = "fkPrestadorServico")
     private Integer fkPrestadorServico;
 
     @Min(0)
+    @Column(name = "qtdHoras")
     private Double qtdHoras;
 
     @Min(0)
+    @Column(name = "valorTotal")
     private Double valorTotal;
 
     @Size(min = 0, max = 7)

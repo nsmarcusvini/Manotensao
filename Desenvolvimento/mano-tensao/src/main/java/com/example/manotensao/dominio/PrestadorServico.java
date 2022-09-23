@@ -1,43 +1,52 @@
 package com.example.manotensao.dominio;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.LocalDate;
 @Entity
-public class PrestadorServico {
+@Table(name = "PrestadorServico")
+public class PrestadorServico implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPrestadorServico")
     private Integer idPrestadorServico;
 
     @Min(0)
+    @Column(name = "fkServico")
     private Integer fkServico;
 
     @Min(0)
+    @Column(name = "fkPlano")
     private Integer fkPlano;
 
     @Size(max = 45,min = 3)
+    @Column(name = "nomePrestador")
     private String nomePrestador;
 
     @Size(max = 45,min = 3)
+    @Column(name = "senhaPrestador")
     private String senhaPrestador;
 
     @PastOrPresent
-    private LocalDate dtNacimento;
+    @Column(name = "dtNascimento")
+    private LocalDate dtNascimento;
 
     @Size(max = 45,min = 3)
+    @Column(name = "bairro")
     private String bairro;
 
     @Size(max = 45,min = 3)
+    @Column(name = "rua")
     private String rua;
     @Min(0)
+    @Column(name = "numero")
     private Integer numero;
 
     @Size(max = 45,min = 3)
+    @Column(name = "complemento")
     private String complemento;
 
     @Min(0)
@@ -87,11 +96,11 @@ public class PrestadorServico {
     }
 
     public LocalDate getDtNacimento() {
-        return dtNacimento;
+        return dtNascimento;
     }
 
     public void setDtNacimento(LocalDate dtNacimento) {
-        this.dtNacimento = dtNacimento;
+        this.dtNascimento = dtNacimento;
     }
 
     public String getBairro() {

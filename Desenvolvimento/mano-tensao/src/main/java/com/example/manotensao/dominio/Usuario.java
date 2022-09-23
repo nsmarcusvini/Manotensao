@@ -1,16 +1,15 @@
 package com.example.manotensao.dominio;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class Usuario {
+@Table(name = "Usuario")
+public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;
@@ -22,7 +21,7 @@ public class Usuario {
     private String senhaUsuario;
 
     @PastOrPresent
-    private LocalDate dtNacimento;
+    private LocalDate dtNascimento;
 
     @Size(max = 45,min = 3)
     private String bairro;
@@ -60,11 +59,11 @@ public class Usuario {
     }
 
     public LocalDate getDtNacimento() {
-        return dtNacimento;
+        return dtNascimento;
     }
 
     public void setDtNacimento(LocalDate dtNacimento) {
-        this.dtNacimento = dtNacimento;
+        this.dtNascimento = dtNacimento;
     }
 
     public String getBairro() {

@@ -10,11 +10,9 @@ public class Servico implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idTipoServico")
     private Integer idTipoServico;
 
     @Size(max = 45,min = 3)
-    @Column(name = "tipoServico")
     private String tipoServico;
 
     public Integer getIdTipoServico() {

@@ -11,42 +11,32 @@ import java.time.LocalDate;
 public class PrestadorServico implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idPrestadorServico")
     private Integer idPrestadorServico;
 
     @Min(0)
-    @Column(name = "fkServico")
     private Integer fkServico;
 
     @Min(0)
-    @Column(name = "fkPlano")
     private Integer fkPlano;
 
     @Size(max = 45,min = 3)
-    @Column(name = "nomePrestador")
     private String nomePrestador;
 
     @Size(max = 45,min = 3)
-    @Column(name = "senhaPrestador")
     private String senhaPrestador;
 
     @PastOrPresent
-    @Column(name = "dtNascimento")
     private LocalDate dtNascimento;
 
     @Size(max = 45,min = 3)
-    @Column(name = "bairro")
     private String bairro;
 
     @Size(max = 45,min = 3)
-    @Column(name = "rua")
     private String rua;
     @Min(0)
-    @Column(name = "numero")
     private Integer numero;
 
     @Size(max = 45,min = 3)
-    @Column(name = "complemento")
     private String complemento;
 
     @Min(0)

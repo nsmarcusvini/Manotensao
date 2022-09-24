@@ -11,18 +11,14 @@ import java.io.Serializable;
 public class AvaliacaoUsuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idAvaliacao")
     private Integer idAvaliacao;
     @Min(0)
-    @Column(name = "fkProposta")
     private Integer fkProposta;
 
     @Size(min = 0,max = 5)
-    @Column(name = "notaUsuario")
     private Double notaUsuario;
 
     @Max(255)
-    @Column(name = "comentarioUsuario")
     private String comentarioUsuario;
 
     public Integer getIdAvaliacao() {

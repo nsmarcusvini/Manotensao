@@ -1,6 +1,7 @@
 package com.example.manotensao.dominio;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -9,10 +10,12 @@ import java.io.Serializable;
 public class Plano implements Serializable {
 
     @Id
+    @NotBlank
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPlano;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String tipoPlano;
 
     public Integer getIdPlano() {

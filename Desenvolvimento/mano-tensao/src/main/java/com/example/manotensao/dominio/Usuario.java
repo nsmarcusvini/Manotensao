@@ -1,9 +1,7 @@
 package com.example.manotensao.dominio;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -11,30 +9,42 @@ import java.time.LocalDate;
 @Table(name = "Usuario")
 public class Usuario implements Serializable {
     @Id
+    @NotBlank
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String nomeUsuario;
 
+    @Email
+    @NotBlank
+    @Size(max = 45)
+    private String emailUsuario;
+
     @Size(max = 45,min = 3)
+    @NotBlank
     private String senhaUsuario;
 
     @PastOrPresent
     private LocalDate dtNascimento;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String bairro;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String rua;
     @Min(0)
+    @NotBlank
     private Integer numero;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String complemento;
 
-    public Integer getIdUsuario() {
+    public Integer pegarIdUsuario() {
         return idUsuario;
     }
 
@@ -50,7 +60,23 @@ public class Usuario implements Serializable {
         this.nomeUsuario = nomeUsuario;
     }
 
-    public String getSenhaUsuario() {
+    public String getEmailUsuario() {
+        return emailUsuario;
+    }
+
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+    }
+
+    public LocalDate getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(LocalDate dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+    public String pegarSenhaUsuario() {
         return senhaUsuario;
     }
 

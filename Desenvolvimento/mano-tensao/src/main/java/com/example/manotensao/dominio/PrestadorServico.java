@@ -1,51 +1,66 @@
 package com.example.manotensao.dominio;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 @Entity
 @Table(name = "PrestadorServico")
 public class PrestadorServico implements Serializable {
     @Id
+    @NotBlank
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPrestadorServico;
 
     @Min(0)
+    @NotBlank
     private Integer fkServico;
 
     @Min(0)
+    @NotBlank
     private Integer fkPlano;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String nomePrestador;
 
+    @Email
+    @Size(max = 45)
+    @NotBlank
+    private String emailUsuario;
+
     @Size(max = 45,min = 3)
+    @NotBlank
     private String senhaPrestador;
 
     @PastOrPresent
+    @NotBlank
     private LocalDate dtNascimento;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String bairro;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String rua;
     @Min(0)
+    @NotBlank
     private Integer numero;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String complemento;
 
     @Min(0)
+    @NotBlank
     private Double valorHoraTrabalhada;
 
     @Min(0)
+    @NotBlank
     private Double qtdHoraTrabalhada;
 
-    public Integer getIdPrestadorServico() {
+    public Integer pegarIdPrestadorServico() {
         return idPrestadorServico;
     }
 
@@ -77,7 +92,23 @@ public class PrestadorServico implements Serializable {
         this.nomePrestador = nomePrestador;
     }
 
-    public String getSenhaPrestador() {
+    public String getEmailUsuario() {
+        return emailUsuario;
+    }
+
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+    }
+
+    public LocalDate getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(LocalDate dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+    public String pegarSenhaPrestador() {
         return senhaPrestador;
     }
 

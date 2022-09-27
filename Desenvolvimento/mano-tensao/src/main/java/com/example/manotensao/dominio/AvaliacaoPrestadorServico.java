@@ -3,6 +3,7 @@ package com.example.manotensao.dominio;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -11,15 +12,19 @@ import java.io.Serializable;
 public class AvaliacaoPrestadorServico implements Serializable {
 
     @Id
+    @NotBlank
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAvaliacao;
     @Min(0)
+    @NotBlank
     private Integer fkProposta;
 
     @Size(min = 0,max = 5)
+    @NotBlank
     private Double notaPrestadorServico;
 
     @Max(255)
+    @NotBlank
     private String comentarioPrestadorServico;
 
     public Integer getIdAvaliacao() {

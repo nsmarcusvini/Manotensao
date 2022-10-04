@@ -1,6 +1,7 @@
 package com.example.manotensao.controle;
 
 import com.example.manotensao.dominio.Proposta;
+import com.example.manotensao.dominio.Servico;
 import com.example.manotensao.repositorio.PropostaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,11 +24,29 @@ public class PropostaController {
                 : ResponseEntity.status(200).body(lista);
     }
 
-
     @PostMapping
     public ResponseEntity<Proposta> post(@RequestBody Proposta novaProposta){
         propostaRepository.save(novaProposta);
         return ResponseEntity.status(201).body(novaProposta);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id){
+        if(propostaRepository.existsById(id)){
+            propostaRepository.deleteById(id);
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Proposta> put(@PathVariable int id, @RequestBody Proposta proposta){
+        if(propostaRepository.existsById(id)){
+            proposta.setIdProposta(id);
+            propostaRepository.save(proposta);
+            return ResponseEntity.status(200).body(proposta);
+        }
+        return ResponseEntity.status(404).build();
     }
 
 }

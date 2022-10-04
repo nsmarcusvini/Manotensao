@@ -28,4 +28,23 @@ public class UsuarioController {
         return ResponseEntity.status(201).body(novoUsuario);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id){
+        if(usuarioRepository.existsById(id)){
+            usuarioRepository.deleteById(id);
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> put(@PathVariable int id, @RequestBody Usuario usuario){
+        if(usuarioRepository.existsById(id)){
+            usuario.setIdUsuario(id);
+            usuarioRepository.save(usuario);
+            return ResponseEntity.status(200).body(usuario);
+        }
+        return ResponseEntity.status(404).build();
+    }
+
 }

@@ -30,4 +30,23 @@ public class AvaliacaoPrestadorServicoController {
         return ResponseEntity.status(201).body(novaAvaliacaoPrestador);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id){
+        if(avaliacaoPrestadorServicoRepository.existsById(id)){
+            avaliacaoPrestadorServicoRepository.deleteById(id);
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<AvaliacaoPrestadorServico> put(@PathVariable int id, @RequestBody AvaliacaoPrestadorServico avaliacao){
+        if(avaliacaoPrestadorServicoRepository.existsById(id)){
+            avaliacao.setIdAvaliacao(id);
+            avaliacaoPrestadorServicoRepository.save(avaliacao);
+            return ResponseEntity.status(200).body(avaliacao);
+        }
+        return ResponseEntity.status(404).build();
+    }
+
 }

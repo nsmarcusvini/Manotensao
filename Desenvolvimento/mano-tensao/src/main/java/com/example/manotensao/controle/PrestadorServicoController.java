@@ -1,5 +1,6 @@
 package com.example.manotensao.controle;
 
+import com.example.manotensao.dominio.Cliente;
 import com.example.manotensao.dominio.PrestadorServico;
 import com.example.manotensao.dominio.Proposta;
 import com.example.manotensao.repositorio.PrestadorServicoRepository;
@@ -15,6 +16,15 @@ public class PrestadorServicoController {
 
     @Autowired
     private PrestadorServicoRepository prestadorServicoRepository;
+
+    @GetMapping
+    public ResponseEntity<Void> autenticar(@RequestBody String email, @RequestBody String senha){
+        List<PrestadorServico> lista = prestadorServicoRepository.findAll();
+        if(lista.stream().anyMatch(prestadorServico -> prestadorServico.autenticar(email,senha))){
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
 
     @GetMapping
     public ResponseEntity<List<PrestadorServico>> get(){
@@ -42,7 +52,7 @@ public class PrestadorServicoController {
     @PutMapping("/{id}")
     public ResponseEntity<PrestadorServico> put(@PathVariable int id, @RequestBody PrestadorServico prestador){
         if(prestadorServicoRepository.existsById(id)){
-            prestador.setIdPrestadorServico(id);
+            prestador.setIdPrestador(id);
             prestadorServicoRepository.save(prestador);
             return ResponseEntity.status(200).body(prestador);
         }

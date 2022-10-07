@@ -7,7 +7,6 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Proposta")
 public class Proposta implements Serializable {
     @Id
     @NotBlank

@@ -6,7 +6,6 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Servico")
 public class Servico implements Serializable {
 
     @Id

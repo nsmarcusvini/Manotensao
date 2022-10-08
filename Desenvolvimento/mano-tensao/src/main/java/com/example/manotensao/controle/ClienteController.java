@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
-@RequestMapping("/Clientes")
+@RequestMapping("/clientes")
 public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @GetMapping
+    @GetMapping("/autenticar-cliente")
     public ResponseEntity<Void> autenticar(@RequestBody String email, @RequestBody String senha){
         List<Cliente> lista = clienteRepository.findAll();
         if(lista.stream().anyMatch(Cliente -> Cliente.autenticar(email,senha))){

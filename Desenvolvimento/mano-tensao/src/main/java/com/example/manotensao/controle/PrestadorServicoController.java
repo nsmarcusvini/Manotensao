@@ -17,7 +17,7 @@ public class PrestadorServicoController {
     @Autowired
     private PrestadorServicoRepository prestadorServicoRepository;
 
-    @GetMapping
+    @GetMapping("/autenticar-prestador")
     public ResponseEntity<Void> autenticar(@RequestBody String email, @RequestBody String senha){
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         if(lista.stream().anyMatch(prestadorServico -> prestadorServico.autenticar(email,senha))){

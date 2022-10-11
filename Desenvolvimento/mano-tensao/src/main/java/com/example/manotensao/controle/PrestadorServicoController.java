@@ -1,8 +1,6 @@
 package com.example.manotensao.controle;
 
-import com.example.manotensao.dominio.Cliente;
 import com.example.manotensao.dominio.PrestadorServico;
-import com.example.manotensao.dominio.Proposta;
 import com.example.manotensao.repositorio.PrestadorServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -52,7 +50,7 @@ public class PrestadorServicoController {
     @PutMapping("/{id}")
     public ResponseEntity<PrestadorServico> put(@PathVariable int id, @RequestBody PrestadorServico prestador){
         if(prestadorServicoRepository.existsById(id)){
-            prestador.setIdPrestador(id);
+            prestador.setId(id);
             prestadorServicoRepository.save(prestador);
             return ResponseEntity.status(200).body(prestador);
         }

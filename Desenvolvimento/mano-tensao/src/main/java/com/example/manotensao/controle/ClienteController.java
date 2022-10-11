@@ -48,7 +48,7 @@ public class ClienteController {
     @PutMapping("/{id}")
     public ResponseEntity<Cliente> put(@PathVariable int id, @RequestBody Cliente cliente){
         if(clienteRepository.existsById(id)){
-            cliente.setIdCliente(id);
+            cliente.setId(id);
             clienteRepository.save(cliente);
             return ResponseEntity.status(200).body(cliente);
         }

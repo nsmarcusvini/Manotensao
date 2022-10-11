@@ -1,10 +1,21 @@
 package com.example.manotensao.DTO;
 
 import org.hibernate.validator.constraints.br.CPF;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 
+@MappedSuperclass
 public abstract class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     @Size(max = 45,min = 3)
     private String nome;
 
@@ -15,7 +26,7 @@ public abstract class Usuario {
     @Size(max = 45,min = 3)
     private String senha;
 
-    @Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})")
+    @Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})\n")
     private String telefone;
 
     @CPF
@@ -37,6 +48,14 @@ public abstract class Usuario {
 
     public Boolean autenticar(String email, String senha){
         return this.getEmail().equals(email) && this.pegarSenha().equals(senha);
+    }
+
+    public Integer pegarId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {

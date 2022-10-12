@@ -17,16 +17,20 @@ public abstract class Usuario {
     private Integer id;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String nome;
 
     @Email
     @Size(max = 45)
+    @NotBlank
     private String email;
 
     @Size(max = 45,min = 3)
+    @NotBlank
     private String senha;
 
-    @Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})\n")
+    //@Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})\n")
+    @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$")
     private String telefone;
 
     @CPF

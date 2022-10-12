@@ -10,11 +10,9 @@ import java.io.Serializable;
 public class PrestadorServico extends Usuario implements Serializable {
 
     @Min(0)
-    @NotBlank
     private Integer fkServico;
 
     @Min(0)
-    @NotBlank
     private Integer fkPlano;
 
     public Integer getFkServico() {

@@ -22,7 +22,7 @@ public class AvaliacaoPrestadorServico implements Serializable {
     @NotBlank
     private Double notaPrestadorServico;
 
-    @Max(255)
+    @Size(max = 255)
     @NotBlank
     private String comentarioPrestadorServico;
 

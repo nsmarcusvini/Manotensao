@@ -21,7 +21,7 @@ public class AvaliacaoUsuario implements Serializable {
     @NotBlank
     private Double notaUsuario;
 
-    @Max(255)
+    @Size(max = 255)
     @NotBlank
     private String comentarioUsuario;
 

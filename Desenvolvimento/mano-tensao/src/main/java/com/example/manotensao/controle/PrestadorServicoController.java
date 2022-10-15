@@ -16,7 +16,7 @@ public class PrestadorServicoController {
     @Autowired
     private PrestadorServicoRepository prestadorServicoRepository;
 
-    @GetMapping("/autenticar-prestador")
+    @GetMapping("/autenticacao-prestador")
     public ResponseEntity<Void> login(@RequestBody String email, @RequestBody String senha){
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         for (PrestadorServico prestador : lista) {
@@ -29,10 +29,16 @@ public class PrestadorServicoController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/autenticacao-prestador")
-    public ResponseEntity<Void> deleteUsuario(@RequestBody PrestadorServico prestador){
-        prestador.setAutenticado(true);
-        return ResponseEntity.ok().build();
+    @PutMapping("/autenticacao-prestador")
+    public ResponseEntity<Void> logoff(@RequestBody int id){
+        List<PrestadorServico> lista = prestadorServicoRepository.findAll();
+        for (PrestadorServico prestador : lista) {
+            if (prestador.pegarId().equals(id)) {
+                prestador.setAutenticado(false);
+                return ResponseEntity.ok().build();
+            }
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping

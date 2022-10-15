@@ -1,6 +1,7 @@
 package com.example.manotensao.controle;
 
 import com.example.manotensao.dominio.Cliente;
+import com.example.manotensao.dominio.PrestadorServico;
 import com.example.manotensao.repositorio.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @GetMapping("/autenticar-cliente")
+    @GetMapping("/autenticacao-cliente")
     public ResponseEntity<Void> login(@RequestBody String email, @RequestBody String senha){
         List<Cliente> lista = clienteRepository.findAll();
         for (Cliente cliente : lista) {
@@ -26,10 +27,16 @@ public class ClienteController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/autenticacao-cliente")
-    public ResponseEntity<Void> deleteUsuario(@RequestBody Cliente cliente){
-        cliente.setAutenticado(true);
-        return ResponseEntity.ok().build();
+    @PutMapping("/autenticacao-cliente")
+    public ResponseEntity<Void> logoff(@RequestBody int id){
+        List<Cliente> lista = clienteRepository.findAll();
+        for (Cliente cliente : lista) {
+            if (cliente.pegarId().equals(id)) {
+                cliente.setAutenticado(false);
+                return ResponseEntity.ok().build();
+            }
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping

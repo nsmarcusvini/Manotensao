@@ -52,8 +52,7 @@ public abstract class Usuario {
     @Size(max = 45,min = 3)
     private String complemento;
 
-
-    private Boolean autenticado;
+    private Boolean autenticado = true;
 
     public Boolean autenticar(String email, String senha){
         return this.getEmail().equals(email) && this.pegarSenha().equals(senha);

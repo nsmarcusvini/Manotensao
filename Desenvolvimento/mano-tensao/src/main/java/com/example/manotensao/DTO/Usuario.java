@@ -1,5 +1,7 @@
 package com.example.manotensao.DTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jdk.jfr.BooleanFlag;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.GeneratedValue;
@@ -49,6 +51,9 @@ public abstract class Usuario {
 
     @Size(max = 45,min = 3)
     private String complemento;
+
+
+    private Boolean autenticado;
 
     public Boolean autenticar(String email, String senha){
         return this.getEmail().equals(email) && this.pegarSenha().equals(senha);
@@ -140,5 +145,13 @@ public abstract class Usuario {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public Boolean pegarAutenticado() {
+        return autenticado;
+    }
+
+    public void setAutenticado(Boolean autenticado) {
+        this.autenticado = autenticado;
     }
 }

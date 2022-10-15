@@ -14,12 +14,22 @@ public class ClienteController {
     private ClienteRepository clienteRepository;
 
     @GetMapping("/autenticar-cliente")
-    public ResponseEntity<Void> autenticar(@RequestBody String email, @RequestBody String senha){
+    public ResponseEntity<Void> login(@RequestBody String email, @RequestBody String senha){
         List<Cliente> lista = clienteRepository.findAll();
-        if(lista.stream().anyMatch(Cliente -> Cliente.autenticar(email,senha))){
-            return ResponseEntity.ok().build();
+        for (Cliente cliente : lista) {
+            if (cliente.getEmail().equals(email)
+                    && cliente.pegarSenha().equals(senha)) {
+                cliente.setAutenticado(true);
+                return ResponseEntity.ok().build();
+            }
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/autenticacao-cliente")
+    public ResponseEntity<Void> deleteUsuario(@RequestBody Cliente cliente){
+        cliente.setAutenticado(true);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping

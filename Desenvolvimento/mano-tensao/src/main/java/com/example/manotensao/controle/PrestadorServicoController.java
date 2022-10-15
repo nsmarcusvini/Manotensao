@@ -1,5 +1,6 @@
 package com.example.manotensao.controle;
 
+import com.example.manotensao.dominio.Cliente;
 import com.example.manotensao.dominio.PrestadorServico;
 import com.example.manotensao.repositorio.PrestadorServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,22 @@ public class PrestadorServicoController {
     private PrestadorServicoRepository prestadorServicoRepository;
 
     @GetMapping("/autenticar-prestador")
-    public ResponseEntity<Void> autenticar(@RequestBody String email, @RequestBody String senha){
+    public ResponseEntity<Void> login(@RequestBody String email, @RequestBody String senha){
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
-        if(lista.stream().anyMatch(prestadorServico -> prestadorServico.autenticar(email,senha))){
-            return ResponseEntity.ok().build();
+        for (PrestadorServico prestador : lista) {
+            if (prestador.getEmail().equals(email)
+                    && prestador.pegarSenha().equals(senha)) {
+                prestador.setAutenticado(true);
+                return ResponseEntity.ok().build();
+            }
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/autenticacao-prestador")
+    public ResponseEntity<Void> deleteUsuario(@RequestBody PrestadorServico prestador){
+        prestador.setAutenticado(true);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping

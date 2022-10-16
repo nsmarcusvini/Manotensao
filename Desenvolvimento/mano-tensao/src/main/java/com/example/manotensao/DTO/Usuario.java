@@ -4,14 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jdk.jfr.BooleanFlag;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @MappedSuperclass
+@PrimaryKeyJoinColumn(name = "id")
 public abstract class Usuario {
 
     @Id

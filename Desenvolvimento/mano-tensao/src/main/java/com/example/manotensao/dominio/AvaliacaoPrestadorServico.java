@@ -8,12 +8,14 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
+
+@PrimaryKeyJoinColumn(name = "idAvaliacaoPrestador")
 public class AvaliacaoPrestadorServico implements Serializable {
 
     @Id
     @NotBlank
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idAvaliacao;
+    private Integer idAvaliacaoPrestador;
     @Min(0)
     @NotBlank
     private Integer fkProposta;
@@ -27,11 +29,11 @@ public class AvaliacaoPrestadorServico implements Serializable {
     private String comentarioPrestadorServico;
 
     public Integer getIdAvaliacao() {
-        return idAvaliacao;
+        return idAvaliacaoPrestador;
     }
 
     public void setIdAvaliacao(Integer idAvaliacao) {
-        this.idAvaliacao = idAvaliacao;
+        this.idAvaliacaoPrestador = idAvaliacao;
     }
 
     public Integer getFkProposta() {

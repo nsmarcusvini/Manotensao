@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "id")
 public class Cliente extends Usuario implements Serializable{
 
 }

@@ -1,5 +1,7 @@
 package com.example.manotensao.dominio;
 
+import org.springframework.context.annotation.Primary;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -7,6 +9,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "idProposta")
 public class Proposta implements Serializable {
     @Id
     @NotBlank
@@ -15,11 +18,20 @@ public class Proposta implements Serializable {
 
     @Min(0)
     @NotBlank
+    @JoinColumn(name = "id")
     private Integer fkUsuario;
 
     @Min(0)
     @NotBlank
+
+    @JoinColumn(name = "id")
     private Integer fkPrestadorServico;
+
+    @JoinColumn(name = "idAvaliacaoPrestador")
+    private Integer fkAvaliacaoPrestadorServico;
+
+    @JoinColumn(name = "idAvaliacaoCliente")
+    private Integer fkAvaliacaoCLiente;
 
     @Min(0)
     @NotBlank

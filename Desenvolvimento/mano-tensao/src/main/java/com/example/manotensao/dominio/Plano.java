@@ -6,6 +6,8 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
+
+@PrimaryKeyJoinColumn(name = "idPlano")
 public class Plano implements Serializable {
 
     @Id

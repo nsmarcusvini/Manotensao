@@ -7,12 +7,15 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "id")
 public class PrestadorServico extends Usuario implements Serializable {
 
     @Min(0)
+    @JoinColumn(name = "idServico")
     private Integer fkServico;
 
     @Min(0)
+    @JoinColumn(name = "idPlano")
     private Integer fkPlano;
 
     public Integer getFkServico() {

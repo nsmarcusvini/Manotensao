@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/nsmarcusvini/Manotensao.git/static/css/main.eafc73ca.css",
+    "main.js": "/nsmarcusvini/Manotensao.git/static/js/main.030c0f32.js",
+    "static/media/fundo.mp4": "/nsmarcusvini/Manotensao.git/static/media/fundo.401108ebe9f79b5b184f.mp4",
+    "static/media/join.jpg": "/nsmarcusvini/Manotensao.git/static/media/join.7f48d25e65f59d2f25dd.jpg",
+    "static/media/woman.jpg": "/nsmarcusvini/Manotensao.git/static/media/woman.312da758aceeef3a55da.jpg",
+    "static/media/Montserrat-Medium.otf": "/nsmarcusvini/Manotensao.git/static/media/Montserrat-Medium.4b4a4b36283ebeb2cf89.otf",
+    "static/media/Montserrat-Thin.otf": "/nsmarcusvini/Manotensao.git/static/media/Montserrat-Thin.d499418298509d45f4b2.otf",
+    "static/media/tool2.svg": "/nsmarcusvini/Manotensao.git/static/media/tool2.092e09271a0458119a7456cdfc114dd8.svg",
+    "static/media/chave-de-boca-branca2.svg": "/nsmarcusvini/Manotensao.git/static/media/chave-de-boca-branca2.8eca568f4245852c30012b6305c6ee91.svg",
+    "static/media/crown2.svg": "/nsmarcusvini/Manotensao.git/static/media/crown2.d9ffe253f10e31a73d611bcf16cf6fa2.svg",
+    "static/media/ElectricShocker-2y8d.ttf": "/nsmarcusvini/Manotensao.git/static/media/ElectricShocker-2y8d.cafa47f3ea31695b5780.ttf",
+    "index.html": "/nsmarcusvini/Manotensao.git/index.html",
+    "main.eafc73ca.css.map": "/nsmarcusvini/Manotensao.git/static/css/main.eafc73ca.css.map",
+    "main.030c0f32.js.map": "/nsmarcusvini/Manotensao.git/static/js/main.030c0f32.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eafc73ca.css",
+    "static/js/main.030c0f32.js"
+  ]
+}

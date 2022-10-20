@@ -1,0 +1,100 @@
+.Meet {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.titleMeet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+
+}
+
+.titleM {
+    font-family: 'MontserratLight';
+}
+
+.providers {
+    display: flex;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    gap: 10rem;
+}
+
+.join {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photoJoin {
+    background: url('../../assets/join.jpg') no-repeat;
+    background-size: cover;
+    height: 362px;
+    width: 360px;
+    border-radius: 50%;
+    margin-top: 5rem;
+}
+
+.titleJoin {
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    color: #fff;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.textJoin {
+    color: #fff;
+    font-family: 'Montserrat';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+.satisfied {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photoSatisfied {
+    background: url('../../assets/woman.jpg') no-repeat;
+    background-size: cover;
+    height: 362px;
+    width: 360px;
+    border-radius: 50%;
+    margin-top: 5rem;
+}
+
+.titleSatisfied {
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    color: #fff;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.textSatisfied {
+    color: #fff;
+    font-family: 'Montserrat';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 400;
+}
+

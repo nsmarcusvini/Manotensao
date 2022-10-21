@@ -10,8 +10,7 @@ export const Mano = () => {
         <Header />
         <div className="manoTexto">
           <div>
-            <span className='stroke-text'>Mano</span>
-            <span className='tensao'>Tensao</span>
+            <span className='tensao'>ManoTensao</span>
             <div className="title">
               <span className='titleSpan'>
                 Precisando de uma mão?

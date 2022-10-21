@@ -160,9 +160,10 @@
 
 .commentBox {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 4rem;
+    /* margin-top: 2rem; */
 }
 
 .box3 {
@@ -224,4 +225,35 @@
     height: 3rem;
     margin-left: 9rem;
     margin-top: -1rem;
+}
+
+.boxBox1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxBox2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stars img {
+    width: 19rem;
+}
+
+.come-blur {
+    width: 22rem;
+    height: 30rem;
+    right: 0;
+}
+
+.come-blur2 {
+    width: 22rem;
+    height: 30rem;
+    left: 0;
+    /* bottom: 0; */
 }

@@ -98,3 +98,9 @@
     font-weight: 400;
 }
 
+.meet-blur {
+    width: 22rem;
+    height: 30rem;
+    left: 0;
+    /* top: 61rem; */
+}

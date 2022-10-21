@@ -4,6 +4,7 @@ import './Meet.css'
 export const Meet = () => {
     return (
         <div className='Meet' id='meet'>
+            <div className="blur meet-blur"></div>
             <div className="titleMeet">
                 <span className="titleM">
                     Para prestadores de serviço e clientes
@@ -23,7 +24,7 @@ export const Meet = () => {
                         avaliados pelos consumidores.
                     </span>
                 </div>
-                <div className="satisfied">
+                <div className="satisfied reveal">
                     <div className="photoSatisfied"></div>
                     <span className="titleSatisfied">
                         Usuários Satisfeitos

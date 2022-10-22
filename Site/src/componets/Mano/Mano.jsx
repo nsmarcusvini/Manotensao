@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Header } from '../Header/Header'
 import './Mano.css'
 import back from '../../assets/fundo.mp4'
+import { Link } from 'react-scroll'
+
 
 export const Mano = () => {
+
+  const [click, setClick] = useState(false)
+  const closeMenu = () => setClick(false)
+  
   return (
-    <div className='mano'>
-      <div className="home">
+    <div className='mano' id='manos'>
         <Header />
+      <div className="home">
         <div className="manoTexto">
           <div>
             <span className='tensao'>ManoTensao</span>
@@ -25,9 +31,9 @@ export const Mano = () => {
           </div>
         </div>
         <div className="conheca">
-          <span className="buttonA">
-            <a href="#">Consulte nossos serviços</a>
-          </span>
+
+            <a className='butn butn1'><Link to="comment" spy={true} smooth={true} offset={-110} duration={500} onClick={closeMenu}>Conheça os nossos serviços</Link></a>
+
         </div>
       </div>
       <div className="black"></div>

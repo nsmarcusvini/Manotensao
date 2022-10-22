@@ -29,7 +29,7 @@
 
 .home {
     padding: 6rem;
-    padding-top: 0.3rem;
+    padding-top: 7.3rem;
     flex: 3;
 }
 
@@ -88,19 +88,41 @@ video {
 }
 
 .conheca {
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-size: 1.3rem;
     font-style: normal;
     font-weight: 400;
     text-transform: none;
 }
 
-.buttonA a{
+
+.butn {
     text-decoration: none;
-    color: var(--limeGreen);
+    color: #fff;
     font-family: 'Montserrat';
+    cursor: pointer;
+    padding: 15px 15px;
+    z-index: -1;
+    transition: transform 0.3s ease;
 }
 
-.buttonA a:hover {
-    color: #fff;
+.butn1::after,
+.butn1::before {
+    border: 3px solid var(--limeGreen);
+    content: "";
+    position: absolute;
+    width: calc(100% - 1130px);
+    height: calc(100% - 622px);
+    left: 6rem;
+    bottom: 7rem;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.butn1:hover::after {
+    transform: translate(-5px,-5px);
+}
+
+.butn1:hover::before {
+    transform: translate(5px, 5px)
 }

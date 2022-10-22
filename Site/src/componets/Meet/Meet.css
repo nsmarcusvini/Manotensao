@@ -21,9 +21,10 @@
 
 .providers {
     display: flex;
-    margin-left: 15rem;
-    margin-right: 15rem;
-    gap: 10rem;
+    margin-left: 14rem;
+    margin-right: 14rem;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .join {
@@ -35,11 +36,14 @@
 
 .photoJoin {
     background: url('../../assets/join.jpg') no-repeat;
-    background-size: cover;
-    height: 362px;
-    width: 360px;
+    /* background-size: cover;
+    height: 262px;
+    width: 260px; */
+    background-size: contain;
+    height: 262px;
+    width: 392px;
     border-radius: 50%;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .titleJoin {
@@ -71,11 +75,14 @@
 
 .photoSatisfied {
     background: url('../../assets/woman.jpg') no-repeat;
-    background-size: cover;
-    height: 362px;
-    width: 360px;
+    /* background-size: cover;
+    height: 262px;
+    width: 260px; */
+    background-size: contain;
+    height: 262px;
+    width: 392px;
     border-radius: 50%;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .titleSatisfied {

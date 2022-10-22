@@ -7,7 +7,7 @@ import check from '../../assets/whiteTick.png'
 
 export const Plans = () => {
   return (
-    <div className='plans'>
+    <div className='plans' id='plan'>
       <div className="plansTitle" style={{ gap: '2rem' }}>
         <span className='plansTitle'>Venha trabalhar conosco</span>
       </div>

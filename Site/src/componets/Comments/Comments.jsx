@@ -9,7 +9,7 @@ import stars2 from '../../assets/stars.png'
 
 export const Comments = () => {
     return (
-        <div className='comments'>
+        <div className='comments' id='comment'>
             <div className="blur come-blur"></div>
             {/* <div className="blur come-blur2"></div> */}
             <div className="commentsTitle">

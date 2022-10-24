@@ -1,0 +1,246 @@
+.plans {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.plansCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.plansTitle {
+    font-family: 'MontserratLight';
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+}
+
+.titleP {
+    font-family: 'Montserrat';
+}
+
+.basic {
+    background-color: var(--caloryCard);
+    width: 21rem;
+    height: 32rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.basic img {
+    width: 2rem;
+}
+
+.basic .titlePlan {
+    margin-top: 3rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.basic .price {
+    margin-top: 3rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.basic .price .year {
+    font-size: 1.4rem;
+}
+
+.informations {
+    display: flex;
+    gap: 2rem;
+}
+
+.checks {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    gap: 0.5rem;
+}
+
+.checks img {
+    width: 1rem;
+    margin-top: 2rem;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+}
+
+.infos .info {
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 2rem;
+}
+/* D9F503 c5de07 */
+.premium {
+    background: linear-gradient(210.41deg, #D9F503 1.14%, #c5de07 100.75%);
+    width: 21rem;
+    height: 35rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.premium img {
+    width: 2rem;
+}
+
+.premium img {
+    width: 2rem;
+}
+
+.premium .titlePlan {
+    margin-top: 3rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.premium .price {
+    margin-top: 3rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.premium .price .year {
+    font-size: 1.4rem;
+}
+
+.informations {
+    display: flex;
+    gap: 2rem;
+}
+
+.checks {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    gap: 1rem;
+}
+
+.checks img {
+    width: 1rem;
+    margin-top: 2rem;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+}
+
+.infos .info {
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+.pro {
+    background-color: var(--caloryCard);
+    width: 21rem;
+    height: 32rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.pro img {
+    width: 2rem;
+}
+
+.pro img {
+    width: 2rem;
+}
+
+.pro img {
+    width: 2rem;
+}
+
+.pro .titlePlan {
+    margin-top: 3rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.pro .price {
+    margin-top: 3rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.pro .price .year {
+    font-size: 1.4rem;
+}
+
+.informations {
+    display: flex;
+    gap: 2rem;
+}
+
+.checks {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    gap: 1rem;
+}
+
+.checks img {
+    width: 1rem;
+    margin-top: 2rem;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+}
+
+.infos .info {
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+.btn {
+    background: #fff;
+    border: none;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top: 5rem;
+    transition: 300ms all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plansCard>:nth-child(2)>button {
+    color: #c5de07;
+}
+

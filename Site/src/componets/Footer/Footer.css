@@ -1,0 +1,38 @@
+.Footer {
+    position: relative;
+}
+
+.Footer hr {
+    border: 1px solid var(--limeGreen);
+}
+
+.footer-icon {
+    padding: 1rem 4.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+}
+
+.footer-icon .mano {
+    font-family: 'MontserratLight';
+    color: #fff;
+}
+
+.footer-icon .follow {
+    font-family: 'MontserratLight';
+    color: #fff;
+}
+
+.icon {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon img {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}

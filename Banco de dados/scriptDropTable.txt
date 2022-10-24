@@ -1,7 +1,0 @@
-drop table [dbo].[avaliacao_prestador_servico];
-drop table [dbo].[avaliacao_usuario];
-drop table [dbo].[plano];
-drop table [dbo].[prestador_servico];
-drop table [dbo].[proposta];
-drop table [dbo].[servico];
-drop table [dbo].[usuario];

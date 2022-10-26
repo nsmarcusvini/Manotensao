@@ -21,88 +21,132 @@
 
 .providers {
     display: flex;
-    margin-left: 14rem;
-    margin-right: 14rem;
+    /* padding: 6rem; */
+    margin-left: 6rem;
+    margin-right: 6rem;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.boxesHome {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.boxHome {
+    width: 20rem;
+    height: 13rem;
+    background: #333333;
+    padding: 2rem;
+}
+
+.boxes {
+    background: var(--limeGreen);
+}
+
+.boxes2 {
+    margin-left: 4rem;
+}
+
+.boxesHome2 {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
 }
 
-.join {
+.boxHome2 {
+    width: 11rem;
+    height: 32rem;
+    background: #202020;
+    padding: 2rem;
+}
+
+.boxHome2 img {
+    width: 5rem;
+}
+
+.boxHome2:nth-child(2) {
+    background: #333333;
+}
+
+.boxHome2:nth-child(3) {
+    background: #696969;
+}
+
+.boxHomesTitle {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-top: 1rem;
+}
+
+.boxHomesTitleG {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #000;
+    margin-top: 1rem;
+}
+
+.boxHomeTitle {
+    margin-top: 7rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.boxHomeText {
+    font-family: 'MontserratLight';
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 1.5rem;
+}
+
+.boxHomesText {
+    font-family: 'MontserratLight';
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 1.5rem;
+}
+
+.boxHomesTextG {
+    font-family: 'MontserratLight';
+    font-size: 1rem;
+    color: #000;
+    margin-top: 1.5rem;
+}
+
+.satisfeito {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.photoJoin {
-    background: url('../../assets/join.jpg') no-repeat;
-    /* background-size: cover;
-    height: 262px;
-    width: 260px; */
-    background-size: contain;
-    height: 262px;
-    width: 392px;
-    border-radius: 50%;
-    margin-top: 3rem;
-}
-
-.titleJoin {
-    font-family: 'Montserrat';
-    font-size: 1.5rem;
-    color: #fff;
-    margin-top: 1rem;
     text-align: center;
-    font-weight: 700;
 }
 
-.textJoin {
-    color: #fff;
-    font-family: 'Montserrat';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: 400;
-}
-
-.satisfied {
+.qualificados {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.photoSatisfied {
-    background: url('../../assets/woman.jpg') no-repeat;
-    /* background-size: cover;
-    height: 262px;
-    width: 260px; */
-    background-size: contain;
-    height: 262px;
-    width: 392px;
-    border-radius: 50%;
-    margin-top: 3rem;
-}
-
-.titleSatisfied {
-    font-family: 'Montserrat';
-    font-size: 1.5rem;
-    color: #fff;
-    margin-top: 1rem;
     text-align: center;
-    font-weight: 700;
 }
 
-.textSatisfied {
-    color: #fff;
-    font-family: 'Montserrat';
+.hidra {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: 400;
+    flex-direction: column;
+}
+
+.gerais {
+    display: flex;
+    flex-direction: column;
+}
+
+.eletrico {
+    display: flex;
+    flex-direction: column;
 }
 
 .meet-blur {

@@ -11,4 +11,18 @@ import java.io.Serializable;
 @PrimaryKeyJoinColumn(name = "id")
 public class Cliente extends Usuario implements Serializable{
 
+    @Id
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idCLiente;
+
+    public Integer getIdCLiente() {
+        return idCLiente;
+    }
+
+    public void setIdCLiente(Integer idCLiente) {
+        this.idCLiente = idCLiente;
+    }
 }
+
+

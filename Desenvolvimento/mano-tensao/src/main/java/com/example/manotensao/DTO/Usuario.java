@@ -9,12 +9,8 @@ import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @MappedSuperclass
-@PrimaryKeyJoinColumn(name = "id")
 public abstract class Usuario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
     @Size(max = 45,min = 3)
     @NotBlank
@@ -54,14 +50,6 @@ public abstract class Usuario {
 
     public Boolean autenticar(String email, String senha){
         return this.getEmail().equals(email) && this.pegarSenha().equals(senha);
-    }
-
-    public Integer pegarId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNome() {

@@ -7,8 +7,20 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "id")
 public class PrestadorServico extends Usuario implements Serializable {
+
+    @Id
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idPrestador;
+
+    public Integer getIdPrestador() {
+        return idPrestador;
+    }
+
+    public void setIdPrestador(Integer idPrestador) {
+        this.idPrestador = idPrestador;
+    }
 
     @Min(0)
     @JoinColumn(name = "idServico")

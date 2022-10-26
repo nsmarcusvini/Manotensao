@@ -1,24 +1,22 @@
 package com.example.manotensao.dominio;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
 
-@PrimaryKeyJoinColumn(name = "idAvaliacaoPrestador")
 public class AvaliacaoPrestadorServico implements Serializable {
 
     @Id
-    @NotBlank
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAvaliacaoPrestador;
+
     @Min(0)
     @NotBlank
-    private Integer fkProposta;
+    @ManyToOne
+    private Proposta fkProposta;
 
     @Size(min = 0,max = 5)
     @NotBlank
@@ -28,35 +26,35 @@ public class AvaliacaoPrestadorServico implements Serializable {
     @NotBlank
     private String comentarioPrestadorServico;
 
-    public Integer getIdAvaliacao() {
+    public Integer getIdAvaliacaoPrestador() {
         return idAvaliacaoPrestador;
     }
 
-    public void setIdAvaliacao(Integer idAvaliacao) {
-        this.idAvaliacaoPrestador = idAvaliacao;
+    public void setIdAvaliacaoPrestador(Integer idAvaliacaoPrestador) {
+        this.idAvaliacaoPrestador = idAvaliacaoPrestador;
     }
 
-    public Integer getFkProposta() {
+    public Proposta getFkProposta() {
         return fkProposta;
     }
 
-    public void setFkProposta(Integer fkProposta) {
+    public void setFkProposta(Proposta fkProposta) {
         this.fkProposta = fkProposta;
     }
 
-    public Double getNotaUsuario() {
+    public Double getNotaPrestadorServico() {
         return notaPrestadorServico;
     }
 
-    public void setNotaUsuario(Double notaUsuario) {
-        this.notaPrestadorServico = notaUsuario;
+    public void setNotaPrestadorServico(Double notaPrestadorServico) {
+        this.notaPrestadorServico = notaPrestadorServico;
     }
 
-    public String getComentarioUsuario() {
+    public String getComentarioPrestadorServico() {
         return comentarioPrestadorServico;
     }
 
-    public void setComentarioUsuario(String comentarioUsuario) {
-        this.comentarioPrestadorServico = comentarioUsuario;
+    public void setComentarioPrestadorServico(String comentarioPrestadorServico) {
+        this.comentarioPrestadorServico = comentarioPrestadorServico;
     }
 }

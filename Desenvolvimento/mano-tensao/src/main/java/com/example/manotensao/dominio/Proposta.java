@@ -5,33 +5,36 @@ import org.springframework.context.annotation.Primary;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "idProposta")
 public class Proposta implements Serializable {
     @Id
-    @NotBlank
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idProposta;
 
     @Min(0)
     @NotBlank
-    @JoinColumn(name = "id")
-    private Integer fkUsuario;
+    @ManyToOne
+    private Cliente fkCliente;
 
     @Min(0)
     @NotBlank
+    @ManyToOne
+    private PrestadorServico fkPrestadorServico;
 
-    @JoinColumn(name = "id")
-    private Integer fkPrestadorServico;
+    @Min(0)
+    @NotBlank
+    @ManyToOne
+    private AvaliacaoPrestadorServico fkAvaliacaoPrestadorServico;
 
-    @JoinColumn(name = "idAvaliacaoPrestador")
-    private Integer fkAvaliacaoPrestadorServico;
-
-    @JoinColumn(name = "idAvaliacaoCliente")
-    private Integer fkAvaliacaoCLiente;
+    @Min(0)
+    @NotBlank
+    @ManyToOne
+    private AvaliacaoUsuario fkAvaliacaoCLiente;
 
     @Min(0)
     @NotBlank
@@ -57,20 +60,36 @@ public class Proposta implements Serializable {
         this.idProposta = idUsuario;
     }
 
-    public Integer getFkUsuario() {
-        return fkUsuario;
+    public Cliente getFkCliente() {
+        return fkCliente;
     }
 
-    public void setFkUsuario(Integer fkUsuario) {
-        this.fkUsuario = fkUsuario;
+    public void setFkCliente(Cliente fkCliente) {
+        this.fkCliente = fkCliente;
     }
 
-    public Integer getFkPrestadorServico() {
+    public PrestadorServico getFkPrestadorServico() {
         return fkPrestadorServico;
     }
 
-    public void setFkPrestadorServico(Integer fkPrestadorServico) {
+    public void setFkPrestadorServico(PrestadorServico fkPrestadorServico) {
         this.fkPrestadorServico = fkPrestadorServico;
+    }
+
+    public AvaliacaoPrestadorServico getFkAvaliacaoPrestadorServico() {
+        return fkAvaliacaoPrestadorServico;
+    }
+
+    public void setFkAvaliacaoPrestadorServico(AvaliacaoPrestadorServico fkAvaliacaoPrestadorServico) {
+        this.fkAvaliacaoPrestadorServico = fkAvaliacaoPrestadorServico;
+    }
+
+    public AvaliacaoUsuario getFkAvaliacaoCLiente() {
+        return fkAvaliacaoCLiente;
+    }
+
+    public void setFkAvaliacaoCLiente(AvaliacaoUsuario fkAvaliacaoCLiente) {
+        this.fkAvaliacaoCLiente = fkAvaliacaoCLiente;
     }
 
     public Double getQtdHoras() {

@@ -5,7 +5,7 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
-public class AvaliacaoUsuario implements Serializable {
+public class AvaliacaoCliente implements Serializable {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +19,11 @@ public class AvaliacaoUsuario implements Serializable {
 
     @Size(min = 0,max = 5)
     @NotBlank
-    private Double notaUsuario;
+    private Double notaCliente;
 
     @Size(max = 255)
     @NotBlank
-    private String comentarioUsuario;
+    private String comentarioCliente;
 
     public Integer getIdAvaliacao() {
         return idAvaliacaoCliente;
@@ -42,18 +42,18 @@ public class AvaliacaoUsuario implements Serializable {
     }
 
     public Double getNota() {
-        return notaUsuario;
+        return notaCliente;
     }
 
     public void setNota(Double nota) {
-        this.notaUsuario = nota;
+        this.notaCliente = nota;
     }
 
     public String getComentario() {
-        return comentarioUsuario;
+        return comentarioCliente;
     }
 
     public void setComentario(String comentario) {
-        this.comentarioUsuario = comentario;
+        this.comentarioCliente = comentario;
     }
 }

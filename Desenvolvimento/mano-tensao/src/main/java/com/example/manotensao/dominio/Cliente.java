@@ -12,14 +12,14 @@ public class Cliente extends Usuario implements Serializable{
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCLiente;
+    private Integer idCliente;
 
     public Integer pegarId() {
-        return idCLiente;
+        return idCliente;
     }
 
-    public void setId(Integer idCLiente) {
-        this.idCLiente = idCLiente;
+    public void setId(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 }
 

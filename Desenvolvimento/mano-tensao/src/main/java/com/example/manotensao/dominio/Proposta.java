@@ -1,6 +1,5 @@
 package com.example.manotensao.dominio;
 
-import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -92,5 +91,9 @@ public class Proposta implements Serializable {
 
     public void setPropostaAceita(Integer propostaAceita) {
         this.propostaAceita = propostaAceita;
+    }
+
+    public void setFkPrestadorServico(PrestadorServico fkPrestadorServico) {
+        this.fkPrestadorServico = fkPrestadorServico;
     }
 }

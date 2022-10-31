@@ -7,8 +7,6 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-
-@PrimaryKeyJoinColumn(name = "idTipoServico")
 public class Servico implements Serializable {
 
     @Id

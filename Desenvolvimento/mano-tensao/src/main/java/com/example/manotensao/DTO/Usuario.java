@@ -1,16 +1,12 @@
 package com.example.manotensao.DTO;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jdk.jfr.BooleanFlag;
 import org.hibernate.validator.constraints.br.CPF;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @MappedSuperclass
 public abstract class Usuario {
-
 
     @Size(max = 45,min = 3)
     @NotBlank
@@ -47,6 +43,9 @@ public abstract class Usuario {
     private String complemento;
 
     private Boolean autenticado = true;
+
+    @Size(min = 10, max = 255)
+    private String URLFoto;
 
     public Boolean autenticar(String email, String senha){
         return this.getEmail().equals(email) && this.pegarSenha().equals(senha);
@@ -138,5 +137,13 @@ public abstract class Usuario {
 
     public void setAutenticado(Boolean autenticado) {
         this.autenticado = autenticado;
+    }
+
+    public String getURLFoto() {
+        return URLFoto;
+    }
+
+    public void setURLFoto(String URLFoto) {
+        this.URLFoto = URLFoto;
     }
 }

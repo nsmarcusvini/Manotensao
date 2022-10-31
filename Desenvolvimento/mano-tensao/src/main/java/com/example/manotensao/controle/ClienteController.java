@@ -1,16 +1,17 @@
 package com.example.manotensao.controle;
 
 import com.example.manotensao.dominio.Cliente;
-import com.example.manotensao.dominio.PrestadorServico;
-import com.example.manotensao.repositorio.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.example.manotensao.repositorio.ClienteRepository;
 
 import java.util.List;
+
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {
+
     @Autowired
     private ClienteRepository clienteRepository;
 
@@ -18,8 +19,7 @@ public class ClienteController {
     public ResponseEntity<Void> login(@RequestBody String email, @RequestBody String senha){
         List<Cliente> lista = clienteRepository.findAll();
         for (Cliente cliente : lista) {
-            if (cliente.getEmail().equals(email)
-                    && cliente.pegarSenha().equals(senha)) {
+            if (cliente.autenticar(email,senha)) {
                 cliente.setAutenticado(true);
                 return ResponseEntity.ok().build();
             }

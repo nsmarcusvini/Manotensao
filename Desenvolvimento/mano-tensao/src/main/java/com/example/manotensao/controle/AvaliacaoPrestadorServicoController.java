@@ -5,7 +5,6 @@ import com.example.manotensao.repositorio.AvaliacaoPrestadorServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -42,7 +41,7 @@ public class AvaliacaoPrestadorServicoController {
     @PutMapping("/{id}")
     public ResponseEntity<AvaliacaoPrestadorServico> put(@PathVariable int id, @RequestBody AvaliacaoPrestadorServico avaliacao){
         if(avaliacaoPrestadorServicoRepository.existsById(id)){
-            avaliacao.setIdAvaliacao(id);
+            avaliacao.setIdAvaliacaoPrestador(id);
             avaliacaoPrestadorServicoRepository.save(avaliacao);
             return ResponseEntity.status(200).body(avaliacao);
         }

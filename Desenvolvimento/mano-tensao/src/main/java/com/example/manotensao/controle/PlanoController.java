@@ -1,7 +1,6 @@
 package com.example.manotensao.controle;
 
 import com.example.manotensao.dominio.Plano;
-import com.example.manotensao.dominio.PrestadorServico;
 import com.example.manotensao.repositorio.PlanoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

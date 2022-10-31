@@ -28,16 +28,6 @@ public class Proposta implements Serializable {
 
     @Min(0)
     @NotBlank
-    @ManyToOne
-    private AvaliacaoPrestadorServico fkAvaliacaoPrestadorServico;
-
-    @Min(0)
-    @NotBlank
-    @ManyToOne
-    private AvaliacaoUsuario fkAvaliacaoCLiente;
-
-    @Min(0)
-    @NotBlank
     private Double qtdHoras;
 
     @Min(0)
@@ -70,26 +60,6 @@ public class Proposta implements Serializable {
 
     public PrestadorServico getFkPrestadorServico() {
         return fkPrestadorServico;
-    }
-
-    public void setFkPrestadorServico(PrestadorServico fkPrestadorServico) {
-        this.fkPrestadorServico = fkPrestadorServico;
-    }
-
-    public AvaliacaoPrestadorServico getFkAvaliacaoPrestadorServico() {
-        return fkAvaliacaoPrestadorServico;
-    }
-
-    public void setFkAvaliacaoPrestadorServico(AvaliacaoPrestadorServico fkAvaliacaoPrestadorServico) {
-        this.fkAvaliacaoPrestadorServico = fkAvaliacaoPrestadorServico;
-    }
-
-    public AvaliacaoUsuario getFkAvaliacaoCLiente() {
-        return fkAvaliacaoCLiente;
-    }
-
-    public void setFkAvaliacaoCLiente(AvaliacaoUsuario fkAvaliacaoCLiente) {
-        this.fkAvaliacaoCLiente = fkAvaliacaoCLiente;
     }
 
     public Double getQtdHoras() {

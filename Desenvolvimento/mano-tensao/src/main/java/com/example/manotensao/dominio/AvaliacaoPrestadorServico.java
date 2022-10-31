@@ -5,7 +5,6 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
-
 public class AvaliacaoPrestadorServico implements Serializable {
 
     @Id

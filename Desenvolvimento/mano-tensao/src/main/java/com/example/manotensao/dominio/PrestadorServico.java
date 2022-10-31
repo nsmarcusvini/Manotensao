@@ -14,35 +14,35 @@ public class PrestadorServico extends Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPrestador;
 
-    public Integer getIdPrestador() {
+    @Min(0)
+    @ManyToOne
+    private Servico fkServico;
+
+    @Min(0)
+    @ManyToOne
+    private Plano fkPlano;
+
+    public Integer pegarId() {
         return idPrestador;
     }
 
-    public void setIdPrestador(Integer idPrestador) {
+    public void setId(Integer idPrestador) {
         this.idPrestador = idPrestador;
     }
 
-    @Min(0)
-    @JoinColumn(name = "idServico")
-    private Integer fkServico;
-
-    @Min(0)
-    @JoinColumn(name = "idPlano")
-    private Integer fkPlano;
-
-    public Integer getFkServico() {
+    public Servico getFkServico() {
         return fkServico;
     }
 
-    public void setFkServico(Integer fkServico) {
+    public void setFkServico(Servico fkServico) {
         this.fkServico = fkServico;
     }
 
-    public Integer getFkPlano() {
+    public Plano getFkPlano() {
         return fkPlano;
     }
 
-    public void setFkPlano(Integer fkPlano) {
+    public void setFkPlano(Plano fkPlano) {
         this.fkPlano = fkPlano;
     }
 

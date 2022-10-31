@@ -1,6 +1,5 @@
 package com.example.manotensao.controle;
 
-import com.example.manotensao.dominio.Cliente;
 import com.example.manotensao.dominio.PrestadorServico;
 import com.example.manotensao.repositorio.PrestadorServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,7 @@ public class PrestadorServicoController {
     public ResponseEntity<Void> login(@RequestBody String email, @RequestBody String senha){
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         for (PrestadorServico prestador : lista) {
-            if (prestador.getEmail().equals(email)
-                    && prestador.pegarSenha().equals(senha)) {
+            if (prestador.autenticar(email,senha)) {
                 prestador.setAutenticado(true);
                 return ResponseEntity.ok().build();
             }

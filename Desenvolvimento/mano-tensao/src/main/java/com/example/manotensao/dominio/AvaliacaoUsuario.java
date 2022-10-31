@@ -5,14 +5,11 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
-
-
 public class AvaliacaoUsuario implements Serializable {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAvaliacaoCliente;
-    @Min(0)
 
     @Min(0)
     @NotBlank

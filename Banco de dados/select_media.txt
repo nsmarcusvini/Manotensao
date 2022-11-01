@@ -1,0 +1,4 @@
+select ps.nome, avg(aps.nota_prestador_servico) from [dbo].[avaliacao_prestador_servico] as aps
+	join [dbo].[proposta] as p on fk_proposta = id_proposta
+		join [dbo].[prestador_servico] as ps on fk_prestador_servico = id
+			group by ps.id,ps.nome,aps.nota_prestador_servico order by aps.nota_prestador_servico desc;

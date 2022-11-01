@@ -1,12 +1,12 @@
-alter table [dbo].[avaliacao_prestador_servico] add foreign key 
-	(fk_proposta) references [dbo].[proposta] (id_proposta)
-alter table [dbo].[avaliacao_usuario] add foreign key 
-	(fk_proposta) references [dbo].[proposta] (id_proposta)
-alter table [dbo].[avaliacao_prestador_servico] add foreign key 
-	(fk_plano) references [dbo].[plano] (id_plano)
-alter table [dbo].[avaliacao_prestador_servico] add foreign key 
-	(fk_servico) references [dbo].[servico] (id_servico)
+alter table [dbo].[prestador_servico] add foreign key 
+	(fk_plano_id_plano) references [dbo].[plano] (id_plano)
+alter table [dbo].[prestador_servico] add foreign key 
+	(fk_servico_id_tipo_servico) references [dbo].[servico] (id_servico)
 alter table [dbo].[proposta] add foreign key 
-	(fk_prestador_servico) references [dbo].[prestador_servico] (id_prestador_servico)
+	(fk_cliente_id_cliente) references [dbo].[cliente] (id_cliente)
 alter table [dbo].[proposta] add foreign key 
-	(fk_usuario) references [dbo].[usuario] (id_usuario)
+	(fk_prestador_servico_id_prestador) references [dbo].[prestador_servico] (id_prestador)
+alter table [dbo].[avaliacao_cliente] add foreign key 
+	(fk_proposta_id_proposta) references [dbo].[proposta] (id_proposta)
+alter table [dbo].[avaliacao_prestador_servico] add foreign key 
+	(fk_proposta_id_proposta) references [dbo].[proposta] (id_proposta)

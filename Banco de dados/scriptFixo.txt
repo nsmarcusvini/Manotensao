@@ -8,7 +8,6 @@ insert into [dbo].[servico] values
 ('PINTURA-HIDRAULICA-ELETRICA');
 
 insert into [dbo].[plano] values
-('INTERMEDIARIO'),
 ('PRO'),
 ('MASTER'),
 ('MANO-TENSAO');

@@ -1,4 +1,6 @@
-select ps.nome, avg(aps.nota_prestador_servico) from [dbo].[avaliacao_prestador_servico] as aps
-	join [dbo].[proposta] as p on fk_proposta = id_proposta
-		join [dbo].[prestador_servico] as ps on fk_prestador_servico = id
-			group by ps.id,ps.nome,aps.nota_prestador_servico order by aps.nota_prestador_servico desc;
+select ps.nome, ps.email, ps.url_foto, ps.telefone, avg(aps.nota_prestador_servico) as media from [dbo].[avaliacao_prestador_servico] as aps
+	join [dbo].[proposta] as p on aps.fk_proposta_id_proposta = p.id_proposta
+		join [dbo].[prestador_servico] as ps on p.fk_prestador_servico_id_prestador = ps.id_prestador
+			WHERE ps.fk_servico_id_tipo_servico = 1
+			GROUP BY ps.nome, ps.email, ps.url_foto, ps.telefone
+				ORDER BY avg(aps.nota_prestador_servico) desc

@@ -1,53 +1,63 @@
-insert into [dbo].[cliente] (bairro, complemento, cpf, dt_nascimento
-							,email , nome, numero, rua, senha, telefone)
-							values ( 'Osasco', 'Bloco 6' ,'27894778.52', '2003-09-09',
-									 'gabriel@bandtec.com.br', 'Gabriel', 
-									  67, 'Rua barões' , 'verdão', '(11) 946 75-9074'
-									  ),
-  									  ( 'Cotia', 'Bloco 7 apto 1' ,'367983129.39', '2001-09-21',
-									 'vitorino@bandtec.com.br', 'Guilherme Vitorino', 
-									  333, 'Rua Cazares' , '123senha', '(11) 908 43-1540'
-									  ),
-   									  ( 'Vila Prudente', 'Apto 34' ,'426895308.90', '2003-10-12',
-									 'breno@bandtec.com.br', 'Breno Marinho', 
-									  24, 'Rua Leopoldina' , 'senha123', '(11) 967 23-0967'
-									  ),
- 									  ( 'Moema', 'Bloco 5 Apto4' ,'267098126.62', '2000-10-02',
-									 'edu.souza@bandtec.com.br', 'Eduardo Souza', 
-									  90, 'Rua Virghinpolis' , 'azul', '(11) 978 20-309'
-									  ),
-									  ('Sacomã', 'Bloco 2 Apto 3' ,'487090103.42', '2002-08-11',
-									 'iza.fraga@bandtec.com.br', 'Izabella Fraga', 
-									  91, 'Rua Das lagoas' , 'senha 3734', '(11) 922 32-76');
-insert into [dbo].[prestador_servico](fk_servico,fk_plano,bairro, complemento, cpf, dt_nascimento
-							,email , nome, numero, rua, senha, telefone)
+
+---------------------------------------------- CLIENTE -----------------------------------------------------------
+insert into [dbo].[cliente] (
+	bairro, 
+	complemento, 
+	cpf, 
+	dt_nascimento,
+	email, 
+	nome,
+	numero,
+	rua,
+	senha,
+	telefone,
+	urlfoto)						
+		values ( 'Osasco', 'Bloco 6' ,'27894778.52', '2003-09-09','gabriel@bandtec.com.br', 'Gabriel', 67, 'Rua barões' , 'verdão', '(11) 946 75-9074', 'abcdefghijklm'),
+		( 'Cotia', 'Bloco 7 apto 1' ,'367983129.39', '2001-09-21','vitorino@bandtec.com.br', 'Guilherme Vitorino', 333, 'Rua Cazares' , '123senha', '(11) 908 43-1540', 'abcdefghijklm'),
+		( 'Vila Prudente', 'Apto 34' ,'426895308.90', '2003-10-12','breno@bandtec.com.br', 'Breno Marinho', 24, 'Rua Leopoldina' , 'senha123', '(11) 967 23-0967', 'abcdefghijklm'),
+		( 'Moema', 'Bloco 5 Apto4' ,'267098126.62', '2000-10-02','edu.souza@bandtec.com.br', 'Eduardo Souza', 90, 'Rua Virghinpolis' , 'azul', '(11) 978 20-309', 'abcdefghijklm'),
+		('Sacomã', 'Bloco 2 Apto 3' ,'487090103.42', '2002-08-11','iza.fraga@bandtec.com.br', 'Izabella Fraga', 91, 'Rua Das lagoas' , 'senha 3734', '(11) 922 32-76', 'abcdefghijklm');
+---------------------------------------------- PRESTADOR -----------------------------------------------------------
+insert into [dbo].[prestador_servico](fk_servico_id_tipo_servico,fk_plano_id_plano,bairro, complemento, cpf, dt_nascimento
+							,email , nome, numero, rua, senha, telefone, urlfoto)
 							 values ( 1,2 ,'Jardim Nelia', 'Apto 7' ,'657904809.25', '2003-09-09',
 									 'joao@bandtec.com.br', 'Joao Oliveira', 
-									  23, 'Rua das musicas' , 'joao 123', '(11) 946 35-9054'
-									  ),(3, 4, 'Itaquera', 'Bloco 2 apto 14' ,'678938091.39', '1991-02-12',
+									  23, 'Rua das musicas' , 'joao 123', '(11) 946 35-9054', 'abcdefghijklmn'
+									  ),(3, 3, 'Itaquera', 'Bloco 2 apto 14' ,'678938091.39', '1991-02-12',
 									 'claudio@bandtec.com.br', 'Claudio Ferreira', 
-									  353, 'Rua das loucos' , 'claudiao890', '(11) 923 43-1234'
+									  353, 'Rua das loucos' , 'claudiao890', '(11) 923 43-1234', 'abcdefghijklmn'
 									  ),( 7, 3,'Jardim Robru', 'Bloco 4 Apto 34' ,'526879765.10', '2000-12-20',
 									 'samueel@bandtec.com.br', 'Samuel Silva', 
-									  34, 'Rua Marco Antonio Setti' , 'samuca343', '(11) 932 23-4560'
+									  34, 'Rua Marco Antonio Setti' , 'samuca343', '(11) 932 23-4560', 'abcdefghijklmn'
 									  ),
 									  (6, 1 , 'Kemel 2', 'Perto da igreja' ,'478409292.62', '2000-06-29',
 									 'sabrina.novais@bandtec.com.br', 'Sabrina Novais', 
-									  52, 'Rua Fernando Vasconscelos' , 'Sabrina 123', '(11) 908 33-324'
+									  52, 'Rua Fernando Vasconscelos' , 'Sabrina 123', '(11) 908 33-324', 'abcdefghijklmn'
 									  ),( 5, 2,'Jardim', 'Bloco 2 Apto 11' ,'389836929.10', '2001-08-31',
 									 'lucas@bandtec.com.br', 'Lucas Caetano', 
-									  11, 'Rua Geraldo Sevares' , 'lucas908', '(11) 908 32-1267'
+									  11, 'Rua Geraldo Sevares' , 'lucas908', '(11) 908 32-1267', 'abcdefghijklmn'
 									  ),
  									  (1, 3 , 'Camargo Novo', 'Proximo ao mercado' ,'324876093.22', '1999-12-24',
 									 'luara.botello@bandtec.com.br', 'Luara Botello', 
-									  23, 'Rua Pacheco Jordão' , 'botllo123', '(11) 918 23-345'
+									  23, 'Rua Pacheco Jordão' , 'botllo123', '(11) 918 23-345', 'abcdefghijklmn'
 									  );
-									  
-insert into [dbo].[proposta] (fk_prestador_servico, fk_usuario, proposta_aceita,
+---------------------------------------------- PROPOSTA -----------------------------------------------------------
+insert into [dbo].[proposta] (fk_prestador_servico_id_prestador, fk_cliente_id_cliente, proposta_aceita,
 							  qtd_dias,qtd_horas,valor_total) values
-							  (1 , 3 ,1 ,12, 39.3, 500.78), 
-							  (18 , 4 ,0 ,7, 15.9, 200.99),
-							  (11 , 5 ,1 ,2, 8.5, 70.89),
-							  (16 , 6 ,1 ,20, 53.30, 1500.99),
-							  (17 , 7 ,0 ,1, 8.0,30.00);
+							  (3, 1, 1, 12, 39.3, 500.78), 
+							  (4, 3, 1, 7, 15.9, 200.99),
+							  (5, 5, 1, 2, 8.5, 70.89),
+							  (4, 4, 1, 20, 53.3, 1500.99),
+							  (3, 2, 1, 1, 8.0,30.00);
+---------------------------------------------- AVAL PRESTADOR-----------------------------------------------------------
+insert into [dbo].[avaliacao_prestador_servico]
+	(comentario_prestador_servico,
+	nota_prestador_servico,
+	fk_proposta_id_proposta) values
+		('Muito bom! prestador se atrasou um pouco',9.5,1),
+		('Trabalho bem feito, porém o prestador é mal educado',7.5,5),
+		('Adorei o resultado, apesar da demora',8.5,2),
+		('Respeitoso, atencioso e dedicado!',9.0,4),
+		('Excelente trabalho! Nada a reclamar, perfeito!',10.0,3);
+
 

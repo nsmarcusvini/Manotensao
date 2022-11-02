@@ -45,7 +45,7 @@ public abstract class Usuario {
     private Boolean autenticado = true;
 
     @Size(min = 10, max = 255)
-    private String URLFoto;
+    private String urlFoto;
 
     public Boolean autenticar(String email, String senha){
         return this.getEmail().equals(email) && this.pegarSenha().equals(senha);
@@ -139,11 +139,11 @@ public abstract class Usuario {
         this.autenticado = autenticado;
     }
 
-    public String getURLFoto() {
-        return URLFoto;
+    public String getUrlFoto() {
+        return urlFoto;
     }
 
-    public void setURLFoto(String URLFoto) {
-        this.URLFoto = URLFoto;
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
     }
 }

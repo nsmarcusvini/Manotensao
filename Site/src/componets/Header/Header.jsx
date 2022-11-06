@@ -27,7 +27,7 @@ export const Header = () => {
             <a><Link to="meet" spy={true} smooth={true} offset={-90} duration={500} onClick={closeMenu}>Serviços</Link></a>
             <a><Link to="plan" spy={true} smooth={true} offset={-110} duration={500} onClick={closeMenu}>Planos</Link></a>
             <a><Link to="comment" spy={true} smooth={true} offset={-110} duration={500} onClick={closeMenu}>Conheça</Link></a>
-            <a>Cadastres-se</a>
+            <a>Cadastre-se</a>
           </ul>
         </div>
       </div>

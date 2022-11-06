@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.35615421.css",
+    "main.js": "/static/js/main.697e6263.js",
+    "static/media/fundo.mp4": "/static/media/fundo.401108ebe9f79b5b184f.mp4",
+    "static/media/man2.jpg": "/static/media/man2.cb4edc75c7518d7585de.jpg",
+    "static/media/tool-verde2.svg": "/static/media/tool-verde2.afd89ef13247e3aebe566a7b23b53b92.svg",
+    "static/media/woman2.2.jpg": "/static/media/woman2.2.2de5b3e3da1b6250cbf2.jpg",
+    "static/media/woman3.3.jpg": "/static/media/woman3.3.347b59937eff568867d4.jpg",
+    "static/media/chave-de-boca-verde2.svg": "/static/media/chave-de-boca-verde2.341037edd8751e098ae62988f6e364df.svg",
+    "static/media/Montserrat-Medium.otf": "/static/media/Montserrat-Medium.4b4a4b36283ebeb2cf89.otf",
+    "static/media/Montserrat-Light.otf": "/static/media/Montserrat-Light.8c76b7212dc892314701.otf",
+    "static/media/Montserrat-Thin.otf": "/static/media/Montserrat-Thin.d499418298509d45f4b2.otf",
+    "static/media/cerca.png": "/static/media/cerca.370f801940a708295ecd.png",
+    "static/media/pincel.png": "/static/media/pincel.9696db951efe5593ef8b.png",
+    "static/media/Logo Construção E Reparos (2).png": "/static/media/Logo Construção E Reparos (2).ebb9f31efb0d1d0ba58c.png",
+    "static/media/crown2.svg": "/static/media/crown2.d9ffe253f10e31a73d611bcf16cf6fa2.svg",
+    "static/media/ElectricShocker-2y8d.ttf": "/static/media/ElectricShocker-2y8d.cafa47f3ea31695b5780.ttf",
+    "static/media/seta-esquerda.png": "/static/media/seta-esquerda.9aad93a63d1e5982cce5.png",
+    "static/media/seta.png": "/static/media/seta.469e498fd8b61912a86f.png",
+    "index.html": "/index.html",
+    "main.35615421.css.map": "/static/css/main.35615421.css.map",
+    "main.697e6263.js.map": "/static/js/main.697e6263.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.35615421.css",
+    "static/js/main.697e6263.js"
+  ]
+}

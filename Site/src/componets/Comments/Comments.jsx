@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Comments.css'
-import photo from '../../assets/man2.jpg'
-import photo2 from '../../assets/woman2.2.jpg'
-import photo3 from '../../assets/woman3.3.jpg'
-import aspas from '../../assets/aspas.png'
-import stars from '../../assets/stars2.png'
-import stars2 from '../../assets/stars.png'
+import setaDireita from '../../assets/seta.png'
+import setaEsquerda from '../../assets/seta-esquerda.png'
+import { CommentsData } from './CommentsData'
+import { motion } from 'framer-motion'
 
 export const Comments = () => {
+    const [selected, setSelected] = useState(0)
+    const cLenght = CommentsData.length
+
+    const transition = { type: 'spring', duration: 3 }
+
     return (
         <div className='comments' id='comment'>
             <div className="blur come-blur"></div>
-            {/* <div className="blur come-blur2"></div> */}
             <div className="commentsTitle">
                 <span className='titleCom'>
                     Você está em boa companhia
@@ -20,97 +22,76 @@ export const Comments = () => {
                     Nossos profissionais e clientes possuem as melhores avaliações e comentários. Acompanhe
                 </span>
             </div>
-            <div className="commentsBox">
-                <div className="boxBox1">
-                    <div className="box1">
-                        <div className="box">
-                            <img src={photo2} alt="" />
-                            <div className="message">
-                                <span className="aspa">
-                                    <img src={aspas} alt="" />
-                                </span>
-                                Me senti mais segura em <br />
-                                contratar um pintor para <br />
-                                o meu apartamento com as <br />
-                                avaliações do profissional <br />
-                                exibidas no site.
-                            </div>
-                        </div>
-                        <div className="name">
-                            <div className="namee">
-                                <span className="name2">
-                                    -Lana Ribeiro, usuária do ManoTensão
-                                </span>
-                                <span className="aspa2">
-                                    <img src={aspas} alt="" />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="stars">
-                        <img src={stars} alt="" />
-                    </div>
+            <div className="cima">
+                <div className="arrow">
+                    <img
+                        onClick={() => {
+                            selected === 0 ? setSelected(cLenght - 1) : setSelected((prev) => prev - 1)
+                        }}
+                        src={setaEsquerda} alt="" />
                 </div>
-                <div className="boxBox2">
-                    <div className="box2">
-                        <div className="box">
-                            <img src={photo3} alt="" />
-                            <div className="message">
-                                <span className="aspa">
-                                    <img src={aspas} alt="" />
-                                </span>
-                                Depois de conhecer a <br />
-                                ManoTensão, nunca mais me <br />
-                                precisei me preocupar em <br />
-                                achar um bom profissional.
-                            </div>
-                        </div>
-                        <div className="name">
-                            <div className="namee">
-                                <span className="name2">
-                                    -Marina Oliveira, usuária do ManoTensão
-                                </span>
-                                <span className="aspa2">
-                                    <img src={aspas} alt="" />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="stars">
-                        <img src={stars} alt="" />
-                    </div>
+                <motion.img
+                    key={selected}
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -30 }}
+                    transition={transition}
+                    src={CommentsData[selected].image} alt="" />
+                <div className="arrow">
+                    <img
+                        onClick={() => {
+                            selected === cLenght - 1 ? setSelected(0) : setSelected((prev) => prev + 1)
+                        }}
+
+                        src={setaDireita} alt="" />
                 </div>
             </div>
-            <div className="commentBox">
-                <div className="box3">
-                    <div className="box">
-                        <img src={photo} alt="" />
-                        <div className="message">
-                            <span className="aspa">
-                                <img src={aspas} alt="" />
-                            </span>
-                            Foi muito fácil encontrar um <br />
-                            eletricista, o serviço foi <br />
-                            muito bom e o processo <br />
-                            foi simples. <br />
-                            Recomendo a plataforma!
-                        </div>
-                    </div>
-                    <div className="name">
-                        <div className="namee">
-                            <span className="name2">
-                                -João Alves, usuário do ManoTensão
-                            </span>
-                            <span className="aspa2">
-                                <img src={aspas} alt="" />
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div className="stars">
-                        <img src={stars2} alt="" />
-                    </div>
+            <div className="baixo">
+                <motion.span
+
+                    className='commentsTwo'>
+                    {CommentsData[selected].name}
+                </motion.span>
+                <motion.span
+                    // key={selected}
+                    // initial={{ opacity: 0, x: 30 }}
+                    // animate={{ opacity: 1, x: 0 }}
+                    // exit={{ opacity: 0, x: -30 }}
+                    // transition={transition}
+                    className="commentsThree">
+                    {CommentsData[selected].status}
+                </motion.span>
+                <motion.span
+                    key={selected}
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -30 }}
+                    transition={transition}
+                    className='commentsOne'>
+                    {CommentsData[selected].review}
+                </motion.span>
             </div>
+            <motion.div
+                key={selected}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={transition}
+                className="iconBaixo">
+                <div className="imageBaixo">
+                    <img src={CommentsData[selected].image2} alt="" />
+                    <span>
+                        {CommentsData[selected].status2}
+                    </span>
+                </div>
+                <div
+                    className="textoBaixo">
+                    <img src={CommentsData[selected].image3} alt="" />
+                    <span>
+                        {CommentsData[selected].status3}
+                    </span>
+                </div>
+            </motion.div>
         </div>
     )
 }

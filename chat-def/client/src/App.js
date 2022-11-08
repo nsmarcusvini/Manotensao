@@ -21,6 +21,8 @@ function App() {
   };
 
   return (
+
+    
     <div className="App">
 
       <div className='header'>
@@ -50,6 +52,8 @@ function App() {
       ) : (
         <Chat socket={socket} username={username} room={room} />
       )}
+
+     
       <SideNavBar />
     </div>
   );

@@ -6,12 +6,18 @@ import instagram from './assets/instagram1.png';
 import google from './assets/google.png';
 import useForm from './useForm';
 
-/* import { Link } from "react-router-dom"; */
-
 
 const SignUpForm = ({ submitForm }) => {
-  const { handleChange, handleFormSubmit, values, errors,validation } = useForm(submitForm);
-  const [addclass, setaddclass] = useState("");
+  const { handleChange, handleFormSubmit, values, errors, validation } = useForm(submitForm);
+  const [addclass, setaddclass] = useState("");  
+
+  const [tipo, setTipo] = useState("prestador");
+
+  function onChangeValue(event) {
+    setTipo(event.target.value);
+    console.log(event.target.value);
+  }
+
 
   return (
     <>
@@ -53,6 +59,24 @@ const SignUpForm = ({ submitForm }) => {
               value={values.senha}
               onChange={handleChange} />
             {errors.senha && <p className="error">{errors.senha}</p>}
+
+            <div className="tipoUsuario" onChange={onChangeValue}>
+              <input 
+              type="radio" 
+              id="prestador" 
+              name="tipo" 
+              value="prestador" 
+              checked={tipo === 'prestador'} 
+             />Sou prestador
+
+              <input 
+              type="radio" 
+              id="cliente" 
+              name="tipo" 
+              value="cliente" 
+              checked={tipo === 'cliente'} />Quero contratar
+            </div>
+
             <button className="submit" onClick={handleFormSubmit}>Continuar</button>
             <div className="a">
             </div>

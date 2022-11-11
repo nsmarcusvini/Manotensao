@@ -87,6 +87,7 @@ button {
   letter-spacing: 1px;
   text-transform: uppercase;
   position: relative;
+  margin-top: 10%;
 }
 
 
@@ -117,6 +118,17 @@ button:hover {
 button:hover svg {
   stroke-dashoffset: -480;
 }
+
+.tipoUsuario {
+  font-size: 13px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 
 form {
   background-color: #FFFFFF;

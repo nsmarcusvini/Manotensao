@@ -7,6 +7,10 @@ import { Meet } from './componets/Meet/Meet';
 import { Plans } from './componets/Plans/Plans';
 import { Search } from './componets/Search/Search';
 import { Rota } from './routes';
+
+import SignUpForm from './componets/Cadastro/SignUpForm';
+
+
 function App() {
   return (
     <div className="App">
@@ -17,6 +21,7 @@ function App() {
       <Comments />
       <LogoInfo />
       <Footer />
+     {/*  <SignUpForm/> */}
     </div>
   );
 }

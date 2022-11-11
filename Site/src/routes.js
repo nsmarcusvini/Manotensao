@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from './componets/Login/Form'
 
@@ -11,3 +11,4 @@ export const Rota = () => {
     </BrowserRouter>
   )
 }
+ */

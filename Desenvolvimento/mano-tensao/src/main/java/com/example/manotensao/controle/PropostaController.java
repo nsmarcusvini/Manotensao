@@ -100,10 +100,10 @@ public class PropostaController{
         return lista.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.status(200).body(lista);
     }
 
-    @GetMapping("/download-txt/{id}")
-    public public ResponseEntity<List<BoletoTxt>> gerarBoelto(@PathVariable int idPrestador){
-        List<BoletoTxt> boletos =
-    }
+//    @GetMapping("/download-txt/{id}")
+//    public public ResponseEntity<List<BoletoTxt>> gerarBoelto(@PathVariable int idPrestador){
+//        List<BoletoTxt> boletos =
+//    }
 
 
 }

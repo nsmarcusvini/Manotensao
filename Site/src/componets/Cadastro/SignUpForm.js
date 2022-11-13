@@ -5,7 +5,7 @@ import fblogo from '../../assets/fblogo.png';
 import instagram from '../../assets/instagram1.png';
 import google from '../../assets/google.png';
 import useForm from './useForm';
-/* import './SignUp.css'; */
+import '../Cadastro/SignUp.css';
 
 
 const SignUpForm = ({ submitForm }) => {
@@ -22,7 +22,7 @@ const SignUpForm = ({ submitForm }) => {
 
   return (
     <>
-      <div className={`container ${addclass}`} id="container">
+      <div className={`container ${addclass} ${styles.signUp}`} id="container" >
         <div className="form-container sign-up-container">
           <form action="#">
             <h1>Criar conta</h1>

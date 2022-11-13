@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/avaliacoes-usuarios")
-public class AvaliacaoClienteController {
+public class AvaliacaoClienteController{
 
     @Autowired
     private AvaliacaoClienteRepository avaliacaoClienteRepository;

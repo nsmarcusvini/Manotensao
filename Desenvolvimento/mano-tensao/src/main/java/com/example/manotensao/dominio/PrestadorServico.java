@@ -7,7 +7,7 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
-public class PrestadorServico extends Usuario implements Serializable {
+public class PrestadorServico extends Usuario implements Serializable{
 
     @Id
     @NotNull

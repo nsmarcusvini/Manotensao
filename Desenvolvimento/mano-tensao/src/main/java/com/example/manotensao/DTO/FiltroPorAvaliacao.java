@@ -1,6 +1,6 @@
 package com.example.manotensao.DTO;
 
-public class FiltroPorAvaliacao {
+public class FiltroPorAvaliacao{
     private String nome;
     private String email;
     private String urlFoto;

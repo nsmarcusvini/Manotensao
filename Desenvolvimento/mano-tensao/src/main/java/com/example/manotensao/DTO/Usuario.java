@@ -6,7 +6,7 @@ import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @MappedSuperclass
-public abstract class Usuario {
+public abstract class Usuario{
 
     @Size(max = 45,min = 3)
     @NotBlank
@@ -31,6 +31,8 @@ public abstract class Usuario {
     @PastOrPresent
     private LocalDate dtNascimento;
 
+    @Pattern(regexp = "/^[0-9]{5}-[0-9]{3}$/")
+    private String cep;
     @Size(max = 45,min = 3)
     private String bairro;
 
@@ -81,6 +83,14 @@ public abstract class Usuario {
 
     public void setDtNascimento(LocalDate dtNascimento) {
         this.dtNascimento = dtNascimento;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     public String getBairro() {

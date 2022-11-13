@@ -1,16 +1,22 @@
 package com.example.manotensao.controle;
 
+import com.example.manotensao.DTO.BoletoTxt;
+import com.example.manotensao.DTO.PropostaCSV;
 import com.example.manotensao.dominio.Proposta;
 import com.example.manotensao.repositorio.PropostaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Formatter;
+import java.util.FormatterClosedException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/propostas")
-public class PropostaController {
+public class PropostaController{
 
     @Autowired
     private PropostaRepository propostaRepository;
@@ -47,5 +53,57 @@ public class PropostaController {
         }
         return ResponseEntity.status(404).build();
     }
+
+    @GetMapping("/download-csv/{idPrestador}")
+    public ResponseEntity<List<PropostaCSV>> propostasAceitas(@PathVariable int idPrestador){
+        List<PropostaCSV> lista = propostaRepository.testeCsv(idPrestador);
+        FileWriter arq = null;
+        Formatter saida = null;
+        boolean error = false;
+        String nomeArq = "propostas.csv";
+
+        try {
+            arq = new FileWriter(nomeArq);
+            saida = new Formatter(arq);
+        }
+        catch (IOException erro) {
+            System.out.println("Erro ao abrir o arquivo");
+            System.exit(1);
+        }
+
+        try {
+           saida.format("Nome do cliente;Quantidade de dias;Quantidade de horas;Valor total;Bairro;Rua\n");
+            for (int i = 0; i < lista.size(); i++) {
+                PropostaCSV p = lista.get(i);
+                saida.format("%s;%d;%.2f;%.2f;%s;%s\n",p.getNomeCliente(),p.getQtdDias(),p.getQtdHoras(),
+                        p.getValorTotal(),p.getBairro(),p.getRua());
+            }
+        }
+        catch (FormatterClosedException erro) {
+            System.out.println("Erro ao gravar o arquivo");
+            erro.printStackTrace();
+            error = true;
+        }
+        finally {
+            saida.close();
+            try {
+                arq.close();
+            }
+            catch (IOException erro) {
+                System.out.println("Erro ao fechar o arquivo");
+                error = true;
+            }
+            if (error) {
+                System.exit(1);
+            }
+        }
+        return lista.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.status(200).body(lista);
+    }
+
+    @GetMapping("/download-txt/{id}")
+    public public ResponseEntity<List<BoletoTxt>> gerarBoelto(@PathVariable int idPrestador){
+        List<BoletoTxt> boletos =
+    }
+
 
 }

@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-public class Proposta implements Serializable {
+public class Proposta implements Serializable{
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)

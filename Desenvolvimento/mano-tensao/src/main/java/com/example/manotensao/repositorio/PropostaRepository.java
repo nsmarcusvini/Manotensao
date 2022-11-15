@@ -1,6 +1,5 @@
 package com.example.manotensao.repositorio;
 
-import com.example.manotensao.DTO.BoletoTxt;
 import com.example.manotensao.DTO.PropostaCSV;
 import com.example.manotensao.dominio.Proposta;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,6 +16,6 @@ public interface PropostaRepository extends JpaRepository<Proposta, Integer>{
             "where ps.idPrestador = ?1 and p.propostaAceita = 1")
     List<PropostaCSV> testeCsv(int idPrestador);
 
-    List<BoletoTxt> findById(int idPlano);
+
 
 }

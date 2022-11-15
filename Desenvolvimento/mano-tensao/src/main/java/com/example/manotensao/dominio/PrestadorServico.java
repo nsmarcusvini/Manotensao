@@ -22,6 +22,10 @@ public class PrestadorServico extends Usuario implements Serializable{
     @ManyToOne
     private Plano fkPlano;
 
+    @Size(min = 10)
+    @Size(max = 255)
+    private String cartaApresentacao;
+
     public Integer pegarId() {
         return idPrestador;
     }
@@ -46,4 +50,11 @@ public class PrestadorServico extends Usuario implements Serializable{
         this.fkPlano = fkPlano;
     }
 
+    public String getCartaApresentacao() {
+        return cartaApresentacao;
+    }
+
+    public void setCartaApresentacao(String cartaApresentacao) {
+        this.cartaApresentacao = cartaApresentacao;
+    }
 }

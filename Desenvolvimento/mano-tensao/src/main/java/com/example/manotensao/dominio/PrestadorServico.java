@@ -14,11 +14,9 @@ public class PrestadorServico extends Usuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPrestador;
 
-    @Min(0)
     @ManyToOne
     private Servico fkServico;
 
-    @Min(0)
     @ManyToOne
     private Plano fkPlano;
 

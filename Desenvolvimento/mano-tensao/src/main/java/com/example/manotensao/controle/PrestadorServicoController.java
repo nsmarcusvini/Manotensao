@@ -79,12 +79,11 @@ public class PrestadorServicoController {
     }
 
     public CartaApresentacao lerArquivoTxt(String nomeArq) {
+        System.out.println("Achei o arquivo!");
         BufferedReader entrada = null;
         String registro, tipoRegistro;
         String nome, email, telefone, apresentacao;
         CartaApresentacao carta = null;
-        int contaRegDadoLido = 0;
-        int qtdRegDadoGravado;
 
         try {
             entrada = new BufferedReader(new FileReader(nomeArq));
@@ -92,60 +91,25 @@ public class PrestadorServicoController {
             System.out.println("Erro ao abrir o arquivo");
             erro.printStackTrace();
         }
-
-
         try {
-
             registro = entrada.readLine();
-
             while (registro != null) {
-
                 tipoRegistro = registro.substring(0, 2);
-                if (tipoRegistro.equals("00")) {
-                    System.out.println("Registro de header");
-                    System.out.println("Tipo de arquivo: " + registro.substring(2, 6));
-                    System.out.println("Ano e semestre: " + registro.substring(6, 11));
-                    System.out.println("Data e hora da gravação: " + registro.substring(11, 30));
-                    System.out.println("Versão do documento: " + registro.substring(30, 32));
-                } else if (tipoRegistro.equals("01")) {
-                    System.out.println("Registro de trailer");
-                    qtdRegDadoGravado = Integer.parseInt(registro.substring(2, 12));
-                    System.out.println("Quantidade de reg de dados lidos: " + contaRegDadoLido);
-                    System.out.println("Quantidade de reg de dados gravados: " + qtdRegDadoGravado);
-                    if (contaRegDadoLido == qtdRegDadoGravado) {
-                        System.out.println("Quantidade de registros de dados lidos compatível com "
-                                + "quantidade de registros de dados gravados");
-                    } else {
-                        System.out.println("Quantidade de registros de dados lidos incompatível com "
-                                + "quantidade de registros de dados gravados");
-                    }
-                } else if (tipoRegistro.equals("02")) {
-                    System.out.println("Registro de corpo");
+                if (tipoRegistro.equals("02")) {
                     nome = registro.substring(2, 46).trim();
                     email = registro.substring(47, 91).trim();
                     telefone = registro.substring(92, 106).trim();
                     apresentacao = registro.substring(107, 361).trim();
-                    contaRegDadoLido++;
-
-
                     carta = new CartaApresentacao(nome, email, telefone, apresentacao);
-
-
-                } else {
-                    System.out.println("Tipo de registro inválido!");
                 }
-
-
                 registro = entrada.readLine();
             }
-
             entrada.close();
         } catch (IOException erro) {
             System.out.println("Erro ao ler o arquivo");
             erro.printStackTrace();
         }
         return carta;
-
     }
 
     @GetMapping("/carta-apresentacao/{idPrestador}")
@@ -159,9 +123,13 @@ public class PrestadorServicoController {
     public ResponseEntity<CartaApresentacao> apresentacao(@RequestParam int idPrestador,
                                                           @RequestParam String nomeArq) {
         CartaApresentacao carta = lerArquivoTxt(nomeArq);
-        PrestadorServico prestador = prestadorServicoRepository.getReferenceById(idPrestador);
-        prestador.setCartaApresentacao(carta.getApresentacao());
-        put(idPrestador, prestador);
+        List<PrestadorServico> lista = prestadorServicoRepository.findAll();
+        for (PrestadorServico prestador : lista) {
+            if (prestador.pegarId().equals(idPrestador)) {
+                prestador.setCartaApresentacao(carta.getApresentacao());
+                put(idPrestador, prestador);
+            }
+        }
         return ResponseEntity.status(200).body(carta);
     }
 }

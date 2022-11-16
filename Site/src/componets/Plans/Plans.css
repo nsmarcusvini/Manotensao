@@ -32,6 +32,7 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    border-radius: 40px;
 }
 
 .basic img {
@@ -95,6 +96,7 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    border-radius: 40px;
 }
 
 .premium img {
@@ -162,6 +164,7 @@
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    border-radius: 40px;
 }
 
 .pro img {
@@ -238,9 +241,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    border-radius: 40px;
 }
 
-.plansCard>:nth-child(2)>button {
+/* .plansCard>:nth-child(2)>button {
     color: #c5de07;
-}
+} */
 

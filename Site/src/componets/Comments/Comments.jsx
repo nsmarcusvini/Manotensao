@@ -13,7 +13,7 @@ export const Comments = () => {
 
     return (
         <div className='comments' id='comment'>
-            <div className="blur come-blur"></div>
+            {/* <div className="blur come-blur"></div> */}
             <div className="commentsTitle">
                 <span className='titleCom'>
                     Você está em boa companhia

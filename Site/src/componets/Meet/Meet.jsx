@@ -7,7 +7,7 @@ import Raio from '../../assets/cerca.png'
 export const Meet = () => {
     return (
         <div className='Meet' id='meet'>
-            <div className="blur meet-blur"></div>
+            {/* <div className="blur meet-blur"></div> */}
             <div className="titleMeet">
                 <span className="titleM">
                     Para prestadores de serviço e clientes

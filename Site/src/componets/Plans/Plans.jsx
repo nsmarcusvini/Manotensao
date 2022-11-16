@@ -4,6 +4,7 @@ import basicIcon from '../../assets/chave-de-boca-verde2.svg'
 import premiumIcon from '../../assets/crown2.svg'
 import proIcon from '../../assets/tool-verde2.svg'
 import check from '../../assets/whiteTick.png'
+import '../../index'
 
 export const Plans = () => {
   return (

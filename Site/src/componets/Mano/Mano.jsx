@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Header } from '../Header/Header'
 import './Mano.css'
 import back from '../../assets/fundo.mp4'
+import Video from '../../assets/lines.mp4'
 import { Link } from 'react-scroll'
 
 
@@ -11,8 +12,9 @@ export const Mano = () => {
   const closeMenu = () => setClick(false)
   
   return (
-    <div className='mano' id='manos'>
+    <div className='manoAll' id='manos'>
         <Header />
+      <div className="mano">
       <div className="home">
         <div className="manoTexto">
           <div>
@@ -31,13 +33,13 @@ export const Mano = () => {
           </div>
         </div>
         <div className="conheca">
-
-            <a className='butn butn1'><Link to="comment" spy={true} smooth={true} offset={-110} duration={500} onClick={closeMenu}>Conheça os nossos serviços</Link></a>
-
+            <a className='butn'><Link to="comment" spy={true} smooth={true} offset={-110} duration={500} onClick={closeMenu}>Conheça os nossos serviços</Link></a>
         </div>
       </div>
       <div className="black"></div>
-      <video src={back} autoPlay loop muted />
+      {/* <img src={back} alt="" /> */}
+      <video src={Video} autoPlay loop muted />
+      </div>
     </div>
   )
 }

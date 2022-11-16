@@ -1,15 +1,22 @@
 package com.example.manotensao.dominio;
 
 
+import com.example.manotensao.DTO.PropostaCSV;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.Formatter;
+import java.util.FormatterClosedException;
+import java.util.List;
 
 @Entity
-public class Proposta implements Serializable {
+public class Proposta implements Serializable{
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -96,4 +103,6 @@ public class Proposta implements Serializable {
     public void setFkPrestadorServico(PrestadorServico fkPrestadorServico) {
         this.fkPrestadorServico = fkPrestadorServico;
     }
+
+
 }

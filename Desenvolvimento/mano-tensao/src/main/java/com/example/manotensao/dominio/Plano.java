@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-public class Plano implements Serializable {
+public class Plano implements Serializable{
 
     @Id
     @NotNull

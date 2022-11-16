@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./SideNavBar.css";
+import "../SideNavBar/SideNavBar.css";
 
 const SideNavBar = () => {
 	const [isExpanded, setExpendState] = useState(false);
@@ -7,6 +7,7 @@ const SideNavBar = () => {
 		{
 			text: "Meu perfil",
 			icon: "icons/user.svg",
+			
 		},
 		{
 			text: "Mensagens",

@@ -20,7 +20,11 @@
     "react-icons": "^4.6.0",
     "react-lottie": "^1.2.3",
     "react-router-dom": "^6.4.3",
+<<<<<<< HEAD
     "react-scripts": "5.0.1",
+=======
+    "react-scripts": "^5.0.1",
+>>>>>>> 6e84a05e8b700fd7824ca11072f338ee76970cc1
     "react-scroll": "^1.8.8",
     "stripe": "^10.17.0",
     "styled-components": "^5.3.6",
@@ -51,6 +55,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "css-loader": "^6.7.2",
+    "gh-pages": "^4.0.0",
+    "style-loader": "^3.3.1"
   }
 }

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-public interface AvaliacaoPrestadorServicoRepository extends JpaRepository<AvaliacaoPrestadorServico,Integer> {
+public interface AvaliacaoPrestadorServicoRepository extends JpaRepository<AvaliacaoPrestadorServico,Integer>{
     @Query("select new com.example.manotensao.DTO.FiltroPorAvaliacao(ps.nome, ps.email, ps.urlFoto, ps.telefone, avg(aps.notaPrestadorServico)) from AvaliacaoPrestadorServico aps " +
             "join aps.fkProposta p " +
             "join p.fkPrestadorServico ps " +

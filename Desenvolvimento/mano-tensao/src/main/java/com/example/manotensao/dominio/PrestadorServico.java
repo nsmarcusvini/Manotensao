@@ -7,20 +7,22 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
-public class PrestadorServico extends Usuario implements Serializable {
+public class PrestadorServico extends Usuario implements Serializable{
 
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPrestador;
 
-    @Min(0)
     @ManyToOne
     private Servico fkServico;
 
-    @Min(0)
     @ManyToOne
     private Plano fkPlano;
+
+    @Size(min = 10)
+    @Size(max = 255)
+    private String cartaApresentacao;
 
     public Integer pegarId() {
         return idPrestador;
@@ -46,4 +48,11 @@ public class PrestadorServico extends Usuario implements Serializable {
         this.fkPlano = fkPlano;
     }
 
+    public String getCartaApresentacao() {
+        return cartaApresentacao;
+    }
+
+    public void setCartaApresentacao(String cartaApresentacao) {
+        this.cartaApresentacao = cartaApresentacao;
+    }
 }

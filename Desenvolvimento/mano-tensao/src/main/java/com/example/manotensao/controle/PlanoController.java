@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/planos")
-public class PlanoController {
+public class PlanoController{
 
     @Autowired
     private PlanoRepository planoRepository;

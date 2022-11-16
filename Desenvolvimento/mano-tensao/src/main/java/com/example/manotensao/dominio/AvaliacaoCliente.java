@@ -5,7 +5,7 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
-public class AvaliacaoCliente implements Serializable {
+public class AvaliacaoCliente implements Serializable{
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)

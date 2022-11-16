@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/avaliacoes-prestadores")
-public class AvaliacaoPrestadorServicoController {
+public class AvaliacaoPrestadorServicoController{
 
     @Autowired
     private AvaliacaoPrestadorServicoRepository avaliacaoPrestadorServicoRepository;

@@ -1,0 +1,170 @@
+@font-face {
+    font-family: 'ElectricShocker';
+    src: url('../../assets/font/ElectricShocker-2y8d.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../assets/font/Montserrat-Medium.otf') format('opentype');
+}
+
+/*  ---- header ----- */
+.header {
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1.3%;
+}
+
+.header span {
+    color: #fff;
+    font-family: 'ElectricShocker';
+    font-size: 35px;
+    margin-left: 10%;
+    cursor: pointer;
+}
+
+.header img {
+    width: 27px;
+    margin-left: 65%;
+    cursor: pointer;
+}
+
+/* ----- */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5em;
+    width: 700px;
+    height: 100%;
+    padding: 25px;
+    left: 10rem;
+}
+
+.container .left {
+    margin: 10px;
+    padding: 10px;
+    height: 500px;
+    width: 500px;
+    margin-left: -50px;
+/*     border: #D9F503 3px solid;
+ */}
+
+.container .left .pic {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-left: 1.3rem;
+}
+
+.right button {
+    position: relative;
+    width: 10rem;
+    height: 3rem;
+    bottom: -1em;
+    left: 1rem;
+    border-radius: 4px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    margin: 0.5em;
+}
+
+
+.btnConversar {
+    background: #fff;
+}
+
+.btnFazerProposta {
+    background: #D9F503;
+}
+
+.container .right {
+    float: right;
+/*     border: 1px solid #ccc;
+ */    margin: 10px 0px 10px 0px;
+    padding: 10px;
+    height: 500px;
+    width: 808px;
+    display: inline;
+    position: relative;
+}
+
+.container .right .name {
+    font-size: 2rem;
+    color: #D9F503;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container .right img {
+    width: 2rem;
+    height: 2rem;
+    margin-top: 1rem;
+    margin-left: 4rem;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.container .right .desc {
+    margin-top: 3rem;
+    font-size: 15px;
+    color: #fff;
+}
+
+.container .right .valor {
+    color: #D9F503;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 3rem;
+}
+
+.container .right .desc_valor {
+    color: #fff;
+    margin: 1rem 1rem;
+}
+
+.container .reviews {
+    background: #707070;
+    width: 300px;
+    height: 15rem;
+    position: absolute;
+    display: flex;
+    left: 43rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container .reviews .arrow {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    position: absolute;
+    left: 19rem;
+    top: 6rem;
+    cursor: pointer;
+}
+
+.container .reviews .usuario1 {
+    color: #fff;
+    font-weight: bold;
+}
+
+.container .reviews .texto {
+    color: #fff;
+    font-size: 11px;
+    padding: 5px;
+}
+
+.container .reviews .nota {
+    color: #fff;
+}

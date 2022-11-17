@@ -7,6 +7,7 @@ import { Meet } from './componets/Meet/Meet';
 import { Plans } from './componets/Plans/Plans';
 import { Rota } from './routes';
 
+import Proposta from './componets/Proposta/Proposta';
 import SignUpForm from './componets/Cadastro/SignUpForm';
 import ProfilePage from './componets/Profile/ProfilePage';
 import SideNavBar from './componets/SideNavBar/SideNavBar';
@@ -16,16 +17,17 @@ function App() {
   return (
     <div className="App">
       {/* <Rota /> */}
-       <Mano />
+      {/*  <Mano />
       <Meet />
       <Plans />
       <Comments />
       <LogoInfo />
       <Footer />
-      <Rota />
+      <Rota /> */}
        {/* <SignUpForm/> */}
       {/* <ProfilePage />
       <SideNavBar/> */}
+      <Proposta/>
     </div>
   );
 }

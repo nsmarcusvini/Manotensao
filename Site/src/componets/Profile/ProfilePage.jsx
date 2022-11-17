@@ -7,21 +7,23 @@ import style from '../Profile/Profile.css';
 function ProfilePage() {
     return <div className={`${style.profile}`}>
 
-        <><div className='header'>
-            <span className='title'>ManoTensao</span>
-            <img className='noti' src={notification} />
-        </div><div className='container'>
-
-                <div className='pic'>
-                     <img src={homi} />
-                    <p>Fulano da Silva</p>
-                    <span>email@email.com</span>
-                    <button>Escolher foto</button>
+        <>
+            <div className="body">
+                <div className='headerProfile'>
+                    <span className='titleProfile'>ManoTensao</span>
+                    <img className='noti' src={notification} />
                 </div>
-                <div className='menu-info'>
-                    <ProfileForm />
+                <div className='containerProfile'>
+                    <div className='pic'>
+                        <img src={homi} />
+                        <p>Fulano da Silva</p>
+                        <span>email@email.com</span>
+                        <button>Escolher foto</button>
+                    </div>
+                    <div className='menu-info'>
+                        <ProfileForm />
+                    </div>
                 </div>
-
             </div>
         </>
     </div>

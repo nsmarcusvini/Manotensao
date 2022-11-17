@@ -4,11 +4,6 @@
 	--light: #ffffff;
 }
 
-* {
-	padding: 0;
-	box-sizing: border-box;
-}
-
 .side-nav-container {
 	background-color: var(--dark);
 	position: fixed;
@@ -17,7 +12,8 @@
 	color: var(--light);
 	transition: 0.4s;
 	top: 0;
-	
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .side-nav-container-NX {
@@ -29,7 +25,6 @@
 .nav-menu,
 .menu-item,
 .nav-footer {
-	/* border: 2px solid white; */
 	display: grid;
 }
 
@@ -91,10 +86,6 @@
 	transform: translateY(-4px) rotate(25deg);
 }
 
-/* ///////////////////// */
-/* ///////////////////// */
-/* ///////////////////// */
-/* ///////////////////// */
 .hamburger-out {
 	margin-left: 24px;
 }

@@ -68,7 +68,7 @@ function Proposta() {
 
             </div>
 
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 

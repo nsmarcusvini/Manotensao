@@ -26,7 +26,7 @@ function App() {
       <Rota /> */}
       {/*  <SignUpForm/> */}
        <ProfilePage />
-      {/* <SideNavBar/>  */}
+      <SideNavBar/> 
       {/* <Proposta/> */}
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react'
 import './Proposta.css';
 import SideNavBar from '../SideNavBar/SideNavBar';
 import notification from '../../assets/notifications.svg'
@@ -9,15 +10,25 @@ import share from '../../assets/share-social-outline.svg';
 import alert from '../../assets/alert-circle-outline.svg';
 import { Footer } from '../Footer/Footer';
 import woman2 from '../../assets/woman2.jpeg'
+import { motion } from 'framer-motion'
+import { DataReview } from './DataReview';
 
 function Proposta() {
+
+    const [selected, setSelected] = useState(0)
+    const cLenght = DataReview.length
+
+    const transition = { type: 'spring', duration: 3 }
+
+
+
     return (
 
         <div className='body'>
 
             <div className="main">
 
-                <SideNavBar />
+                {/* <SideNavBar /> */}
 
                 <div className='header'>
                     <span className='title'>ManoTensao</span>
@@ -26,7 +37,7 @@ function Proposta() {
                 </div>
 
 
-                <div className="container">
+                <div className="containerProposta">
 
                     <img className='pic' src={woman} />
 
@@ -52,18 +63,77 @@ function Proposta() {
                         <div className="disponivel"></div>
                     </div>
 
+                    <h3 className='reviewTitle'>Avaliações</h3>
                     <div className="reviews">
-                        <div className="comment">
-                            <p className='usuario1'>Usuário 1</p>
-                            <img className='arrow' src={arrow} alt="" />
-                            <p className='texto'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore sapiente excepturi quo error ipsa, eum voluptatem accusamus neque explicabo rem in quia commodi perferendis.</p>
-                            <p className='nota' >Nota 4</p>
+                        <img className='arrow' src={arrow} alt="" onClick={() => {
+                            selected === 0 ? setSelected(cLenght - 1) : setSelected((prev) => prev - 1)
+                        }} />
+
+
+
+                        <div className="baixo">
+                            <motion.span
+
+                                className='commentsTwoProposta'>
+                                {DataReview[selected].name}
+                            </motion.span>
+                            <motion.span
+                                // key={selected}
+                                // initial={{ opacity: 0, x: 30 }}
+                                // animate={{ opacity: 1, x: 0 }}
+                                // exit={{ opacity: 0, x: -30 }}
+                                // transition={transition}
+                                className="commentsThreeProposta">
+                                {DataReview[selected].status}
+                            </motion.span>
+                            <motion.span
+                                key={selected}
+                                initial={{ opacity: 0, x: 30 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -30 }}
+                                transition={transition}
+                                className='commentsOneProposta'>
+                                {DataReview[selected].review}
+                            </motion.span>
                         </div>
+                        <motion.div
+                            key={selected}
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -30 }}
+                            transition={transition}
+                            className="iconBaixo">
+                            <div
+                                className="textoBaixo">
+                                <span>
+                                </span>
+                            </div>
+                        </motion.div>
                     </div>
+
+                    <div className="makeAReview">
+                        <h4 className='makeAReviewTitle'>Você contratou este prestador em (data). Deixe aqui sua avaliação</h4>
+                        
+                        <label className='labelReview' id='rate'>Nota: </label>
+                        <input type="number" min="1" max="5" className='newRate'></input>
+                        
+                        <label className='labelReview' id='reviewText'>Sua avaliação: </label>
+                        <input className='newReview'></input>
+
+                        <button className='submitReview'>Enviar</button>
+                    </div>
+
+
                 </div>
             </div>
-                <Footer />
         </div>
+
+
+
+
+
+
+
     )
 
 }

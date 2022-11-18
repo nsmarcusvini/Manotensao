@@ -1,4 +1,4 @@
-.body {
+.bodyForm {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,17 +8,13 @@
   box-sizing: border-box;
 }
 
-/* .header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
-}
- */
+
 .logo h1 {
   font-family: 'ElectricShocker', sans-serif;
   color: #fff;
   font-size: 2.7rem;
 }
+
 
 
 h1 {
@@ -30,7 +26,7 @@ h2 {
   text-align: center;
 }
 
-p {
+.error {
   font-size: 14px;
   font-weight: 100;
   line-height: 20px;
@@ -38,18 +34,20 @@ p {
   margin: 20px 0 30px;
 }
 
-span {
+.span {
   font-size: 12px;
 }
 
-a {
+.esqueciSenha {
   color: #333;
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
 }
 
-button {
+.ghost,
+.submit
+ {
   border-radius: 20px;
   border: 1px solid #D9F503;
   background-color: #D9F503;
@@ -60,16 +58,18 @@ button {
   text-transform: uppercase;
   position: relative;
   margin-top: 10%;
-}
+} 
 
 
-button:active {
+.ghost:active {
   transform: scale(0.95);
 }
 
-button:focus {
+
+.ghost:focus {
   outline: none;
-}
+} 
+
 
 
 #signIn {
@@ -94,15 +94,25 @@ button:focus {
   outline: none;
 }
 
-button:hover {
+.ghost:hover {
   color: #ffffff;
   transition: 0.2s ease-in-out;
   transform: scale(1.1);
 }
 
-button:hover svg {
+.ghost:hover svg {
   stroke-dashoffset: -480;
+} 
+
+.submit:hover {
+  color: #ffffff;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.1);
 }
+
+.submit:hover svg {
+  stroke-dashoffset: -480;
+} 
 
 .tipoUsuario {
   font-size: 13px;
@@ -160,7 +170,7 @@ form {
   margin: 0;
 }
 
-#container {
+#containerForm {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
@@ -190,7 +200,7 @@ form {
   z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.containerForm.right-panel-active .sign-in-container {
   transform: translateX(100%);
 }
 
@@ -201,7 +211,7 @@ form {
   z-index: 1;
 }
 
-.container.right-panel-active .sign-up-container {
+.containerForm.right-panel-active .sign-up-container {
   transform: translateX(100%);
   opacity: 1;
   z-index: 5;
@@ -234,7 +244,7 @@ form {
   z-index: 100;
 }
 
-.container.right-panel-active .overlay-container {
+.containerForm.right-panel-active .overlay-container {
   transform: translateX(-100%);
 }
 
@@ -270,7 +280,7 @@ form {
 }
 
 
-.container.right-panel-active .overlay {
+.containerForm.right-panel-active .overlay {
   transform: translateX(50%);
 }
 
@@ -293,7 +303,7 @@ form {
   transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
+.containerForm.right-panel-active .overlay-left {
   transform: translateX(0);
 }
 
@@ -302,11 +312,11 @@ form {
   transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right {
+.containerForm.right-panel-active .overlay-right {
   transform: translateX(20%);
 }
 
-span {
+.span {
   overflow: hidden;
   font-size: 10px;
 }
@@ -322,6 +332,6 @@ span {
   margin-bottom: 6px;
 }
 
-span {
+.span {
   margin: 10px;
 }

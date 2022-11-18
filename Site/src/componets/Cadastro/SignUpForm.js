@@ -22,8 +22,8 @@ const SignUpForm = ({ submitForm }) => {
   return (
     <>
 
-      <div className="body">
-        <div className={`container ${addclass}`} id="container">
+      <div className="bodyForm">
+        <div className={`containerForm ${addclass}`} id="containerForm">
           <div className="form-container sign-up-container">
             <form action="#">
               <h1>Criar conta</h1>
@@ -32,7 +32,7 @@ const SignUpForm = ({ submitForm }) => {
                 <img src={fblogo} className="social" />
                 <img src={instagram} className="social" />
               </div>
-              <span>or crie sua conta com email</span>
+              <span className="span">or crie sua conta com email</span>
               <label className="label"></label>
 
               <label className="label">Nome</label>
@@ -95,7 +95,7 @@ const SignUpForm = ({ submitForm }) => {
                 <img src={fblogo} className="social" />
                 <img src={instagram} className="social" />
               </div>
-              <span>ou use seu login</span>
+              <span className="span">ou use seu login</span>
               <label className="label">Email</label>
               <input
                 className="input"
@@ -114,7 +114,7 @@ const SignUpForm = ({ submitForm }) => {
                 onChange={handleChange} />
               {errors.senha && <p className="error">{errors.senha}</p>}
 
-              <a href="#">Esqueci minha senha</a>
+              <a className="esqueciSenha" href="#">Esqueci minha senha</a>
               <button className="submit" onClick={handleFormSubmit}>Continuar</button>
               <div className="a">
               </div>

@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: 'ElectricShocker';
     src: url('../../assets/font/ElectricShocker-2y8d.ttf') format('truetype');
 }
@@ -6,7 +6,7 @@
 @font-face {
     font-family: 'Montserrat';
     src: url('../../assets/font/Montserrat-Medium.otf') format('opentype');
-}
+} */
 
 .bodyPro {
     /* background: #1E1E1E; */
@@ -154,15 +154,6 @@ label {
 input:hover {
     color: #97aa05a2;
     transition: 500ms linear;
-}
-
-input:focus,
-label::after {
-
-    position: relative;
-    display: flex;
-    left: 3.8em;
-    transition: 1s ease;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {

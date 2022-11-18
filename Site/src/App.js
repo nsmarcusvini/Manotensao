@@ -24,10 +24,10 @@ function App() {
       <LogoInfo />
       <Footer />
       <Rota /> */}
-       {/* <SignUpForm/> */}
-      {/* <ProfilePage />
-      <SideNavBar/> */}
-      <Proposta/>
+      {/*  <SignUpForm/> */}
+       <ProfilePage />
+      {/* <SideNavBar/>  */}
+      {/* <Proposta/> */}
     </div>
   );
 }

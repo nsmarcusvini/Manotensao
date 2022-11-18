@@ -1,4 +1,3 @@
-import React from "react";
 
 const validation = (values) => {
 
@@ -7,9 +6,9 @@ const validation = (values) => {
     if (!values.name.trim()) {
         errors.nomecompleto = 'Nome em branco';
     }
-    // else if (!/^[A-Za-z]+/.test(values.name.trim())) {
-    //   errors.name = 'Enter a valid name';
-    // }
+    else if (!/^[A-Za-z]+/.test(values.name.trim())) {
+        errors.name = 'Enter a valid name';
+    }
 
     if (!values.email) {
         errors.email = 'Email em branco';
@@ -21,6 +20,16 @@ const validation = (values) => {
     } else if (values.senha.length < 6) {
         errors.passsenhaword = 'A senha precisa ter no mínimo 6 caractéres';
     }
+
+  /*   if (values.cpf.length < 12) {
+        errors.cpf = 'Digite um CPF válido'
+    } else if (values.cnpj.length < 14) {
+        errors.cnpj = 'Digite um CNPJ válido';
+    }
+    if(!values.cep) {
+        errors.cep = 'Digite o CEP';
+    } */
+
 
     return errors;
 }

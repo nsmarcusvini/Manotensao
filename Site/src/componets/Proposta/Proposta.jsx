@@ -16,21 +16,19 @@ function Proposta() {
         <div className='body'>
 
             <div className="main">
+
                 <SideNavBar />
+
                 <div className='header'>
                     <span className='title'>ManoTensao</span>
                     <img className='noti' src={notification} />
-                    <img className='user' src={woman2}/>
+                    <img className='user' src={woman2} />
                 </div>
 
 
                 <div className="container">
 
-                    <div className='left'>
-
-                        <img className='pic' src={woman} />
-
-                    </div>
+                    <img className='pic' src={woman} />
 
                     <div className="right">
 
@@ -62,13 +60,9 @@ function Proposta() {
                             <p className='nota' >Nota 4</p>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
-            {/* <Footer /> */}
+                <Footer />
         </div>
     )
 

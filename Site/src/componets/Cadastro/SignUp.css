@@ -1,49 +1,36 @@
-.bodySign {
-  background: #1D1C1C;
+.body {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-family: 'Montserrat', sans-serif;
   height: 100vh;
-  margin: -20px 0 50px;
   box-sizing: border-box;
 }
 
-
-.logo h1{
+/* .header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+ */
+.logo h1 {
   font-family: 'ElectricShocker', sans-serif;
   color: #fff;
   font-size: 2.7rem;
 }
 
-.menuSign {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  color: #fff;
-  align-items: center;
-}
 
-.menuSign>li {
-  cursor: pointer;
-}
-
-.menuSign>li:hover {
-  color: var(--limeGreen);
-  cursor: pointer;
-}
-
-.h1 {
+h1 {
   font-weight: bold;
-  margin: 10px;
+  margin: 15px;
 }
 
-.h2 {
+h2 {
   text-align: center;
 }
 
-.p {
+p {
   font-size: 14px;
   font-weight: 100;
   line-height: 20px;
@@ -51,18 +38,18 @@
   margin: 20px 0 30px;
 }
 
-.span {
+span {
   font-size: 12px;
 }
 
-.a {
+a {
   color: #333;
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
 }
 
-.submit {
+button {
   border-radius: 20px;
   border: 1px solid #D9F503;
   background-color: #D9F503;
@@ -76,15 +63,16 @@
 }
 
 
-.submit:active {
+button:active {
   transform: scale(0.95);
 }
 
-.submit:focus {
+button:focus {
   outline: none;
 }
 
-.ghost {
+
+#signIn {
   background-color: hsl(67, 98%, 49%, 0.4);
   border: transparent;
   position: fixed;
@@ -92,15 +80,27 @@
   justify-content: center;
   align-items: center;
   outline: none;
+  margin-right: 5rem;
 }
 
-.ghost:hover {
+#signUp {
+  background-color: hsl(67, 98%, 49%, 0.4);
+  border: transparent;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 16em;
+  outline: none;
+}
+
+button:hover {
   color: #ffffff;
-  background-color: #323232f0;
-  transition: 0.7s ease-in-out;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.1);
 }
 
-.ghost:hover svg {
+button:hover svg {
   stroke-dashoffset: -480;
 }
 
@@ -112,22 +112,27 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
+  position: static;
 }
 
 
-.formSign {
+form {
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 50px;
-  height: 100%;
+  padding: 10px 50px;
   text-align: center;
 }
 
+.label {
+  margin: 0;
+}
+
 .input {
-  height: 23px;
+  height: 30px;
   font-size: 20px;
   outline: none;
   width: 100%;
@@ -136,7 +141,9 @@
   border-right-style: none;
   border-bottom-style: 2px solid black;
   margin-bottom: 15px;
+  display: block;
 }
+
 
 .input:hover {
   box-shadow:
@@ -150,19 +157,23 @@
 .error {
   font-size: 12px;
   color: rgb(216, 19, 19);
-  margin: 5px;
+  margin: 0;
 }
 
-.containerSign {
+#container {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
     0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
+  top: 1.6rem;
+  left: auto;
   overflow: hidden;
   width: 768px;
+  height: 5rem;
   max-width: 100%;
   min-height: 480px;
+
 }
 
 .form-container {
@@ -173,12 +184,13 @@
 }
 
 .sign-in-container {
+  top: 30px;
   left: 0;
   width: 50%;
   z-index: 2;
 }
 
-.containerSign.right-panel-active .sign-in-container {
+.container.right-panel-active .sign-in-container {
   transform: translateX(100%);
 }
 
@@ -189,7 +201,7 @@
   z-index: 1;
 }
 
-.containerSign.right-panel-active .sign-up-container {
+.container.right-panel-active .sign-up-container {
   transform: translateX(100%);
   opacity: 1;
   z-index: 5;
@@ -222,7 +234,7 @@
   z-index: 100;
 }
 
-.containerSign.right-panel-active .overlay-container {
+.container.right-panel-active .overlay-container {
   transform: translateX(-100%);
 }
 
@@ -239,20 +251,26 @@
   transition: transform 0.6s ease-in-out;
 }
 
-.imagem .pintora {
+.pintora {
   position: fixed;
-  margin-bottom: -700px;
   overflow: hidden;
+  height: 100%;
+  width: 120%;
+  object-fit: cover;
+  left: 0;
 }
 
-.alicate {
-  margin-bottom: -4px;
-  background: to right;
+.imagem .alicate {
+  background: right;
   overflow: hidden;
+  height: 100%;
+  width: 195%;
+  left: 0;
+  object-fit: cover;
 }
 
 
-.containerSign.right-panel-active .overlay {
+.container.right-panel-active .overlay {
   transform: translateX(50%);
 }
 
@@ -275,7 +293,7 @@
   transform: translateX(-20%);
 }
 
-.containerSign.right-panel-active .overlay-left {
+.container.right-panel-active .overlay-left {
   transform: translateX(0);
 }
 
@@ -288,7 +306,7 @@
   transform: translateX(20%);
 }
 
-.span {
+span {
   overflow: hidden;
   font-size: 10px;
 }
@@ -304,31 +322,6 @@
   margin-bottom: 6px;
 }
 
-.span {
+span {
   margin: 10px;
-}
-
-footer {
-  background-color: #222;
-  color: #fff;
-  font-size: 14px;
-  bottom: 0;
-  position: fixed;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 999;
-}
-
-footer p {
-  margin: 10px 0;
-}
-
-footer i {
-  color: red;
-}
-
-footer a {
-  color: #3c97bf;
-  text-decoration: none;
 }

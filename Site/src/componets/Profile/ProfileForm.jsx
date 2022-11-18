@@ -1,11 +1,14 @@
 import Input from "./Form/Input";
+import validation from "../Cadastro/validation";
+import useForm from "../Cadastro/useForm";
 
-function ProfileForm() {
+const ProfileForm = ({ submitForm }) => {
+    const { handleChange, handleFormSubmit, values, errors, validation } = useForm(submitForm);
 
     return (
 
         <>
-            <div className="bodyPro">
+            <div className="bodyPro" id="bodyPro" >
                 <h2 className='titleForm'>Configurar Perfil</h2>
                 <form className="formProfile">
                     <label className="info_contato">Informações de contato</label>
@@ -17,39 +20,59 @@ function ProfileForm() {
                                 text="Nome"
                                 name="name"
                                 placeholder=""
+                                value={values.nome}
+                                onChange={handleChange}
                             />
+                            {errors.nomecompleto && <p className="error">{errors.nomecompleto}</p>}
+
+
                         </div>
 
                         <Input
                             type="text"
                             text="Sobrenome"
                             name="lastname"
-                            placeholder="" />
+                            placeholder=""
+                            value={values.name}
+                            onChange={handleChange}
+                        />
+                        {errors.nomecompleto && <p className="error">{errors.nomecompleto}</p>}
+
 
                         <Input
                             type="text"
                             text="CPF"
                             name="cpf"
-                            placeholder="000.000.000-00..." />
+                            placeholder="000.000.000-00..."
+                            value={values.cpf}
+                            onChange={handleChange}
+                        />
 
                         <Input
                             type="text"
-                            text="CNPH"
+                            text="CNPJ"
                             name="cnpj"
-                            placeholder="00.000.0000-00" />
+                            placeholder="00.000.0000-00"
+                            value={values.cnpj}
+                            onChange={handleChange}
+                        />
 
                         <Input
                             type="date"
                             text="Data de Nascimento"
                             name="date"
-
                         />
 
                         <Input
                             type="email"
                             text="Email"
                             name="email"
-                            placeholder="email@email.com" />
+                            placeholder="email@email.com"
+                            value={values.email}
+                            onChange={handleChange}
+                        />
+                        {errors.email && <p className="error">{errors.email}</p>}
+
 
                         <Input
                             type="text"
@@ -68,7 +91,10 @@ function ProfileForm() {
                             type="text"
                             text="CEP"
                             name="cep"
-                            placeholder="00000-000" />
+                            placeholder="00000-000"
+                            value={values.cep}
+                            onChange={handleChange}
+                        />
 
                         <Input
                             type="text"
@@ -95,15 +121,15 @@ function ProfileForm() {
                         />
                     </div>
 
-                    <button className="btnAtt" type="submit">Atualizar dados</button>
+                    <button className="btnAtt" type="submit" onClick={handleFormSubmit}>Atualizar dados</button>
 
                 </form>
             </div>
 
         </>
 
-    )
+    );
 
-}
+};
 
 export default ProfileForm;

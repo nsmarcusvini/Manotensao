@@ -1,4 +1,4 @@
-import "./App.css";
+import "./Chat.css";
 import io from "socket.io-client";
 import { useState } from "react";
 import Chat from "./Chat";
@@ -30,7 +30,7 @@ function App() {
         <img className='noti' src={notification} />
       </div>
 
-      {!showChat ? (
+     {/*  {!showChat ? (
         <div className="joinChatContainer">
           <h3>Join A Chat</h3>
           <input
@@ -50,9 +50,9 @@ function App() {
           <button onClick={joinRoom}>Join A Room</button>
         </div> 
       ) : (
-        <Chat socket={socket} username={username} room={room} />
-      )}
+        )} */}
 
+        <Chat socket={socket} username={username} room={room} />
      
       <SideNavBar />
     </div>

@@ -11,8 +11,8 @@ const ProfileForm = ({ submitForm }) => {
             <div className="bodyPro" id="bodyPro" >
                 <h2 className='titleForm'>Configurar Perfil</h2>
                 <form className="formProfile">
-                    <label className="info_contato">Informações de contato</label>
                     <div className='personal_info'>
+                        <label className="info_contato">Informações de contato</label>
 
                         <div className="label-text">
                             <Input

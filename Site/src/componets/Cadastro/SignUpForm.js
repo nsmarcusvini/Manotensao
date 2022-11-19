@@ -88,7 +88,7 @@ const SignUpForm = ({ submitForm }) => {
 
           </div>
           <div className="form-container sign-in-container">
-            <form action="#">
+            <form className="formForm" action="#">
               <h1>Entrar</h1>
               <div className="social-container">
                 <img src={google} className="social" />

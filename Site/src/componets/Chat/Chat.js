@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import homi from '../src/assets/homi.webp';
+import homi from '../../assets/man2.jpg';
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import { Row, Col } from "reactstrap";
+import { isValidDateValue } from "@testing-library/user-event/dist/utils";
 
 function Chat({ socket, username, room }) {
     const [currentMessage, setCurrentMessage] = useState("");
     const [messageList, setMessageList] = useState([]);
-
 
     const sendMessage = async () => {
         if (currentMessage !== "") {
@@ -36,6 +36,8 @@ function Chat({ socket, username, room }) {
     const [isDoneOpen, setDoneIsOpen] = useState(false);
     const togglePopUpDone = () => {
         setDoneIsOpen(!isDoneOpen);
+
+
     }
 
 
@@ -48,15 +50,6 @@ function Chat({ socket, username, room }) {
     return (
         <>
 
-
-
-            <div className="body">
-                <div className='headerChat'>
-                    <span className='titleChat'>ManoTensao</span>
-                    <img className='noti' src={notification} />
-                </div>
-            </div>
-
             <div className="containerChat">
                 <div className="chat-window">
                     <img src="" />
@@ -66,7 +59,7 @@ function Chat({ socket, username, room }) {
                             <input className="ipt-search" placeholder="Search..."></input>
                         </div>
                         <div className="chat1">
-                            <img src={homi}></img>
+                            <img className="imgChat" src={homi}></img>
                             <p className="name1">João</p>
                             <p className="text1">A blu ble bluble</p>
                             <div class="timer">12 sec</div>
@@ -97,7 +90,7 @@ function Chat({ socket, username, room }) {
                                             <Row>
                                                 <Col lg={12}>
                                                     <div className="campo1">
-                                                        <label htmlFor='tipoDoServico'>
+                                                        <label className='tipoDoServico'>
                                                             Tipo serviço
                                                         </label>
                                                         <select required className="selectServicos">
@@ -173,6 +166,7 @@ function Chat({ socket, username, room }) {
 
                         <div className="chat-footer">
                             <input
+                            className="iptFooter"
                                 type="text"
                                 value={currentMessage}
                                 placeholder="Hey..."
@@ -183,7 +177,7 @@ function Chat({ socket, username, room }) {
                                     event.key === "Enter" && sendMessage();
                                 }}
                             />
-                            <button onClick={sendMessage}></button>
+                            <button className="btnSendMessage" onClick={sendMessage}></button>
                         </div>
                     </div>
                 </div>
@@ -192,5 +186,7 @@ function Chat({ socket, username, room }) {
         </>
     );
 }
+
+
 
 export default Chat;

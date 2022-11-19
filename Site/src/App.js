@@ -6,11 +6,12 @@ import { Mano } from './componets/Mano/Mano';
 import { Meet } from './componets/Meet/Meet';
 import { Plans } from './componets/Plans/Plans';
 import { Rota } from './routes';
-
+import Chat from './componets/Chat/Chat';
 import Proposta from './componets/Proposta/Proposta';
 import SignUpForm from './componets/Cadastro/SignUpForm';
 import ProfilePage from './componets/Profile/ProfilePage';
 import SideNavBar from './componets/SideNavBar/SideNavBar';
+import Connect from './componets/Chat/Connect';
 
 
 function App() {
@@ -25,9 +26,11 @@ function App() {
       <Footer />
       <Rota /> */}
       {/*  <SignUpForm/> */}
-       <ProfilePage />
-      <SideNavBar/> 
+     {/*  <ProfilePage />
+      <SideNavBar/> */}
       {/* <Proposta/> */}
+      {/* <Chat/> */}
+      <Connect/>
     </div>
   );
 }

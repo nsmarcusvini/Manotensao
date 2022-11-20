@@ -111,7 +111,7 @@ public class PrestadorServicoController {
     }
 
     public static void gerarBoleto(PrestadorServico prestador, String nomeArq) {
-        String header = "00BOLETO";
+        String header = "00BOLETOS";
         header += LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
         gravaRegistro(header, nomeArq);
@@ -129,7 +129,7 @@ public class PrestadorServicoController {
 
         gravaRegistro(corpo, nomeArq);
 
-        String trailer = "010204";
+        String trailer = "010205";
         gravaRegistro(trailer, nomeArq);
     }
 

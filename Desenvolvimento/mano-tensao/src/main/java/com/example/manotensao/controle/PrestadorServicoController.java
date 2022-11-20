@@ -2,7 +2,6 @@ package com.example.manotensao.controle;
 
 import com.example.manotensao.dto.CartaApresentacao;
 import com.example.manotensao.dominio.PrestadorServico;
-import com.example.manotensao.dto.BoletoTxt;
 import com.example.manotensao.repositorio.PrestadorServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/prestadores")
@@ -165,7 +162,7 @@ public class PrestadorServicoController {
     }
 
     @GetMapping("/gerar-boleto/{idPrestador}")
-    public ResponseEntity<BoletoTxt> boletoTxt(@PathVariable int idPrestador) {
+    public ResponseEntity<PrestadorServico> boletoTxt(@PathVariable int idPrestador) {
         PrestadorServico prestadorServico = null;
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         for (PrestadorServico prestador : lista) {
@@ -179,7 +176,7 @@ public class PrestadorServicoController {
         } else{
             return ResponseEntity.status(404).build();
         }
-        return ResponseEntity.status(200).build();
+        return ResponseEntity.status(200).body(prestadorServico);
     }
 
     @PutMapping("/receber-apresentacao")

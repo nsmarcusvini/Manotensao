@@ -1,6 +1,6 @@
 package com.example.manotensao.controle;
 
-import com.example.manotensao.DTO.FiltroPorAvaliacao;
+import com.example.manotensao.dto.FiltroPorAvaliacao;
 import com.example.manotensao.dominio.AvaliacaoPrestadorServico;
 import com.example.manotensao.repositorio.AvaliacaoPrestadorServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

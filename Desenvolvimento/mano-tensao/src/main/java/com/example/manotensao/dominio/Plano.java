@@ -3,6 +3,7 @@ package com.example.manotensao.dominio;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -18,6 +19,10 @@ public class Plano implements Serializable{
     @NotBlank
     private String tipoPlano;
 
+    @NotNull
+    @Positive
+    private Double valorPlano;
+
     public Integer getIdPlano() {
         return idPlano;
     }
@@ -32,5 +37,13 @@ public class Plano implements Serializable{
 
     public void setTipoPlano(String tipoPlano) {
         this.tipoPlano = tipoPlano;
+    }
+
+    public Double getValorPlano() {
+        return valorPlano;
+    }
+
+    public void setValorPlano(Double valorPlano) {
+        this.valorPlano = valorPlano;
     }
 }

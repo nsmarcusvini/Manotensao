@@ -1,19 +1,8 @@
-package com.example.manotensao.DTO;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Pattern;
-
+package com.example.manotensao.dto;
 public class CartaApresentacao {
-    @Max(45)
     private String nome;
-
-    @Max(45)
     private String email;
-
-    @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$")
     private String telefone;
-
-    @Max(255)
     private String apresentacao;
 
     public CartaApresentacao(String nome, String email, String telefone, String apresentacao) {
@@ -30,7 +19,6 @@ public class CartaApresentacao {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     public String getEmail() {
         return email;
     }

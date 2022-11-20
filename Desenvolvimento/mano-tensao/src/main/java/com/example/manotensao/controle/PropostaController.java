@@ -1,7 +1,6 @@
 package com.example.manotensao.controle;
 
-import com.example.manotensao.DTO.CartaApresentacao;
-import com.example.manotensao.DTO.PropostaCSV;
+import com.example.manotensao.dto.PropostaCSV;
 import com.example.manotensao.dominio.Proposta;
 import com.example.manotensao.repositorio.PropostaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

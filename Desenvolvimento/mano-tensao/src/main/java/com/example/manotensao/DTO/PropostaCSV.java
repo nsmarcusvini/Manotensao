@@ -1,4 +1,4 @@
-package com.example.manotensao.DTO;
+package com.example.manotensao.dto;
 
 import java.io.FileWriter;
 import java.io.IOException;

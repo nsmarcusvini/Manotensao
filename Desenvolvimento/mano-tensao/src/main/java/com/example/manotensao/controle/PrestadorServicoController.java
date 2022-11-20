@@ -1,15 +1,16 @@
 package com.example.manotensao.controle;
 
-import com.example.manotensao.DTO.CartaApresentacao;
+import com.example.manotensao.dto.CartaApresentacao;
 import com.example.manotensao.dominio.PrestadorServico;
+import com.example.manotensao.dto.BoletoTxt;
 import com.example.manotensao.repositorio.PrestadorServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -112,11 +113,73 @@ public class PrestadorServicoController {
         return carta;
     }
 
+    public static void gerarBoleto(PrestadorServico prestador, String nomeArq) {
+        String header = "00BOLETO";
+        header += LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
+        gravaRegistro(header, nomeArq);
+
+        String corpo = "02";
+        corpo += String.format("%-45.45s", prestador.getNome());
+        corpo += String.format("%-14.14s", prestador.getCpf());
+        corpo += String.format("%-10.10s", prestador.getDtNascimento());
+        corpo += String.format("%-9.9s", prestador.getCep());
+        corpo += String.format("%04d", prestador.getNumero());
+        corpo += String.format("%-45.45s", prestador.getComplemento());
+        corpo += String.format("%-15.15s", prestador.getTelefone());
+        corpo += String.format("%-30.30s", prestador.getFkPlano().getTipoPlano());
+        corpo += String.format("%06.2f", prestador.getFkPlano().getValorPlano());
+
+        gravaRegistro(corpo, nomeArq);
+
+        String trailer = "010204";
+        gravaRegistro(trailer, nomeArq);
+    }
+
+    public static void gravaRegistro(String registro, String nomeArq) {
+        BufferedWriter saida = null;
+
+        try {
+            saida = new BufferedWriter(new FileWriter(nomeArq,true));
+        }
+        catch (IOException erro) {
+            System.out.println("Erro ao abrir o arquivo");
+            erro.printStackTrace();
+        }
+
+        try {
+            saida.append(registro + "\n");
+            saida.close();
+        }
+        catch (IOException erro) {
+            System.out.println("Erro ao gravar o arquivo");
+            erro.printStackTrace();
+        }
+    }
+
     @GetMapping("/carta-apresentacao/{idPrestador}")
     public ResponseEntity<CartaApresentacao> cartaApresentacao(@PathVariable int idPrestador) {
         CartaApresentacao carta = prestadorServicoRepository.getCartaApresentacao(idPrestador);
         return carta.getApresentacao() != null ? ResponseEntity.status(200).body(carta) :
                 ResponseEntity.status(404).build();
+    }
+
+    @GetMapping("/gerar-boleto/{idPrestador}")
+    public ResponseEntity<BoletoTxt> boletoTxt(@PathVariable int idPrestador) {
+        PrestadorServico prestadorServico = null;
+        List<PrestadorServico> lista = prestadorServicoRepository.findAll();
+        for (PrestadorServico prestador : lista) {
+            if (prestador.pegarId().equals(idPrestador)) {
+                prestadorServico = prestador;
+            }
+        }
+        if(prestadorServico != null){
+            String nomeArq = "Boleto_" + prestadorServico.getNome() + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            gerarBoleto(prestadorServico, nomeArq);
+        } else{
+            return ResponseEntity.status(404).build();
+        }
+        return ResponseEntity.status(200).build();
     }
 
     @PutMapping("/receber-apresentacao")

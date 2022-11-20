@@ -1,4 +1,4 @@
-package com.example.manotensao.DTO;
+package com.example.manotensao.dto;
 
 import org.hibernate.validator.constraints.br.CPF;
 import javax.persistence.*;
@@ -21,7 +21,6 @@ public abstract class Usuario{
     @NotBlank
     private String senha;
 
-    //@Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})\n")
     @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$")
     private String telefone;
 

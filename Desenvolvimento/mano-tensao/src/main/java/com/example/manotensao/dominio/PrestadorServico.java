@@ -1,6 +1,6 @@
 package com.example.manotensao.dominio;
 
-import com.example.manotensao.DTO.Usuario;
+import com.example.manotensao.dto.Usuario;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;

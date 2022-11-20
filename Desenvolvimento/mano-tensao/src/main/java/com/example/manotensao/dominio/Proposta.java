@@ -1,7 +1,7 @@
 package com.example.manotensao.dominio;
 
 
-import com.example.manotensao.DTO.PropostaCSV;
+import com.example.manotensao.dto.PropostaCSV;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;

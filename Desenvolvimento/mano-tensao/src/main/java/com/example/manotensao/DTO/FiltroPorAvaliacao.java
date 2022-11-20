@@ -1,4 +1,4 @@
-package com.example.manotensao.DTO;
+package com.example.manotensao.dto;
 
 public class FiltroPorAvaliacao{
     private String nome;

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Header } from '../Header/Header'
 import './Mano.css'
 import back from '../../assets/fundo.mp4'
 import Video from '../../assets/lines.mp4'
@@ -13,7 +12,6 @@ export const Mano = () => {
   
   return (
     <div className='manoAll' id='manos'>
-        <Header />
       <div className="mano">
       <div className="home">
         <div className="manoTexto">

@@ -1,23 +1,18 @@
 import React from 'react'
-import SideNavBar from '../SideNavBar/SideNavBar'
 import './Search.css'
 import Lupa from '../../assets/search.svg'
 import Mulher from '../../assets/woman2.2.jpg'
 import Star5 from '../../assets/star5.png'
 import { LikeButton } from './HeartLike'
 import { Footer } from '../Footer/Footer'
-// import { useNavigate } from 'react-router-dom';
 
 export const Search = () => {
-    // const navigate = useNavigate();
     return (
         <div className='search-all'>
-            {/* <SideNavBar /> */}
             <div className="search">
                 <div className="busca">
                     <div className="find">
-                        Encontre um prestador <br />
-                        perto de você
+                        Encontre um prestador perto de você
                     </div>
                     <div className="select">
                         <img src={Lupa} alt="" />

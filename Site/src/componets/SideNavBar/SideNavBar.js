@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "../SideNavBar/SideNavBar.css";
+import { useNavigate } from 'react-router-dom'
 
 const SideNavBar = () => {
+
+	const navigate = useNavigate();
+
 	const [isExpanded, setExpendState] = useState(false);
 	const menuItems = [
 		{
@@ -79,7 +83,7 @@ const SideNavBar = () => {
 						</div> */}
 					</div>
 				)}
-				<img className="logout-icon" src="icons/logout.svg" alt="" srcset="" />
+				<img className="logout-icon" src="icons/logout.svg" alt="" srcset="" onClick={() => navigate("/search")}/>
 			</div>
 		</div>
 	);

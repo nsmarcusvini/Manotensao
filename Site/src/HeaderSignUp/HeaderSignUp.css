@@ -1,0 +1,63 @@
+.header {
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    z-index: 1000;
+}
+
+.list {
+    cursor: pointer;
+}
+
+.header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    gap: 2rem;
+}
+
+.header .container .con {
+    display: flex;
+    justify-content: space-between;
+    width: 87%;
+}
+
+.header-bg {
+    background-color: #000;
+    transition: .5s;
+}
+
+.logoHeader {
+    font-family: 'ElectricShocker', sans-serif;
+    color: #fff;
+    font-size: 2.7rem;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    color: #fff;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu li {
+    cursor: pointer;
+    font-family: 'Montserrat';
+}
+
+.menu .list {
+    text-decoration: none;
+    padding: 0 3px;
+    transition: 0.3s;
+}
+
+.menu .list:hover {
+    border-bottom: 3px solid var(--limeGreen);
+}
+
+.menu a.active {
+    border-bottom: 3px solid var(--limeGreen);
+}

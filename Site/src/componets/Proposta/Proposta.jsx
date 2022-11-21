@@ -127,13 +127,6 @@ function Proposta() {
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
     )
 
 }

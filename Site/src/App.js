@@ -17,8 +17,8 @@ import Connect from './componets/Chat/Connect';
 function App() {
   return (
     <div className="App">
-      {/* <Rota /> */}
-      {/*  <Mano />
+      <Rota />
+       {/* <Mano />
       <Meet />
       <Plans />
       <Comments />
@@ -26,11 +26,11 @@ function App() {
       <Footer />
       <Rota /> */}
       {/*  <SignUpForm/> */}
-     {/*  <ProfilePage />
+      {/* <ProfilePage />
       <SideNavBar/> */}
       {/* <Proposta/> */}
       {/* <Chat/> */}
-      <Connect/>
+      {/* <Connect/> */}
     </div>
   );
 }

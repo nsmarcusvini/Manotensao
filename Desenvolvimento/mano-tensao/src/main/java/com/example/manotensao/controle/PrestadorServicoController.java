@@ -192,4 +192,9 @@ public class PrestadorServicoController {
         }
         return ResponseEntity.status(200).body(carta);
     }
+
+    @GetMapping("/quantidade-propostas/{idPrestador}")
+    public ResponseEntity<Integer> getPropostasNoUltimoMes(@PathVariable int idPrestador){
+        return ResponseEntity.status(200).body(prestadorServicoRepository.getPropostasNoUltimoMes(idPrestador));
+    }
 }

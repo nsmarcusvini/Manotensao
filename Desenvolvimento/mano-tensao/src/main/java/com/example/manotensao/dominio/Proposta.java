@@ -4,13 +4,11 @@ package com.example.manotensao.dominio;
 import com.example.manotensao.dto.PropostaCSV;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Formatter;
 import java.util.FormatterClosedException;
 import java.util.List;
@@ -47,6 +45,9 @@ public class Proposta implements Serializable{
     @Size(min = 0, max = 1)
     @NotBlank
     private Integer propostaAceita;
+
+    @PastOrPresent
+    private LocalDate dataProposta;
 
     public Integer getIdProposta() {
         return idProposta;
@@ -105,4 +106,11 @@ public class Proposta implements Serializable{
     }
 
 
+    public LocalDate getDataProposta() {
+        return dataProposta;
+    }
+
+    public void setDataProposta(LocalDate dataProposta) {
+        this.dataProposta = dataProposta;
+    }
 }

@@ -15,4 +15,9 @@ public interface PrestadorServicoRepository extends JpaRepository<PrestadorServi
             "from PrestadorServico ps " +
             "where ps.idPrestador = ?1")
     CartaApresentacao getCartaApresentacao(int idPrestador);
+
+    @Query("select count(id_proposta) from Proposta p " +
+            "join p.fkPrestadorServico ps " +
+            "where ps.idPrestador = ?1 and Month(data_proposta) = Month(GETDATE())")
+    Integer getPropostasNoUltimoMes(int idPrestador);
 }

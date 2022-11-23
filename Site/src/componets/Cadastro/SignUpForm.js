@@ -19,14 +19,26 @@ const SignUpForm = ({ submitForm }) => {
   }
 
 
+  function cadastrar(event) {
+    event.preventDefault();
+
+    const novoUsuario = {
+      nome: event.target.nome.value,
+      email: event.target.email.value,
+      senha: event.target.senha.value,
+      tipoUsuario: event.target.tipoUsuario.value,
+    };
+
+  }
+  
   return (
     <>
 
       <div className="bodyForm">
         <div className={`containerForm ${addclass}`} id="containerForm">
           <div className="form-container sign-up-container">
-            <form action="#">
-              <h1>Criar conta</h1>
+            <form className="formCadastrar" action="#" onSubmit={cadastrar}>
+              <h1 className="h1">Criar conta</h1>
               <div className="social-container">
                 <img src={google} className="social" />
                 <img src={fblogo} className="social" />
@@ -37,29 +49,32 @@ const SignUpForm = ({ submitForm }) => {
 
               <label className="label">Nome</label>
               <input
+                required
                 className="input"
                 type="text"
                 name="nomecompleto"
                 value={values.nomecompleto}
-                onChange={handleChange} />
+              />
               {errors.nomecompleto && <p className="error">{errors.nomecompleto}</p>}
 
               <label className="label">Email</label>
               <input
+                required
                 className="input"
                 type="email"
                 name="email"
                 value={values.email}
-                onChange={handleChange} />
+              />
               {errors.email && <p className="error">{errors.email}</p>}
 
               <label className="label">Senha</label>
               <input
+                required
                 className="input"
                 type="password"
                 name="senha"
                 value={values.senha}
-                onChange={handleChange} />
+              />
               {errors.senha && <p className="error">{errors.senha}</p>}
 
               <div className="tipoUsuario" onChange={onChangeValue}>
@@ -81,15 +96,15 @@ const SignUpForm = ({ submitForm }) => {
                   checked={tipo === 'cliente'} />Quero contratar
               </div>
 
-              <button className="submit" onClick={handleFormSubmit}>Continuar</button>
+              <button className="submit" type="submit">Continuar</button>
               <div className="a">
               </div>
             </form>
 
           </div>
           <div className="form-container sign-in-container">
-            <form className="formForm" action="#">
-              <h1>Entrar</h1>
+            <form className="formLogin" action="#" /* onClick={login} */>
+              <h1 className="h1">Entrar</h1>
               <div className="social-container">
                 <img src={google} className="social" />
                 <img src={fblogo} className="social" />
@@ -98,24 +113,26 @@ const SignUpForm = ({ submitForm }) => {
               <span className="span">ou use seu login</span>
               <label className="label">Email</label>
               <input
+                required
                 className="input"
                 type="email"
                 name="email"
                 value={values.email}
-                onChange={handleChange} />
+              />
               {errors.email && <p className="error">{errors.email}</p>}
 
               <label className="label">Senha</label>
               <input
+                required
                 className="input"
                 type="password"
                 name="senha"
                 value={values.senha}
-                onChange={handleChange} />
+              />
               {errors.senha && <p className="error">{errors.senha}</p>}
 
               <a className="esqueciSenha" href="#">Esqueci minha senha</a>
-              <button className="submit" onClick={handleFormSubmit}>Continuar</button>
+              <button className="submit" type="submit">Continuar</button>
               <div className="a">
               </div>
             </form>

@@ -16,15 +16,14 @@
 }
 
 
-
-h1 {
+.h1 {
   font-weight: bold;
   margin: 15px;
 }
-
+/* 
 h2 {
   text-align: center;
-}
+} */
 
 .error {
   font-size: 14px;
@@ -127,7 +126,17 @@ h2 {
 }
 
 
-.formForm {
+.formLogin {
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 50px;
+  text-align: center;
+}
+
+.formCadastrar {
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -200,7 +209,7 @@ h2 {
   z-index: 2;
 }
 
-.containerForm.right-panel-active .sign-in-container {
+.containerForm .right-panel-active .sign-in-container {
   transform: translateX(100%);
 }
 
@@ -211,7 +220,7 @@ h2 {
   z-index: 1;
 }
 
-.containerForm .right-panel-active .sign-up-container {
+.containerForm.right-panel-active .sign-up-container {
   transform: translateX(100%);
   opacity: 1;
   z-index: 5;

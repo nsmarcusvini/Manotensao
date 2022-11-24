@@ -5,8 +5,12 @@ import premiumIcon from '../../assets/crown2.svg'
 import proIcon from '../../assets/tool-verde2.svg'
 import check from '../../assets/whiteTick.png'
 import '../../index'
+import { useNavigate } from 'react-router-dom'
 
 export const Plans = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className='plans' id='plan'>
       <div className="plansTitle" style={{ gap: '2rem' }}>
@@ -19,7 +23,7 @@ export const Plans = () => {
             PLANO BÁSICO
           </span>
           <span className="price">
-            R$100<span className='year'>/ano</span>
+            R$29,99<span className='year'>/mês</span>
           </span>
           <div className="informations">
             <div className="checks">
@@ -28,10 +32,10 @@ export const Plans = () => {
             </div>
             <div className="infos">
               <span className="info">Envie mensagens sem cobrança</span>
-              <span className="info">Obtenha nosso template de orçamento</span>
+              <span className="info">Obtenha até 12 propostas</span>
             </div>
           </div>
-          <button className="btn">Junte-se</button>
+          <button className="btn" onClick={() => navigate("/plans-basic")}>Junte-se</button>
         </div>
         <div className="premium">
           <img src={premiumIcon} alt="" />
@@ -39,7 +43,7 @@ export const Plans = () => {
             PLANO PREMIUM
           </span>
           <span className="price">
-            R$300<span className='year'>/ano</span>
+            R$109,99<span className='year'>/mês</span>
           </span>
           <div className="informations">
             <div className="checks">
@@ -50,10 +54,10 @@ export const Plans = () => {
             <div className="infos">
               <span className="info">Envie mensagens sem cobrança</span>
               <span className="info">Obtenha nosso template de orçamento</span>
-              <span className="info">Obtenha nosso template de orçamento</span>
+              <span className="info">Obtenha propostas ilimitadas</span>
             </div>
           </div>
-          <button className="btn">Junte-se</button>
+          <button className="btn" onClick={() => navigate("/plans-premium")}>Junte-se</button>
         </div>
         <div className="pro">
           <img src={proIcon} alt="" />
@@ -61,7 +65,7 @@ export const Plans = () => {
             PLANO PRO
           </span>
           <span className="price">
-            R$260<span className='year'>/ano</span>
+            R$74,99<span className='year'>/mês</span>
           </span>
           <div className="informations">
             <div className="checks">
@@ -70,10 +74,10 @@ export const Plans = () => {
             </div>
             <div className="infos">
               <span className="info">Envie mensagens sem cobrança</span>
-              <span className="info">Obtenha nosso template de orçamento</span>
+              <span className="info">Obtenha até 25 propostas </span>
             </div>
           </div>
-          <button className="btn">Junte-se</button>
+          <button className="btn" onClick={() => navigate("/plans-pro")}>Junte-se</button>
         </div>
       </div>
     </div>

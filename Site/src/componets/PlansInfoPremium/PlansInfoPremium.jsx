@@ -1,15 +1,15 @@
 import React from 'react'
-import './PlansInfo.css'
+import './PlansInfoPremium.css'
 import SetaPlan from '../../assets/setaPlans.png'
 import Logo from '../../assets/Logo Construção E Reparos (2).png'
 import Fatura from '../../assets/fatura.png'
 import ReactInputMask from 'react-input-mask'
 import { useNavigate } from 'react-router-dom'
-import Boleto from '../../assets/boletoBasic.pdf'
+import Boleto from '../../assets/boletoPremium.pdf'
 
 const onlyNumbers = (str) => str.replace(/[^0-9]/g, '')
 
-export const PlansInfo = () => {
+export const PlansInfoPremium = () => {
 
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export const PlansInfo = () => {
               Plano BASIC
             </span>
             <span className="sale">
-              R$29,99
+              R$109,99
             </span>
           </div>
           <div className="power">

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Search } from '../componets/Search/Search'
-import { HeaderSignUp } from '../HeaderSignUp/HeaderSignUp'
+import { HeaderSignUp } from '../componets/HeaderSignUp/HeaderSignUp'
 
 export const User = () => {
   return (

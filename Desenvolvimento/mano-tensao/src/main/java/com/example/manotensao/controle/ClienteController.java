@@ -15,8 +15,8 @@ public class ClienteController{
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @GetMapping("/autenticacao-cliente")
-    public ResponseEntity<Void> login(@RequestBody String email, @RequestBody String senha){
+    @GetMapping("/autenticacao-cliente/{email}/{senha}")
+    public ResponseEntity<Void> login(@PathVariable String email, @PathVariable String senha){
         List<Cliente> lista = clienteRepository.findAll();
         for (Cliente cliente : lista) {
             if (cliente.autenticar(email,senha)) {
@@ -27,8 +27,8 @@ public class ClienteController{
         return ResponseEntity.notFound().build();
     }
 
-    @PutMapping("/autenticacao-cliente")
-    public ResponseEntity<Void> logoff(@RequestBody int id){
+    @PutMapping("/autenticacao-cliente/{id}")
+    public ResponseEntity<Void> logoff(@PathVariable int id){
         List<Cliente> lista = clienteRepository.findAll();
         for (Cliente cliente : lista) {
             if (cliente.pegarId().equals(id)) {
@@ -47,8 +47,8 @@ public class ClienteController{
                 : ResponseEntity.status(200).body(lista);
     }
 
-    @PostMapping
-    public ResponseEntity<Cliente> post(@RequestBody Cliente novoUsuario){
+    @PostMapping("/{novoUsuario}")
+    public ResponseEntity<Cliente> post(@PathVariable Cliente novoUsuario){
         clienteRepository.save(novoUsuario);
         return ResponseEntity.status(201).body(novoUsuario);
     }

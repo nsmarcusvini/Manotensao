@@ -19,8 +19,8 @@ public class PrestadorServicoController {
     @Autowired
     private PrestadorServicoRepository prestadorServicoRepository;
 
-    @GetMapping("/autenticacao-prestador")
-    public ResponseEntity<Void> login(@RequestBody String email, @RequestBody String senha) {
+    @GetMapping("/autenticacao-prestador/{email}/{senha}")
+    public ResponseEntity<Void> login(@PathVariable String email, @PathVariable String senha) {
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         for (PrestadorServico prestador : lista) {
             if (prestador.autenticar(email, senha)) {
@@ -31,8 +31,8 @@ public class PrestadorServicoController {
         return ResponseEntity.notFound().build();
     }
 
-    @PutMapping("/autenticacao-prestador")
-    public ResponseEntity<Void> logoff(@RequestBody int id) {
+    @PutMapping("/autenticacao-prestador/{id}")
+    public ResponseEntity<Void> logoff(@PathVariable int id) {
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         for (PrestadorServico prestador : lista) {
             if (prestador.pegarId().equals(id)) {
@@ -51,7 +51,7 @@ public class PrestadorServicoController {
                 : ResponseEntity.status(200).body(lista);
     }
 
-    @PostMapping
+    @PostMapping("/{novoPrestador}")
     public ResponseEntity<PrestadorServico> post(@RequestBody PrestadorServico novoPrestador) {
         prestadorServicoRepository.save(novoPrestador);
         return ResponseEntity.status(201).body(novoPrestador);

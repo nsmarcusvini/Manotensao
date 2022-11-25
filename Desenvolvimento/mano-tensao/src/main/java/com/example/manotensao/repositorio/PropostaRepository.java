@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface PropostaRepository extends JpaRepository<Proposta, Integer>{
+public interface PropostaRepository extends JpaRepository<Proposta,Integer>{
 
     @Query("select new com.example.manotensao.dto.PropostaCSV(c.nome, p.qtdDias, p.qtdHoras, p.valorTotal, c.bairro, c.rua) " +
             "from Proposta p " +

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-public interface PrestadorServicoRepository extends JpaRepository<PrestadorServico,Integer>{
+public interface PrestadorServicoRepository extends JpaRepository<PrestadorServico, Integer>{
     Optional<List<PrestadorServico>> findByFkServico(int servico);
 
     @Query("select new com.example.manotensao.dto.CartaApresentacao(ps.nome, ps.email, ps.telefone, ps.cartaApresentacao) " +

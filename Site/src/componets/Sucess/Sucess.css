@@ -1,0 +1,91 @@
+.sucess {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    width: 100%;
+    height: 80vh;
+}
+
+.boxSucess {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--limeGreen);
+    width: 60rem;
+    height: 23rem;
+    border-radius: 20px;
+}
+
+.boxSucess svg {
+    font-size: 3rem;
+}
+
+.boxSucess .thanks {
+    font-family: 'Montserrat';
+    margin-bottom: 0;
+}
+
+.boxSucess .thanks .manoThanks {
+    font-family: 'ElectricShocker', sans-serif;
+    font-size: 2.2rem;
+}
+
+.boxSucess .verify{
+    font-family: 'Montserrat';
+}
+
+.boxSucess .question {
+    font-family: 'Montserrat';
+    font-size: 0.8rem;
+    margin-top: 2rem;
+    font-weight: 700;
+}
+
+.boxSucess .emailThanks{
+    font-family: 'Montserrat';
+    color: red;
+}
+
+.boxSucess .voltaThanks {
+    border: none;
+    width: 26rem;
+    height: 3rem;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: 'Montserrat';
+    background: #000;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: 300ms all;
+}
+
+.boxSucess .voltaThanks:hover {
+    transform: scale(1.1, 1.1);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+.direct{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding-top: 3rem;
+}
+
+.direct .direction {
+    font-family: 'Montserrat';
+}
+
+.direct svg {
+    font-size: 1.6rem;
+}
+
+.direct .iconsMidia {
+    display: flex;
+    gap: 1rem;
+}

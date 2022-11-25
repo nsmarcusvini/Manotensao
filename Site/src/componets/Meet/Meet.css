@@ -21,7 +21,6 @@
 
 .providers {
     display: flex;
-    /* padding: 6rem; */
     margin-left: 6rem;
     margin-right: 6rem;
     justify-content: center;
@@ -42,6 +41,12 @@
     background: #333333;
     padding: 2rem;
     border-radius: 40px;
+    transition: 300ms all;
+}
+
+.boxHome:hover {
+    transform: scale(1.03, 1.03);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
 }
 
 .boxes {
@@ -66,6 +71,12 @@
     background: #202020;
     padding: 2rem;
     border-radius: 40px;
+    transition: 300ms all;
+}
+
+.boxHome2:hover {
+    transform: scale(1.03, 1.03);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
 }
 
 .boxHome2 img {

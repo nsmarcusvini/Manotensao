@@ -85,6 +85,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 300ms all;
     cursor: pointer;
 }
 
@@ -95,6 +96,11 @@
 
 .payments .bolButton img {
     width: 1.3rem;
+}
+
+.payments .bolButton:hover {
+    transform: scale(1.03, 1.03);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
 }
 
 .payments .boletoButton {
@@ -173,4 +179,10 @@
     font-family: 'Montserrat';
     background: #000;
     cursor: pointer;
+    transition: 300ms all;
+}
+
+.cardButton:hover {
+    transform: scale(1.03, 1.03);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
 }

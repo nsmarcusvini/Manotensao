@@ -4,6 +4,7 @@ import Chat from './componets/Chat/Chat'
 import { PlansInfo } from './componets/PlansInfo/PlansInfo'
 import { PlansInfoPremium } from './componets/PlansInfoPremium/PlansInfoPremium'
 import { PlansInfoPro } from './componets/PlansInfoPro/PlansInfoPro'
+import { Sucess } from './componets/Sucess/Sucess'
 import { Home } from './Pages/Home'
 import { HomeSingIn } from './Pages/HomeSingIn'
 import { Login } from './Pages/Login'
@@ -14,6 +15,7 @@ export const Rota = () => {
   return (
     <BrowserRouter>
     <Routes>
+        <Route path = "/sucess" element = {<Sucess />} />
         <Route path = "/plans-premium" element = {<PlansInfoPremium />} />
         <Route path = "/plans-pro" element = {<PlansInfoPro />} />
         <Route path = "/plans-basic" element = {<PlansInfo />} />

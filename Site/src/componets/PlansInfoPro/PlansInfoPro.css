@@ -85,7 +85,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 300ms all;
     cursor: pointer;
+}
+
+.payments .bolButton:hover {
+    transform: scale(1.03, 1.03);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
 }
 
 .payments .bolDown {
@@ -172,5 +178,11 @@
     font-size: 1.6rem;
     font-family: 'Montserrat';
     background: #000;
+    transition: 300ms all;
     cursor: pointer;
+}
+
+.cardButton:hover {
+    transform: scale(1.03, 1.03);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
 }

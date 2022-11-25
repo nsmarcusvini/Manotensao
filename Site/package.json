@@ -9,7 +9,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^3.4.1",
     "framer-motion": "^7.6.7",
     "install": "^0.13.0",
     "lottie": "^0.0.1",
@@ -63,6 +63,7 @@
   "devDependencies": {
     "css-loader": "^6.7.2",
     "gh-pages": "^4.0.0",
+    "nodemon": "^2.0.20",
     "style-loader": "^3.3.1"
   }
 }

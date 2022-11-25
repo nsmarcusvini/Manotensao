@@ -53,7 +53,6 @@ const SignUpForm = ({ submitForm }) => {
                 className="input"
                 type="text"
                 name="nomecompleto"
-                value={values.nomecompleto}
               />
               {errors.nomecompleto && <p className="error">{errors.nomecompleto}</p>}
 
@@ -63,7 +62,6 @@ const SignUpForm = ({ submitForm }) => {
                 className="input"
                 type="email"
                 name="email"
-                value={values.email}
               />
               {errors.email && <p className="error">{errors.email}</p>}
 
@@ -73,7 +71,6 @@ const SignUpForm = ({ submitForm }) => {
                 className="input"
                 type="password"
                 name="senha"
-                value={values.senha}
               />
               {errors.senha && <p className="error">{errors.senha}</p>}
 
@@ -117,7 +114,6 @@ const SignUpForm = ({ submitForm }) => {
                 className="input"
                 type="email"
                 name="email"
-                value={values.email}
               />
               {errors.email && <p className="error">{errors.email}</p>}
 
@@ -127,7 +123,6 @@ const SignUpForm = ({ submitForm }) => {
                 className="input"
                 type="password"
                 name="senha"
-                value={values.senha}
               />
               {errors.senha && <p className="error">{errors.senha}</p>}
 

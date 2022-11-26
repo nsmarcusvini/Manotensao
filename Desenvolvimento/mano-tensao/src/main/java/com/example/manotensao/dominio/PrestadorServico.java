@@ -10,7 +10,6 @@ import java.io.Serializable;
 public class PrestadorServico extends Usuario implements Serializable{
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPrestador;
 
@@ -20,8 +19,6 @@ public class PrestadorServico extends Usuario implements Serializable{
     @ManyToOne
     private Plano fkPlano;
 
-    @Size(min = 10)
-    @Size(max = 255)
     private String cartaApresentacao;
 
     public Integer pegarId() {

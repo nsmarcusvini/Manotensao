@@ -15,12 +15,12 @@ public class ClienteController{
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @GetMapping("/autenticacao-cliente/{email}/{senha}")
+    @PostMapping("/autenticacao-cliente/{email}/{senha}")
     public ResponseEntity<Void> login(@PathVariable String email, @PathVariable String senha){
         List<Cliente> lista = clienteRepository.findAll();
         for (Cliente cliente : lista) {
             if (cliente.autenticar(email,senha)) {
-                cliente.setAutenticado(true);
+                cliente.setAutenticado(1);
                 return ResponseEntity.ok().build();
             }
         }
@@ -32,7 +32,7 @@ public class ClienteController{
         List<Cliente> lista = clienteRepository.findAll();
         for (Cliente cliente : lista) {
             if (cliente.pegarId().equals(id)) {
-                cliente.setAutenticado(false);
+                cliente.setAutenticado(0);
                 return ResponseEntity.ok().build();
             }
         }
@@ -47,8 +47,8 @@ public class ClienteController{
                 : ResponseEntity.status(200).body(lista);
     }
 
-    @PostMapping("/{novoUsuario}")
-    public ResponseEntity<Cliente> post(@PathVariable Cliente novoUsuario){
+    @PostMapping
+    public ResponseEntity<Cliente> post(@RequestBody Cliente novoUsuario){
         clienteRepository.save(novoUsuario);
         return ResponseEntity.status(201).body(novoUsuario);
     }

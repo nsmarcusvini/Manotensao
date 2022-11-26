@@ -10,7 +10,6 @@ import java.io.Serializable;
 public class Cliente extends Usuario implements Serializable {
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCliente;
 

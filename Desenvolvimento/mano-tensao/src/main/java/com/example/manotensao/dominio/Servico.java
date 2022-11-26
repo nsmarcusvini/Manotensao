@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Entity
 public class Servico implements Serializable{
 
+
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -20,32 +20,24 @@ public abstract class Usuario{
     @Size(max = 45,min = 3)
     @NotBlank
     private String senha;
-
-    @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$")
     private String telefone;
 
-    @CPF
     private String cpf;
 
-    @PastOrPresent
     private LocalDate dtNascimento;
 
-    @Pattern(regexp = "/^[0-9]{5}-[0-9]{3}$/")
     private String cep;
-    @Size(max = 45,min = 3)
+
     private String bairro;
 
-    @Size(max = 45,min = 3)
     private String rua;
-    @Min(0)
+
     private Integer numero;
 
-    @Size(max = 45,min = 3)
     private String complemento;
 
-    private Boolean autenticado = true;
+    private Integer autenticado;
 
-    @Size(min = 10, max = 255)
     private String urlFoto;
 
     public Boolean autenticar(String email, String senha){
@@ -140,11 +132,11 @@ public abstract class Usuario{
         this.cpf = cpf;
     }
 
-    public Boolean pegarAutenticado() {
+    public Integer getAutenticado() {
         return autenticado;
     }
 
-    public void setAutenticado(Boolean autenticado) {
+    public void setAutenticado(Integer autenticado) {
         this.autenticado = autenticado;
     }
 

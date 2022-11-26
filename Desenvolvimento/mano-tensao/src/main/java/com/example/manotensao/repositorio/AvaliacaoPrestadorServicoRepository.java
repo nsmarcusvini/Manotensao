@@ -22,4 +22,5 @@ public interface AvaliacaoPrestadorServicoRepository extends JpaRepository<Avali
             "GROUP BY ps.nome, ps.email, ps.urlFoto, ps.telefone " +
             "ORDER BY avg(aps.notaPrestadorServico) desc")
     List<FiltroPorAvaliacao> getAvaliacoesPorServico(int idServico);
+
 }

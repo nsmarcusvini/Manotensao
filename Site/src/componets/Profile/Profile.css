@@ -27,7 +27,7 @@
     cursor: pointer;
 }
 
-.headerProfile img {
+.headerProfile .noti {
     width: 27px;
     margin-left: 65%;
     cursor: pointer;
@@ -216,4 +216,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     top: 29em;
     left: 2.5em;
     box-shadow: rgba(255, 255, 255, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.importTxt {
+    position: absolute;
+    bottom: 1em;
+    right: 12rem;
+    width: 20%;
+    height: 40px;
+    background: #fff;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }

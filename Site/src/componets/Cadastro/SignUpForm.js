@@ -7,10 +7,9 @@ import google from '../../assets/google.png';
 import useForm from './useForm';
 import api from '../../axios.js';
 import './SignUp.css';
-import toast from "react-hot-toast";
 
 const SignUpForm = ({ submitForm }) => {
-  const { handleChange, handleFormSubmit, values, errors, validation } = useForm(submitForm);
+  const { handleSubmit } = useForm(submitForm);
   const [addclass, setaddclass] = useState("");
 
   const [tipo, setTipo] = useState("prestador");
@@ -20,17 +19,19 @@ const SignUpForm = ({ submitForm }) => {
     console.log(event.target.value);
   }
 
-  function logar(event){
-    event.preventDefault();
-    var tipoUsuario = "cliente";
-    var email = "limagabrielsilva11@gmail.com"
-    var senha = "1234Lima"
-
-    if(tipoUsuario == "prestador"){
+  function logar(e) {
+    e.preventDefault();
+    const login = {
+      email: e.target.elements.email.value,
+      senha: e.target.elements.senha.value,
+      tipoUsuario: e.target.elements.tipo.value,
+    }
+    console.log(login);
+    if (login.tipoUsuario == "prestador") {
       console.log("entrei no prestador");
       console.log(api);
       api
-        .post(`/prestadores/autenticacao-prestador/${email}/${senha}`)
+        .post(`/prestadores/autenticacao-prestador/${login.email}/${login.senha}`)
         .then((res) => {
           console.log(res);
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
@@ -38,9 +39,9 @@ const SignUpForm = ({ submitForm }) => {
         }).catch((err) => {
           console.log(err);
         })
-    } else if(tipoUsuario == "cliente"){
+    } else if (login.tipoUsuario == "cliente") {
       api
-        .post(`/clientes/autenticacao-cliente/${email}/${senha}`)
+        .post(`/clientes/autenticacao-cliente/${login.email}/${login.senha}`)
         .then((res) => {
           console.log(res);
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
@@ -49,43 +50,45 @@ const SignUpForm = ({ submitForm }) => {
           console.log(err);
         })
     }
-    }
+  }
 
-  function cadastrar(event) {
-    event.preventDefault();
-    var tipoUsuario = "prestador";
+
+  function cadastrar(e) {
+    e.preventDefault();
 
     const novoUsuario = {
-      nome: "Gabriel",
-      email: "limagabrielsilva11@gmail.com",
-      senha: "1234LimaTeste1",
+      nome: e.target.elements.nome.value,
+      email: e.target.elements.email.value,
+      senha: e.target.elements.senha.value,
+      tipoUsuario: e.target.elements.tipo.value,
     };
+    console.log(novoUsuario);
 
-    if(tipoUsuario == "prestador"){
+    if (novoUsuario.tipoUsuario == "prestador") {
       api
-      .post(`/prestadores`, novoUsuario)
-      .then((res) => {
-        console.log(res);
-        window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
-        window.location.href = 'http://localhost:3000/search';
-      }).catch((err) => {
-        console.log(err);
-      })
-    }else if(tipoUsuario == "cliente"){
+        .post(`/prestadores`, novoUsuario)
+        .then((res) => {
+          console.log(res);
+          window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
+          window.location.href = 'http://localhost:3000/search';
+        }).catch((err) => {
+          console.log(err);
+        })
+    } else if (novoUsuario.tipoUsuario == "cliente") {
       console.log(novoUsuario)
       console.log(api)
       api
-      .post(`/clientes`, novoUsuario)
-      .then((res) => {
-        console.log(res);
-        window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
-        window.location.href = 'http://localhost:3000/search';
-      }).catch((err) => {
-        console.log(err);
-      });
+        .post(`/clientes`, novoUsuario)
+        .then((res) => {
+          console.log(res);
+          window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
+          window.location.href = 'http://localhost:3000/search';
+        }).catch((err) => {
+          console.log(err);
+        });
+    }
   }
-}
-  
+
   return (
     <>
 
@@ -107,9 +110,9 @@ const SignUpForm = ({ submitForm }) => {
                 required
                 className="input"
                 type="text"
-                name="nomecompleto"
+                name="nome"
+
               />
-              {errors.nomecompleto && <p className="error">{errors.nomecompleto}</p>}
 
               <label className="label">Email</label>
               <input
@@ -117,8 +120,8 @@ const SignUpForm = ({ submitForm }) => {
                 className="input"
                 type="email"
                 name="email"
+
               />
-              {errors.email && <p className="error">{errors.email}</p>}
 
               <label className="label">Senha</label>
               <input
@@ -126,8 +129,8 @@ const SignUpForm = ({ submitForm }) => {
                 className="input"
                 type="password"
                 name="senha"
+
               />
-              {errors.senha && <p className="error">{errors.senha}</p>}
 
               <div className="tipoUsuario" onChange={onChangeValue}>
                 <input
@@ -170,7 +173,6 @@ const SignUpForm = ({ submitForm }) => {
                 type="email"
                 name="email"
               />
-              {errors.email && <p className="error">{errors.email}</p>}
 
               <label className="label">Senha</label>
               <input
@@ -178,8 +180,27 @@ const SignUpForm = ({ submitForm }) => {
                 className="input"
                 type="password"
                 name="senha"
+
               />
-              {errors.senha && <p className="error">{errors.senha}</p>}
+              <div className="tipoUsuarioLogin" onChange={onChangeValue}>
+                <input
+                  required
+                  type="radio"
+                  id="prestador"
+                  name="tipo"
+                  value="prestador"
+                  checked={tipo === 'prestador'}
+                />Sou prestador
+
+                <input
+                  required
+                  type="radio"
+                  id="cliente"
+                  name="tipo"
+                  value="cliente"
+                  checked={tipo === 'cliente'} />Quero contratar
+              </div>
+
 
               <a className="esqueciSenha" href="#">Esqueci minha senha</a>
               <button className="submit" type="submit">Continuar</button>
@@ -195,6 +216,8 @@ const SignUpForm = ({ submitForm }) => {
                 <button className="ghost" id="signIn" onClick={() => setaddclass()}>Já tenho conta</button>
               </div>
 
+
+
               <div className="overlay-panel overlay-right">
                 <div className="imagem">
                   <img className="alicate" src={alicate} alt="pintora" />
@@ -208,5 +231,6 @@ const SignUpForm = ({ submitForm }) => {
     </>
   );
 };
+
 
 export default SignUpForm;

@@ -42,6 +42,7 @@ h2 {
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
+  margin-top: 2rem;
 }
 
 .ghost,
@@ -125,6 +126,17 @@ h2 {
   position: static;
 }
 
+.tipoUsuarioLogin {
+  font-size: 13px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  position: static;
+}
 
 .formLogin {
   background-color: #FFFFFF;

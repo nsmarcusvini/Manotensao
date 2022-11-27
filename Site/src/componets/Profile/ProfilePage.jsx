@@ -63,11 +63,7 @@ function ProfilePage() {
                                         <input required className="cpf" type="text" />
                                     </label>
 
-                                    <label>
-                                        CNPJ
-                                        <input required className="cpnj" type="text" />
-                                    </label>
-
+                        
                                     <label className='dtNasc'>
                                         Data de Nascimento
                                         <input required className="dtNascimento" type="date" />
@@ -112,6 +108,8 @@ function ProfilePage() {
                                         <input required className="complemento" type="date" />
                                     </label>
                                 </div>
+
+                                <button className='importTxt'>Importar carta de apresentação</button>
 
 
                                 <button className="btnAtt" type="submit">Atualizar dados</button>

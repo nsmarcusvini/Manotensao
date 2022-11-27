@@ -6,13 +6,15 @@ public class FiltroPorAvaliacao{
     private String urlFoto;
     private String telefone;
     private Double media;
+    private String cep;
 
-    public FiltroPorAvaliacao(String nome, String email, String urlFoto, String telefone, Double media) {
+    public FiltroPorAvaliacao(String nome, String email, String urlFoto, String telefone, Double media, String cep) {
         this.nome = nome;
         this.email = email;
         this.urlFoto = urlFoto;
         this.telefone = telefone;
         this.media = media;
+        this.cep = cep;
     }
 
     public String getNome() {
@@ -33,5 +35,9 @@ public class FiltroPorAvaliacao{
 
     public Double getMedia() {
         return media;
+    }
+
+    public String getCep() {
+        return cep;
     }
 }

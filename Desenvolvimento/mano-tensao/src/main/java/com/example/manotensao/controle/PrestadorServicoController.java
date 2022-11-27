@@ -2,6 +2,7 @@ package com.example.manotensao.controle;
 
 import com.example.manotensao.dto.CartaApresentacao;
 import com.example.manotensao.dominio.PrestadorServico;
+import com.example.manotensao.dto.FiltroPorAvaliacao;
 import com.example.manotensao.repositorio.PrestadorServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -46,6 +47,15 @@ public class PrestadorServicoController {
     @GetMapping
     public ResponseEntity<List<PrestadorServico>> get() {
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
+        return lista.isEmpty()
+                ? ResponseEntity.status(204).build()
+                : ResponseEntity.status(200).body(lista);
+    }
+
+    @GetMapping("/filtro-por-servico/{idServico}/{segundaVariacao}/{terceiraVariacao}/{quartaVariacao}")
+    public ResponseEntity<List<FiltroPorAvaliacao>> get(@PathVariable int idServico, @PathVariable int segundaVariacao,
+                                                      @PathVariable int terceiraVariacao, @PathVariable int quartaVariacao) {
+        List<FiltroPorAvaliacao> lista = prestadorServicoRepository.getPrestadorPorServico(idServico,segundaVariacao,terceiraVariacao,quartaVariacao);
         return lista.isEmpty()
                 ? ResponseEntity.status(204).build()
                 : ResponseEntity.status(200).body(lista);

@@ -13,6 +13,12 @@
     gap: 2rem;
 }
 
+.buscas {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 .find {
     color: #fff;
     font-size: 3rem;
@@ -27,7 +33,7 @@ select {
     border: 0;
     background: #fff;
     font-size: 1.5rem;
-    width: 43rem;
+    width: 33rem;
     font-family: 'MontserratLight';
     background-image: none;
     cursor: pointer;
@@ -36,7 +42,7 @@ select {
 .select {
     display: flex;
     background: #fff;
-    width: 45rem;
+    width: 35rem;
     height: 4.5rem;
     overflow: hidden;
     padding-left: 1rem;
@@ -44,8 +50,13 @@ select {
     gap: 1rem;
 }
 
+.sele {
+    width: 25rem;
+}
+
 .select img {
     width: 2rem;
+    object-fit: contain;
 }
 
 .allProvi {

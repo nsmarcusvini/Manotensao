@@ -24,9 +24,10 @@ public class AvaliacaoPrestadorServicoController{
                 : ResponseEntity.status(200).body(lista);
     }
 
-    @GetMapping("/melhores-por-servico")
-    public ResponseEntity<List<FiltroPorAvaliacao>> getFiltroAvaliacaoPorServico(@RequestParam int idServico){
-        List<FiltroPorAvaliacao> lista = avaliacaoPrestadorServicoRepository.getAvaliacoesPorServico(idServico);
+    @GetMapping("/melhores-por-servico/{idServico}/{segundaVariacao}/{terceiraVariacao}/{quartaVariacao}")
+    public ResponseEntity<List<FiltroPorAvaliacao>> getFiltroAvaliacaoPorServico(@PathVariable int idServico, @PathVariable int segundaVariacao,
+                                                                                 @PathVariable int terceiraVariacao, @PathVariable int quartaVariacao){
+        List<FiltroPorAvaliacao> lista = avaliacaoPrestadorServicoRepository.getAvaliacoesPorServico(idServico,segundaVariacao,terceiraVariacao,quartaVariacao);
         return lista.isEmpty()
                 ? ResponseEntity.status(204).build()
                 : ResponseEntity.status(200).body(lista);

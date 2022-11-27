@@ -33,7 +33,6 @@ function Proposta() {
                 <div className='header'>
                     <span className='title'>ManoTensao</span>
                     <img className='noti' src={notification} />
-                    <img className='user' src={woman2} />
                 </div>
 
 

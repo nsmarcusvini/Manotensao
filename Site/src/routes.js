@@ -10,6 +10,7 @@ import { HomeSingIn } from './Pages/HomeSingIn'
 import { Login } from './Pages/Login'
 import { Profile } from './Pages/Profile'
 import { User } from './Pages/User'
+import { Proposta } from './Pages/Proposta'
 
 export const Rota = () => {
   return (
@@ -25,6 +26,7 @@ export const Rota = () => {
         <Route path = "/chat" element = {<Chat />} />
         <Route path = "/planos" element = {<PlansInfo />} />
         <Route path = "/home" element = {<HomeSingIn />} />
+        <Route path = "/proposta" element = {<Proposta />} />
         <Route path = "/" element = {<Home />} />
     </Routes>
     </BrowserRouter>

@@ -24,17 +24,14 @@ function Proposta() {
 
     return (
 
-        <div className='body'>
+        <div className='bodyProposta'>
 
             <div className="main">
-
-                {/* <SideNavBar /> */}
 
                 <div className='header'>
                     <span className='title'>ManoTensao</span>
                     <img className='noti' src={notification} />
                 </div>
-
 
                 <div className="containerProposta">
 
@@ -67,8 +64,6 @@ function Proposta() {
                         <img className='arrow' src={arrow} alt="" onClick={() => {
                             selected === 0 ? setSelected(cLenght - 1) : setSelected((prev) => prev - 1)
                         }} />
-
-
 
                         <div className="baixo">
                             <motion.span
@@ -109,22 +104,9 @@ function Proposta() {
                             </div>
                         </motion.div>
                     </div>
-
-                    <div className="makeAReview">
-                        <h4 className='makeAReviewTitle'>Você contratou este prestador em (data). Deixe aqui sua avaliação</h4>
-                        
-                        <label className='labelReview' id='rate'>Nota: </label>
-                        <input type="number" min="1" max="5" className='newRate'></input>
-                        
-                        <label className='labelReview' id='reviewText'>Sua avaliação: </label>
-                        <input className='newReview'></input>
-
-                        <button className='submitReview'>Enviar</button>
-                    </div>
-
-
                 </div>
             </div>
+            <Footer />
         </div>
     )
 

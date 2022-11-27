@@ -32,7 +32,7 @@
 }
 
 /* ----- */
-.body,
+.bodyProposta,
 .main,
 .containerProposta {
     background: #1d1d1d;
@@ -41,7 +41,7 @@
 
 .main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -49,7 +49,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
     top: 5em;
     height: 100%;
     padding: 25px;
@@ -139,7 +138,7 @@
     font-size: 16px;
     position: absolute;
     display: flex;
-    top: 6rem;
+    top: 10rem;
     right: 16rem;
 }
 
@@ -149,7 +148,7 @@
     position: absolute;
     display: flex;
     left: 55rem;
-    top: 9rem;
+    top: 13rem;
     justify-content: center;
     align-items: center;
     text-align: center;

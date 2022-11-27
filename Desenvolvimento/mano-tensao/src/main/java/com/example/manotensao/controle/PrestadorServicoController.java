@@ -20,12 +20,12 @@ public class PrestadorServicoController {
     private PrestadorServicoRepository prestadorServicoRepository;
 
     @PostMapping("/autenticacao-prestador/{email}/{senha}")
-    public ResponseEntity<Void> login(@PathVariable String email, @PathVariable String senha) {
+    public ResponseEntity<PrestadorServico> login(@PathVariable String email, @PathVariable String senha) {
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         for (PrestadorServico prestador : lista) {
             if (prestador.autenticar(email, senha)) {
                 prestador.setAutenticado(1);
-                return ResponseEntity.ok().build();
+                return ResponseEntity.ok().body(prestador);
             }
         }
         return ResponseEntity.notFound().build();
@@ -35,7 +35,7 @@ public class PrestadorServicoController {
     public ResponseEntity<Void> logoff(@PathVariable int id) {
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         for (PrestadorServico prestador : lista) {
-            if (prestador.pegarId().equals(id)) {
+            if (prestador.getId().equals(id)) {
                 prestador.setAutenticado(0);
                 return ResponseEntity.ok().build();
             }
@@ -166,7 +166,7 @@ public class PrestadorServicoController {
         PrestadorServico prestadorServico = null;
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         for (PrestadorServico prestador : lista) {
-            if (prestador.pegarId().equals(idPrestador)) {
+            if (prestador.getId().equals(idPrestador)) {
                 prestadorServico = prestador;
             }
         }
@@ -185,7 +185,7 @@ public class PrestadorServicoController {
         CartaApresentacao carta = lerArquivoTxt(nomeArq);
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         for (PrestadorServico prestador : lista) {
-            if (prestador.pegarId().equals(idPrestador)) {
+            if (prestador.getId().equals(idPrestador)) {
                 prestador.setCartaApresentacao(carta.getApresentacao());
                 put(idPrestador, prestador);
             }

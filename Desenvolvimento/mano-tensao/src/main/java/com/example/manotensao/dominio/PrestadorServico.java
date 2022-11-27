@@ -21,7 +21,7 @@ public class PrestadorServico extends Usuario implements Serializable{
 
     private String cartaApresentacao;
 
-    public Integer pegarId() {
+    public Integer getId() {
         return idPrestador;
     }
 

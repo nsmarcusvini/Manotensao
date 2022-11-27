@@ -16,12 +16,12 @@ public class ClienteController{
     private ClienteRepository clienteRepository;
 
     @PostMapping("/autenticacao-cliente/{email}/{senha}")
-    public ResponseEntity<Void> login(@PathVariable String email, @PathVariable String senha){
+    public ResponseEntity<Cliente> login(@PathVariable String email, @PathVariable String senha){
         List<Cliente> lista = clienteRepository.findAll();
         for (Cliente cliente : lista) {
             if (cliente.autenticar(email,senha)) {
                 cliente.setAutenticado(1);
-                return ResponseEntity.ok().build();
+                return ResponseEntity.ok().body(cliente);
             }
         }
         return ResponseEntity.notFound().build();
@@ -31,7 +31,7 @@ public class ClienteController{
     public ResponseEntity<Void> logoff(@PathVariable int id){
         List<Cliente> lista = clienteRepository.findAll();
         for (Cliente cliente : lista) {
-            if (cliente.pegarId().equals(id)) {
+            if (cliente.getId().equals(id)) {
                 cliente.setAutenticado(0);
                 return ResponseEntity.ok().build();
             }

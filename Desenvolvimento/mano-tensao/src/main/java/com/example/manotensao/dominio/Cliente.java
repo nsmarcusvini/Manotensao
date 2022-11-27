@@ -13,7 +13,7 @@ public class Cliente extends Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCliente;
 
-    public Integer pegarId() {
+    public Integer getId() {
         return idCliente;
     }
 

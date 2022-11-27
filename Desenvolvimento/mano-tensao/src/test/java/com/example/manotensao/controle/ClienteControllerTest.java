@@ -110,6 +110,6 @@ class ClienteControllerTest {
         verify(repository, times(1)).save(cliente);
         assertEquals(200, resposta.getStatusCodeValue());
         assertNotNull(resposta.getBody());
-        assertEquals(idTeste, resposta.getBody().pegarId());
+        assertEquals(idTeste, resposta.getBody().getId());
     }
 }

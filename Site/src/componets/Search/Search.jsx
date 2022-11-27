@@ -6,6 +6,10 @@ import Star5 from '../../assets/star5.png'
 import { LikeButton } from './HeartLike'
 import { Footer } from '../Footer/Footer'
 
+function pesquisarPorServico(){
+    
+}
+
 export const Search = () => {
     return (
         <div className='search-all'>
@@ -16,7 +20,7 @@ export const Search = () => {
                     </div>
                     <div className="select">
                         <img src={Lupa} alt="" />
-                        <select name="" id="">
+                        <select name="" id="" onChange={pesquisarPorServico}>
                             <option selected disabled value="">Escolha um serviço</option>
                             <option value="">Eletétrica</option>
                             <option value="">Hidráulica</option>

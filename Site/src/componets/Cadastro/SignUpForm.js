@@ -5,7 +5,9 @@ import fblogo from '../../assets/fblogo.png';
 import instagram from '../../assets/instagram1.png';
 import google from '../../assets/google.png';
 import useForm from './useForm';
+import api from '../../axios.js';
 import './SignUp.css';
+import toast from "react-hot-toast";
 
 const SignUpForm = ({ submitForm }) => {
   const { handleChange, handleFormSubmit, values, errors, validation } = useForm(submitForm);
@@ -18,18 +20,71 @@ const SignUpForm = ({ submitForm }) => {
     console.log(event.target.value);
   }
 
+  function logar(event){
+    event.preventDefault();
+    var tipoUsuario = "cliente";
+    var email = "limagabrielsilva11@gmail.com"
+    var senha = "1234Lima"
+
+    if(tipoUsuario == "prestador"){
+      console.log("entrei no prestador");
+      console.log(api);
+      api
+        .post(`/prestadores/autenticacao-prestador/${email}/${senha}`)
+        .then((res) => {
+          console.log(res);
+          window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
+          window.location.href = 'http://localhost:3000/search';
+        }).catch((err) => {
+          console.log(err);
+        })
+    } else if(tipoUsuario == "cliente"){
+      api
+        .post(`/clientes/autenticacao-cliente/${email}/${senha}`)
+        .then((res) => {
+          console.log(res);
+          window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
+          window.location.href = 'http://localhost:3000/search';
+        }).catch((err) => {
+          console.log(err);
+        })
+    }
+    }
 
   function cadastrar(event) {
     event.preventDefault();
+    var tipoUsuario = "prestador";
 
     const novoUsuario = {
-      nome: event.target.nome.value,
-      email: event.target.email.value,
-      senha: event.target.senha.value,
-      tipoUsuario: event.target.tipoUsuario.value,
+      nome: "Gabriel",
+      email: "limagabrielsilva11@gmail.com",
+      senha: "1234LimaTeste1",
     };
 
+    if(tipoUsuario == "prestador"){
+      api
+      .post(`/prestadores`, novoUsuario)
+      .then((res) => {
+        console.log(res);
+        window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
+        window.location.href = 'http://localhost:3000/search';
+      }).catch((err) => {
+        console.log(err);
+      })
+    }else if(tipoUsuario == "cliente"){
+      console.log(novoUsuario)
+      console.log(api)
+      api
+      .post(`/clientes`, novoUsuario)
+      .then((res) => {
+        console.log(res);
+        window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
+        window.location.href = 'http://localhost:3000/search';
+      }).catch((err) => {
+        console.log(err);
+      });
   }
+}
   
   return (
     <>
@@ -100,7 +155,7 @@ const SignUpForm = ({ submitForm }) => {
 
           </div>
           <div className="form-container sign-in-container">
-            <form className="formLogin" action="#" /* onClick={login} */>
+            <form className="formLogin" action="#" onSubmit={logar}>
               <h1 className="h1">Entrar</h1>
               <div className="social-container">
                 <img src={google} className="social" />

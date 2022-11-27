@@ -20,7 +20,7 @@ export const Sucess = () => {
                 <div className="boxSucess">
                     <BsBagCheckFill />
                     <h2 className="thanks">Obrigado por se juntar a  <span className="manoThanks"> ManoTensão</span></h2>
-                    <span className="verify">Verifique seu e-mail</span>
+                    {/* <span className="verify">Verifique seu e-mail</span> */}
                     <p className="question">Se houver qualquer duvida, por favor entre em contato <span className="emailThanks">centralduvidas@manotensao.com</span></p>
                     <button className="voltaThanks" onClick={() => navigate("/")}>Voltar</button>
                 </div>

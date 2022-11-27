@@ -6,11 +6,36 @@ import Mulher from '../../assets/woman2.2.jpg'
 import Star5 from '../../assets/star5.png'
 import { LikeButton } from './HeartLike'
 import { Footer } from '../Footer/Footer'
+import api from '../../axios.js';
+
+function pesquisarPorServico(){
+    var tipoServico = 3;
+    var tiposServicos = [];
+
+    if(tipoServico === 1){
+        tiposServicos = [1,4,5,7];
+    } else if (tipoServico === 2){
+        tiposServicos = [2,4,6,7];
+    } else if(tipoServico === 3){
+        tiposServicos = [3,5,6,7];
+    }
+
+    api
+        .get(`/prestadores/filtro-por-servico/${tiposServicos[0]}/${tiposServicos[1]}/${tiposServicos[2]}/${tiposServicos[3]}`)
+        .then((res) => {
+          console.log(res);
+          var prestadores = res.data;
+          console.log(prestadores[0]);
+        }).catch((err) => {
+          console.log(err);
+        })
+
+}
 
 export const Search = () => {
     return (
         <div className='search-all'>
-            <div className="search">
+            <div className="search">logar
                 <div className="busca">
                     <div className="find">
                         Encontre um prestador perto de você
@@ -18,11 +43,11 @@ export const Search = () => {
                     <div className="buscas">
                     <div className="select">
                         <img src={Lupa} alt="" />
-                        <select name="" id="">
+                        <select name="" id="" onChange={pesquisarPorServico}>
                             <option selected disabled value="">Escolha um serviço</option>
-                            <option value="">Eletétrica</option>
-                            <option value="">Hidráulica</option>
-                            <option value="">Pintura</option>
+                            <option value="1">Pintura</option>
+                            <option value="2">Hidráulica</option>
+                            <option value="3">Elétrica</option>
                         </select>
                     </div>
                     <div className="select sele">

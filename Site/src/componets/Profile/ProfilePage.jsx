@@ -119,7 +119,7 @@ function ProfilePage() {
 
                                     <label>
                                         Complemento
-                                        <input required className="complemento" type="date" />
+                                        <input required className="complemento" type="text" />
                                     </label>
                                 </div>
 

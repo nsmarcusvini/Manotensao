@@ -12,6 +12,7 @@ import { Footer } from '../Footer/Footer';
 import woman2 from '../../assets/woman2.jpeg'
 import { motion } from 'framer-motion'
 import { DataReview } from './DataReview';
+import { LikeButton } from '../Search/HeartLike';
 
 function Proposta() {
 
@@ -42,7 +43,7 @@ function Proposta() {
                         <p className='name'>Maria Silva</p>
 
                         <div className="tool_icons">
-                            <img src={heart} alt="" />
+                            <LikeButton />
                             <img src={share} />
                             <img src={alert} />
                         </div>

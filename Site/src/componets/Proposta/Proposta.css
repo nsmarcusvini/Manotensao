@@ -64,12 +64,26 @@
     top: -5rem;
 }
 
-.right button {
+.right .btnFazerProposta {
     position: relative;
     width: 10rem;
     height: 3rem;
     bottom: -1em;
-    left: 1rem;
+    /* left: 1rem; */
+    border-radius: 4px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    margin: 0.5em;
+}
+
+.right .btnConversar {
+    position: relative;
+    width: 10rem;
+    height: 3rem;
+    bottom: -1em;
+    /* left: 1rem; */
     border-radius: 4px;
     border: none;
     font-weight: bold;
@@ -85,6 +99,10 @@
 
 .btnFazerProposta {
     background: #D9F503;
+}
+
+.sc-bcXHqe {
+    background: transparent;
 }
 
 .containerProposta .right {
@@ -103,14 +121,17 @@
     margin-left: 6.5rem;
 }
 
-.containerProposta .right img {
+.tool_icons {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.tool_icons img {
     width: 2rem;
-    height: 2rem;
-    margin-top: 1rem;
-    margin-left: 4rem;
-    justify-content: center;
     cursor: pointer;
 }
+
 
 .containerProposta .right .desc {
     margin-top: 3rem;

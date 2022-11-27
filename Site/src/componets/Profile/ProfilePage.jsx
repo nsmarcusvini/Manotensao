@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import notification from '../../assets/notifications.svg';
 import homi from '../../assets/man.jpg';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom'
 import './Profile.css';
 
 function ProfilePage() {
+
+    const navigate = useNavigate();
 
     const { register, handleSubmit, setValue, setFocus } = useForm();
 
@@ -28,11 +31,18 @@ function ProfilePage() {
 
 
     return (
-        <>
+        <div className="alll">
             <div className="body">
-                <div className='headerProfile'>
-                    <span className='titleProfile'>ManoTensao</span>
-                    <img className='noti' src={notification} />
+                <div className="container">
+                    <div className="con">
+                        <h1 className='logoHeader'>ManoTensao</h1>
+                        <ul className='menu'>
+                            <a className="list" onClick={() => navigate("/home")}>Home</a>
+                            <a className='list' onClick={() => navigate("/chat")}>Chat</a>
+                            <a className='list' onClick={() => navigate("/search")}>Pesquisar</a>
+
+                        </ul>
+                    </div>
                 </div>
                 <div className='containerProfile'>
                     <div className='pic'>
@@ -63,7 +73,11 @@ function ProfilePage() {
                                         <input required className="cpf" type="text" />
                                     </label>
 
-                        
+                                    <label>
+                                        CNPJ
+                                        <input required className="cpnj" type="text" />
+                                    </label>
+
                                     <label className='dtNasc'>
                                         Data de Nascimento
                                         <input required className="dtNascimento" type="date" />
@@ -109,8 +123,6 @@ function ProfilePage() {
                                     </label>
                                 </div>
 
-                                <button className='importTxt'>Importar carta de apresentação</button>
-
 
                                 <button className="btnAtt" type="submit">Atualizar dados</button>
 
@@ -119,7 +131,7 @@ function ProfilePage() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

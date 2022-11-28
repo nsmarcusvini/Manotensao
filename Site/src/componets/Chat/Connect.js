@@ -1,14 +1,15 @@
 import "./Chat.css";
 import io from "socket.io-client";
 import { useState } from "react";
-import Chat from "./Chat";
-/* import SideNavBar from './SideNavBar/SideNavBar';
- */
-import notification from '../../assets/notifications.svg';
+import ChatPage from "./ChatPage";
+import { useNavigate } from "react-router-dom";
+import { Footer } from "../Footer/Footer";
 
 const socket = io.connect("http://localhost:3001");
 
 function Connect() {
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
@@ -22,15 +23,21 @@ function Connect() {
 
   return (
 
-    
+
     <div className="Connect">
 
-      <div className='header'>
-        <span className='title'>ManoTensao</span>
-        <img className='noti' src={notification} />
+      <div className="container">
+        <div className="con">
+          <h1 className='logoHeader'>ManoTensao</h1>
+          <ul className='menu'>
+            <a className="list" onClick={() => navigate("/home")}>Home</a>
+            <a className='list' onClick={() => navigate("/chat")}>Chat</a>
+            <a className='list' onClick={() => navigate("/search")}>Pesquisar</a>
+          </ul>
+        </div>
       </div>
 
-     {/*  {!showChat ? (
+      {/*  {!showChat ? (
         <div className="joinChatContainer">
           <h3>Join A Chat</h3>
           <input
@@ -52,9 +59,9 @@ function Connect() {
       ) : (
         )} */}
 
-        <Chat socket={socket} username={username} room={room} />
-     
-      {/* <SideNavBar /> */}
+      <ChatPage socket={socket} username={username} room={room} />
+
+      <Footer/>
     </div>
   );
 }

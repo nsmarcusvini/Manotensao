@@ -1,6 +1,6 @@
- import React from 'react'
+import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Chat from './componets/Chat/Chat'
+import { ConnectPage } from './Pages/Connect'
 import { PlansInfo } from './componets/PlansInfo/PlansInfo'
 import { PlansInfoPremium } from './componets/PlansInfoPremium/PlansInfoPremium'
 import { PlansInfoPro } from './componets/PlansInfoPro/PlansInfoPro'
@@ -11,9 +11,10 @@ import { Login } from './Pages/Login'
 import { Profile } from './Pages/Profile'
 import { User } from './Pages/User'
 import { Proposta } from './Pages/Proposta'
-import { Review } from './Pages/Review'
-
-
+import { ReviewPrestador } from './Pages/ReviewPrestador'
+import  Avaliado  from './componets/Reviews/Avaliado'
+import { ReviewCliente } from './Pages/ReviewCliente'
+ 
 export const Rota = () => {
   return (
     <BrowserRouter>
@@ -25,12 +26,14 @@ export const Rota = () => {
         <Route path = "/search" element = {<User />} />
         <Route path = "/cadastro" element = {<Login />} />
         <Route path = "/profile" element = {<Profile />} />
-        <Route path = "/chat" element = {<Chat />} />
+        <Route path = "/connect" element = {<ConnectPage />} />
         <Route path = "/planos" element = {<PlansInfo />} />
         <Route path = "/home" element = {<HomeSingIn />} />
         <Route path = "/proposta" element = {<Proposta />} />
-        <Route path = "/review" element = {<Review />} />
+        <Route path = "/reviewprestador" element = {<ReviewPrestador />} />
+        <Route path = "/reviewcliente" element = {<ReviewCliente />} />
         <Route path = "/" element = {<Home />} />
+        <Route path = "/avaliado" element = {<Avaliado />} />
     </Routes>
     </BrowserRouter>
   )

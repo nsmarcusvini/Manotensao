@@ -4,26 +4,59 @@
   margin: 0;
 }
 
-.headerChat {
-  position: relative;
-  width: 100%;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  gap: 2rem;
+}
+
+ .container .con {
+  display: flex;
   justify-content: space-between;
-  margin-top: 1.3%;
+  width: 87%;
 }
 
-.headerChat .titleChat {
+.header-bg {
+  background-color: #000;
+  transition: .5s;
+}
+
+.logoHeader {
+  font-family: 'ElectricShocker', sans-serif;
   color: #fff;
-  font-family: 'ElectricShocker';
-  font-size: 35px;
-  margin-left: 10%;
-  cursor: pointer;
+  font-size: 2.7rem;
 }
 
-.headerChat .noti {
-  width: 27px;
-  margin-left: 65%;
-  cursor: pointer;
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  color: #fff;
+  align-items: center;
+  justify-content: space-around;
 }
+
+.menu li {
+  cursor: pointer;
+  font-family: 'Montserrat';
+}
+
+.menu .list {
+  text-decoration: none;
+  padding: 0 3px;
+  transition: 0.3s;
+}
+
+.menu .list:hover {
+  border-bottom: 3px solid var(--limeGreen);
+}
+
+.menu a.active {
+  border-bottom: 3px solid var(--limeGreen);
+}
+
 
 .chat-window {
   display: flex;
@@ -36,7 +69,7 @@
 .chat-window .leftChat {
   text-align: left;
   width: 330px;
-  margin-left: 8.5%;
+  margin-left: 6.5%;
   height: 83vh;
   background: #fff;
   border-radius: 5px;
@@ -180,7 +213,7 @@
 .chat-window .rightChat {
   text-align: left;
   width: 800px;
-  margin: auto 1;
+  margin-left: -3rem;
   border-radius: 5px;
 }
 

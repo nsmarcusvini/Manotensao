@@ -51,12 +51,83 @@ select {
 }
 
 .sele {
-    width: 25rem;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    width: 20rem;
+    height: 4.5rem;
+    overflow: hidden;
+    padding-left: 1rem;
+    border-radius: 8px;
+    gap: 1rem;
+}
+
+.mais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 1rem;
+}
+
+.switch {
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    position: relative;
+}
+
+.switch .switchButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+    background: #475569;
+}
+
+.switch .switchButton::before {
+    content: "";
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    transition: .4s all ease;
+    background: #fff;
+}
+
+.switch .avaliados:checked + .switchButton {
+    background: #60cc13;
+}
+
+.switch .avaliados:checked + .switchButton::before {
+    transform: translateX(26px);
+}
+
+.switch .avaliados {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.melhores {
+    font-size: 1.2rem;
+    font-family: 'MontserratLight';
+}
+
+.sele img {
+    width: 2rem;
+    object-fit: contain;
 }
 
 .select img {
     width: 2rem;
-    object-fit: contain;
 }
 
 .allProvi {

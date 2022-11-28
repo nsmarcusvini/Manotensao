@@ -4,16 +4,13 @@ import homi from '../../assets/man.jpg';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'
 import './Profile.css';
+import api from '../../axios.js';
 
 function ProfilePage() {
 
     const navigate = useNavigate();
 
     const { register, handleSubmit, setValue, setFocus } = useForm();
-
-    const onSubmit = (e) => {
-        console.log(e);
-    }
 
     const viaCep = (e) => {
         const cep = e.target.value.replace(/\D/g, '');
@@ -33,21 +30,41 @@ function ProfilePage() {
 
     const dados = {
         nome: e.target.elements.nome.value,
-        sobrenome: e.target.elements.sobrenome.value,
         cpf: e.target.elements.cpf.value,
         dtNascimento: e.target.elements.dtNascimento.value,
         email: e.target.elements.email.value,
-        celular: e.target.elements.celular.value,
-    
+        telefone: e.target.elements.celular.value,
         cep: e.target.elements.cep.value,
         bairro: e.target.elements.bairro.value,
-        logradouro: e.target.elements.logradouro.value,
+        rua: e.target.elements.logradouro.value,
         numero: e.target.elements.numero.value,
-        complemento: e.target.elements.complemento.value
+        complemento: e.target.elements.complemento.value,
+        senha : JSON.parse(sessionStorage.user).senha,
     }
 
+    api
+    .put(`/prestadores/${JSON.parse(sessionStorage.user).id}`, dados)
+    .then((res) => {
+      console.log(res);
+      carregarPagina();
+    }).catch((err) => {
+      console.log(err);
+    })
     console.log(dados);
 
+    }
+
+    function carregarPagina(){
+        // = JSON.parse(sessionStorage.user).nome;
+        // = JSON.parse(sessionStorage.user).cpf;
+        // = JSON.parse(sessionStorage.user).dtNascimento;
+        // = JSON.parse(sessionStorage.user).nome;
+        // = JSON.parse(sessionStorage.user).nome;
+        // = JSON.parse(sessionStorage.user).nome;
+        // = JSON.parse(sessionStorage.user).nome;
+        // = JSON.parse(sessionStorage.user).nome;
+        // = JSON.parse(sessionStorage.user).nome;
+        // = JSON.parse(sessionStorage.user).nome;
     }
 
 
@@ -68,9 +85,9 @@ function ProfilePage() {
             </div>
             <div className='containerProfile'>
                 <div className='pic'>
-                    <img src={homi} />
-                    <p>Fulano da Silva</p>
-                    <span>email@email.com</span>
+                    <img src={JSON.parse(sessionStorage.user).urlFoto} />
+                    <p>{JSON.parse(sessionStorage.user).nome}</p>
+                    <span>{JSON.parse(sessionStorage.user).email}</span>
                     <button>Escolher foto</button>
                 </div>
                 <div className='menu-info'>
@@ -82,7 +99,7 @@ function ProfilePage() {
 
                                 <label>
                                     Nome
-                                    <input required className="nome" type="text" name='nome' />
+                                    <input required className="nome" type="text" name='nome' value={JSON.parse(sessionStorage.user).nome}/>
                                 </label>
 
                                 <label>
@@ -92,22 +109,22 @@ function ProfilePage() {
 
                                 <label>
                                     CPF
-                                    <input required className="cpf" type="text" name='cpf'/>
+                                    <input required className="cpf" type="text" name='cpf' value={JSON.parse(sessionStorage.user).cpf}/>
                                 </label>
 
                                 <label className='dtNasc'>
                                     Data de Nascimento
-                                    <input required className="dtNascimento" type="date" name='dtNascimento' />
+                                    <input required className="dtNascimento" type="date" name='dtNascimento' value={JSON.parse(sessionStorage.user).dtNascimento} />
                                 </label>
 
                                 <label>
                                     Email
-                                    <input required className="email" type="email" name='email' />
+                                    <input required className="email" type="email" name='email' value={JSON.parse(sessionStorage.user).email} />
                                 </label>
 
                                 <label>
                                     Celular
-                                    <input required className="celular" type="text" name='celular' />
+                                    <input required className="celular" type="text" name='celular' value={JSON.parse(sessionStorage.user).telefone} />
                                 </label>
                             </div>
 
@@ -116,27 +133,27 @@ function ProfilePage() {
 
                                 <label>
                                     CEP
-                                    <input required className="cep" type="text" {...register("cep")} onBlur={viaCep} name="cep" />
+                                    <input required className="cep" type="text" {...register("cep")} onBlur={viaCep} name="cep" value={JSON.parse(sessionStorage.user).cep} />
                                 </label>
 
                                 <label>
                                     Bairro
-                                    <input required className="bairro" {...register("bairro")} type="text" name='bairro'/>
+                                    <input required className="bairro" {...register("bairro")} type="text" name='bairro' value={JSON.parse(sessionStorage.user).bairro}/>
                                 </label>
 
                                 <label>
                                     Logradouro
-                                    <input required className="logradouro" {...register("logradouro")} type="text" name='logradouro'/>
+                                    <input required className="logradouro" {...register("logradouro")} type="text" name='logradouro' value={JSON.parse(sessionStorage.user).logradouro} />
                                 </label>
 
                                 <label>
                                     Número
-                                    <input required className="number" type="text" name='numero'/>
+                                    <input required className="number" type="text" name='numero' value={JSON.parse(sessionStorage.user).numero} />
                                 </label>
 
                                 <label>
                                     Complemento
-                                    <input required className="complemento" type="text" name='complemento'/>
+                                    <input required className="complemento" type="text" name='complemento' value={JSON.parse(sessionStorage.user).complemento}/>
                                 </label>
                             </div>
 

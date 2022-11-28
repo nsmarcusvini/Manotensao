@@ -41,7 +41,7 @@ public abstract class Usuario{
     private String urlFoto;
 
     public Boolean autenticar(String email, String senha){
-        return this.getEmail().equals(email) && this.pegarSenha().equals(senha);
+        return this.getEmail().equals(email) && this.getSenha().equals(senha);
     }
 
     public String getNome() {
@@ -60,7 +60,7 @@ public abstract class Usuario{
         this.email = email;
     }
 
-    public String pegarSenha() {
+    public String getSenha() {
         return senha;
     }
 

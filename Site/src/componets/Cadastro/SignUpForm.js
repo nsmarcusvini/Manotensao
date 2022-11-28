@@ -21,13 +21,13 @@ const SignUpForm = ({ submitForm }) => {
 
   function logar(e) {
     e.preventDefault();
+    var tipoUsuario = e.target.elements.tipo.value;
     const login = {
       email: e.target.elements.email.value,
       senha: e.target.elements.senha.value,
-      tipoUsuario: e.target.elements.tipo.value,
     }
     console.log(login);
-    if (login.tipoUsuario == "prestador") {
+    if (tipoUsuario == "prestador") {
       console.log("entrei no prestador");
       console.log(api);
       api
@@ -39,7 +39,7 @@ const SignUpForm = ({ submitForm }) => {
         }).catch((err) => {
           console.log(err);
         })
-    } else if (login.tipoUsuario == "cliente") {
+    } else if (tipoUsuario == "cliente") {
       api
         .post(`/clientes/autenticacao-cliente/${login.email}/${login.senha}`)
         .then((res) => {
@@ -55,16 +55,16 @@ const SignUpForm = ({ submitForm }) => {
 
   function cadastrar(e) {
     e.preventDefault();
+    var tipoUsuario = e.target.elements.tipo.value;
 
     const novoUsuario = {
       nome: e.target.elements.nome.value,
       email: e.target.elements.email.value,
       senha: e.target.elements.senha.value,
-      tipoUsuario: e.target.elements.tipo.value,
     };
     console.log(novoUsuario);
 
-    if (novoUsuario.tipoUsuario == "prestador") {
+    if (tipoUsuario == "prestador") {
       api
         .post(`/prestadores`, novoUsuario)
         .then((res) => {
@@ -74,7 +74,7 @@ const SignUpForm = ({ submitForm }) => {
         }).catch((err) => {
           console.log(err);
         })
-    } else if (novoUsuario.tipoUsuario == "cliente") {
+    } else if (tipoUsuario == "cliente") {
       console.log(novoUsuario)
       console.log(api)
       api

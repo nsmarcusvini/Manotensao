@@ -32,12 +32,6 @@ function ProfilePage() {
 
 
 
-    const notify = () => {
-        toast.dark("Cadastro atualizado!")
-    };
-
-
-
     function atualizar(e) {
 
         e.preventDefault();
@@ -61,6 +55,7 @@ function ProfilePage() {
             .then((res) => {
                 console.log(res);
                 window.sessionStorage.setItem("user", JSON.stringify(res.data));
+                alert("Cadastro atualizado!")
             }).catch((err) => {
                 console.log(err);
             })
@@ -166,7 +161,7 @@ function ProfilePage() {
                             </div>
 
 
-                            <button className="btnAtt" type="submit" onClick={notify}  id="animate.css"> Atualizar dados</button>
+                            <button className="btnAtt" type="submit"  id="animate.css"> Atualizar dados</button>
                             
 
 
@@ -174,7 +169,7 @@ function ProfilePage() {
 
                         </form>
                     </div>
-                            <ToastContainer />
+                        
                 </div>
             </div>
         </div >

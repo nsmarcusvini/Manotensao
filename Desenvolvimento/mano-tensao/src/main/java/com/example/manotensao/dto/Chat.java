@@ -12,21 +12,23 @@ import java.time.LocalDateTime;
 
 public class Chat {
     private Integer id;
-    private String cliente;
-    private String prestador;
+    private String remetente;
     private LocalDateTime dataHora;
     private String mensagem;
+
+    public Chat(Integer id, String remetente, LocalDateTime dataHora, String mensagem) {
+        this.id = id;
+        this.remetente = remetente;
+        this.dataHora = dataHora;
+        this.mensagem = mensagem;
+    }
 
     public Integer getId() {
         return id;
     }
 
-    public String getCliente() {
-        return cliente;
-    }
-
-    public String getPrestador() {
-        return prestador;
+    public String getRemetente() {
+        return remetente;
     }
 
     public LocalDateTime getDataHora() {

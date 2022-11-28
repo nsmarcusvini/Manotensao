@@ -68,7 +68,9 @@ select {
 }
 
 .providerss {
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
     align-items: center;
     margin-top: 7rem;
@@ -88,7 +90,7 @@ select {
     overflow: hidden;
 }
 
-.provider img {
+.provider .persona {
     border-radius: 20px;
     width: 23rem;
     margin-top: -5rem;
@@ -97,7 +99,7 @@ select {
 
 .provider .nameBar {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 10;
@@ -106,16 +108,26 @@ select {
     background: var(--limeGreen);
 }
 
+.nomePrestadorBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .provider .nameBar .barName {
     font-family: 'Montserrat';
     font-size: 1.3rem;
-    margin-bottom: -5rem;
 }
 
-.provider .nameBar img {
-    width: 7rem;
-    margin-bottom: 1rem;
-    margin-bottom: -3rem;
+.provider .nameBar .stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.1rem;
+} 
+
+.provider .nameBar .star {
+    width: 1.5rem;
 }
 
 .provider .distance {
@@ -146,4 +158,11 @@ select {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+}
+
+.cradsPrestador {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 5rem;
 }

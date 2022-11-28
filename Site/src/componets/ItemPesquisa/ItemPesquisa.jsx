@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import api from '../../axios'
+import { LikeButton } from "../Search/HeartLike";
+import User from '../../assets/user.jpg'
+import Star from '../../assets/star.svg'
 
-export const ItemPesquisa = () => {
+export const ItemPesquisa = (props) => {
 
     const [nome, setNome] = useState(props.nome);
     const [email, setEmail] = useState(props.email);
-    const [imagem, setImagem] = useState(props.capa);
+    const [imagem, setImagem] = useState(props.imagem);
+    const [estrela, setEstrela] = useState(props.estrela);
 
     const [editavel, setEditavel] = useState(false);
 
     function editar() {
         const prestadorEditada = {
-            nome: nomeInput,
-            email: emailInput,
-            imagem: imagemInput
+            nome: nome,
+            email: email,
+            imagem: imagem,
+            estrela: estrela
+
         };
 
         api
@@ -30,36 +36,40 @@ export const ItemPesquisa = () => {
         console.log(prestadorEditada);
     }
 
+    const cardImage = imagem ? imagem : User
+
+    console.log(imagem)
+
     return (
         <>
-            <div className="providerss">
-                <div className="allProvi">
-                    <div className="provider">
-                        <div className="distance">
-                            <span className="distan">
-                                0.8KM
-                            </span>
-                        </div>
-                        <img alt=""
-                            disabled={!editavel}
-                            defaultValue={imagemInput}
-                            onChange={(e) => setImagem(e.target.value)} />
-                        <div className="nameBar">
-                            <span className="barName" disabled={!editavel}
-                                type="text"
-                                defaultValue={nomeInput}
-                                onChange={(e) => setNome(e.target.value)}>
-                                {props.nome}
-                            </span>
-                            <img src={Star5} alt="" />
-                        </div>
+
+            <div className="allProvi">
+                <div className="provider">
+                    <div className="distance">
+                        <span className="distan">
+                            0.8KM
+                        </span>
                     </div>
-                    <div className="buttons">
-                        <button className='sendMensa'>Enviar mensagem</button>
-                        <LikeButton />
+                    <img src={cardImage} alt="" className="persona" />
+                    <div className="nameBar">
+                        <div className="nomePrestadorBar">
+                            <span className="barName">
+                                {nome}
+                            </span>
+                        </div>
+                        <div className="stars">
+                            {Array.from({ length: props.estrela }, () => (
+                                <img src={Star} className="star" />
+                            ))}
+                        </div>
                     </div>
                 </div>
+                <div className="buttons">
+                    <button className='sendMensa'>Enviar mensagem</button>
+                    <LikeButton />
+                </div>
             </div>
+
         </>
     );
 }

@@ -49,6 +49,7 @@ public class ClienteController{
 
     @PostMapping
     public ResponseEntity<Cliente> post(@RequestBody Cliente novoUsuario){
+        novoUsuario.setAutenticado(1);
         clienteRepository.save(novoUsuario);
         return ResponseEntity.status(201).body(novoUsuario);
     }

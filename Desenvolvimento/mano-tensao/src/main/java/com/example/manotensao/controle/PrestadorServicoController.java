@@ -63,6 +63,7 @@ public class PrestadorServicoController {
 
     @PostMapping
     public ResponseEntity<PrestadorServico> post(@RequestBody PrestadorServico novoPrestador) {
+        novoPrestador.setAutenticado(1);
         prestadorServicoRepository.save(novoPrestador);
         return ResponseEntity.status(201).body(novoPrestador);
     }

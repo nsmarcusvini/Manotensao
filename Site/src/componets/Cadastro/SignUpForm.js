@@ -25,6 +25,7 @@ const SignUpForm = ({ submitForm }) => {
     const login = {
       email: e.target.elements.email.value,
       senha: e.target.elements.senha.value,
+      autenticado: 1,
     }
     console.log(login);
     if (tipoUsuario == "prestador") {
@@ -61,6 +62,7 @@ const SignUpForm = ({ submitForm }) => {
       nome: e.target.elements.nome.value,
       email: e.target.elements.email.value,
       senha: e.target.elements.senha.value,
+      autenticado: 1,
     };
     console.log(novoUsuario);
 

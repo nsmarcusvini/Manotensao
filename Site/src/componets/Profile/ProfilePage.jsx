@@ -46,6 +46,7 @@ function ProfilePage() {
     .put(`/prestadores/${JSON.parse(sessionStorage.user).id}`, dados)
     .then((res) => {
       console.log(res);
+      window.sessionStorage.setItem("user", JSON.stringify(res.data));
       carregarPagina();
     }).catch((err) => {
       console.log(err);

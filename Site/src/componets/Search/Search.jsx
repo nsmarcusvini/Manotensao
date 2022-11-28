@@ -8,6 +8,24 @@ import { LikeButton } from './HeartLike'
 import { Footer } from '../Footer/Footer'
 import api from '../../axios.js';
 
+// function geolocalização(){
+//     var axios = require('axios');
+
+// var config = {
+//   method: 'get',
+//   url: `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${08121-640}&destinations${06065-180}&mode=bicycling&language=fr-FR&key=YOUR_API_KEY`,
+//   headers: { }
+// };
+
+// axios(config)
+// .then(function (response) {
+//   console.log(JSON.stringify(response.data));
+// })
+// .catch(function (error) {
+//   console.log(error);
+// });
+// }
+
 function pesquisarPorServico(){
     var tipoServico = 3;
     var tiposServicos = [];

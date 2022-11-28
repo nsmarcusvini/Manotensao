@@ -77,54 +77,62 @@ function pesquisarPorServico() {
 }
 
 function pesquisarPorAvaliacao() {
+    // if(melhores == false){
+    //     melhores.value  = true;
+    // } else if(melhores == true){
+    //     melhores = false;
+    // }
     var tipoServico = null;
     var tiposServicos = [];
-
-    if (tipoServico == null) {
-        api
-            .get(`/avaliacoes-prestadores/melhores`)
-            .then((res) => {
-                console.log(res);
-                var prestadores = res.data;
-                {
-                    prestadores.map(prestador => (
-                        <ItemPesquisa
-                            nome={prestador.nome}
-                            imagem={prestador.urlFoto}
-                            estrela={prestador.media}
-                        />
-                    ))
-                }
-            }).catch((err) => {
-                console.log(err);
-            })
-    } else {
-        if (tipoServico === 1) {
-            tiposServicos = [1, 4, 5, 7];
-        } else if (tipoServico === 2) {
-            tiposServicos = [2, 4, 6, 7];
-        } else if (tipoServico === 3) {
-            tiposServicos = [3, 5, 6, 7];
+    // if(melhores == true){
+        if (tipoServico == null) {
+            api
+                .get(`/avaliacoes-prestadores/melhores`)
+                .then((res) => {
+                    console.log(res);
+                    var prestadores = res.data;
+                    {
+                        prestadores.map(prestador => (
+                            <ItemPesquisa
+                                nome={prestador.nome}
+                                imagem={prestador.urlFoto}
+                                estrela={prestador.media}
+                            />
+                        ))
+                    }
+                }).catch((err) => {
+                    console.log(err);
+                })
+        } else {
+            if (tipoServico === 1) {
+                tiposServicos = [1, 4, 5, 7];
+            } else if (tipoServico === 2) {
+                tiposServicos = [2, 4, 6, 7];
+            } else if (tipoServico === 3) {
+                tiposServicos = [3, 5, 6, 7];
+            }
+    
+            api
+                .get(`/avaliacoes-prestadores/melhores-por-servico/${tiposServicos[0]}/${tiposServicos[1]}/${tiposServicos[2]}/${tiposServicos[3]}`)
+                .then((res) => {
+                    console.log(res);
+                    var prestadores = res.data;
+                    {
+                        prestadores.map(prestador => (
+                            <ItemPesquisa
+                                nome={prestador.nome}
+                                imagem={prestador.urlFoto}
+                                estrela={prestador.media}
+                            />
+                        ))
+                    }
+                }).catch((err) => {
+                    console.log(err);
+                })
         }
 
-        api
-            .get(`/avaliacoes-prestadores/melhores-por-servico/${tiposServicos[0]}/${tiposServicos[1]}/${tiposServicos[2]}/${tiposServicos[3]}`)
-            .then((res) => {
-                console.log(res);
-                var prestadores = res.data;
-                {
-                    prestadores.map(prestador => (
-                        <ItemPesquisa
-                            nome={prestador.nome}
-                            imagem={prestador.urlFoto}
-                            estrela={prestador.media}
-                        />
-                    ))
-                }
-            }).catch((err) => {
-                console.log(err);
-            })
-    }
+    // } else {}
+    
 }
 
 export const Search = () => {
@@ -149,7 +157,7 @@ export const Search = () => {
                         <div className="sele">
                             <label htmlFor='avaliados' className="mais">
                                 <div className="switch">
-                                    <input type="checkbox" name='avaliados' id='avaliados' className='avaliados' />
+                                    <input type="checkbox" value="false" name='avaliados' id='avaliados' className='avaliados' onClick={pesquisarPorAvaliacao} />
                                     <span className="switchButton"></span>
                                 </div>
                                 <span className="melhores">Mais avaliados</span>

@@ -3,13 +3,6 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'
 import './Profile.css';
 import api from '../../axios.js';
-import { injectStyle } from "react-toastify/dist/inject-style";
-import { ToastContainer, toast } from "react-toastify";
-
-
-if (typeof window !== "undefined") {
-    injectStyle();
-  }
 
 function ProfilePage() {
 

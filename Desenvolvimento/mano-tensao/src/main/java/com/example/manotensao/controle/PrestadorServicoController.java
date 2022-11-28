@@ -26,6 +26,7 @@ public class PrestadorServicoController {
         for (PrestadorServico prestador : lista) {
             if (prestador.autenticar(email, senha)) {
                 prestador.setAutenticado(1);
+                prestadorServicoRepository.save(prestador);
                 return ResponseEntity.ok().body(prestador);
             }
         }
@@ -38,6 +39,7 @@ public class PrestadorServicoController {
         for (PrestadorServico prestador : lista) {
             if (prestador.getId().equals(id)) {
                 prestador.setAutenticado(0);
+                prestadorServicoRepository.save(prestador);
                 return ResponseEntity.ok().build();
             }
         }

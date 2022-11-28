@@ -21,6 +21,7 @@ public class ClienteController{
         for (Cliente cliente : lista) {
             if (cliente.autenticar(email,senha)) {
                 cliente.setAutenticado(1);
+                clienteRepository.save(cliente);
                 return ResponseEntity.ok().body(cliente);
             }
         }
@@ -33,6 +34,7 @@ public class ClienteController{
         for (Cliente cliente : lista) {
             if (cliente.getId().equals(id)) {
                 cliente.setAutenticado(0);
+                clienteRepository.save(cliente);
                 return ResponseEntity.ok().build();
             }
         }

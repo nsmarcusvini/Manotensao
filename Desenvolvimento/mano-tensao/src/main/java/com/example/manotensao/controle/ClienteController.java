@@ -28,14 +28,14 @@ public class ClienteController{
         return ResponseEntity.notFound().build();
     }
 
-    @PutMapping("/autenticacao-cliente/{id}")
+    @DeleteMapping("/logoff-cliente/{id}")
     public ResponseEntity<Void> logoff(@PathVariable int id){
         List<Cliente> lista = clienteRepository.findAll();
         for (Cliente cliente : lista) {
             if (cliente.getId().equals(id)) {
                 cliente.setAutenticado(0);
                 clienteRepository.save(cliente);
-                return ResponseEntity.ok().build();
+                return ResponseEntity.status(204).build();
             }
         }
         return ResponseEntity.notFound().build();

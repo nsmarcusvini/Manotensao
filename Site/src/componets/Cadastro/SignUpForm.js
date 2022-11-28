@@ -58,7 +58,7 @@ const SignUpForm = ({ submitForm }) => {
           window.location.href = 'http://localhost:3000/search';
         }).catch((err) => {
           console.log(err);
-        })
+      })
     }
   }
 

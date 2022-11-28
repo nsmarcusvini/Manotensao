@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './HeaderHomeLogin.css'
+import api from '../../axios.js'
 
 export const HeaderHomeLogin = () => {
 
@@ -19,6 +20,27 @@ export const HeaderHomeLogin = () => {
     }
     window.addEventListener('scroll', changeColor)
 
+    function logoff(){
+        try{
+            api
+            .delete(`/prestadores/logoff-prestador/${JSON.parse(sessionStorage.user).id}`)
+            .then(() => {
+                window.sessionStorage.setItem("user", "");
+              window.location.href = 'http://localhost:3000';
+            })
+        }catch(err){
+            api
+            .delete(`/clientes/logoff-cliente/${JSON.parse(sessionStorage.user).id}`)
+            .then(() => {
+                window.sessionStorage.setItem("user", "");
+              window.location.href = 'http://localhost:3000';
+            }).catch((err) => {
+                console.log(err);
+            })
+        }
+        
+    }
+
   return (
     <div className={color ? 'header header-bg' : 'header'}>
         <div className="container">
@@ -28,7 +50,7 @@ export const HeaderHomeLogin = () => {
                         <a className="list" onClick={() => navigate("/profile")}>Perfil</a>
                         <a className='list' onClick={() => navigate("/chat")}>Chat</a>
                         <a className='list' onClick={() => navigate("/search")}>Pesquisar</a>
-                        <a className='list' onClick={() => navigate("/")}>Sair</a>
+                        <a className='list' onClick={logoff}>Sair</a>
 
                     </ul>
                 </div>

@@ -33,14 +33,14 @@ public class PrestadorServicoController {
         return ResponseEntity.notFound().build();
     }
 
-    @PutMapping("/autenticacao-prestador/{id}")
+    @DeleteMapping("/logoff-prestador/{id}")
     public ResponseEntity<Void> logoff(@PathVariable int id) {
         List<PrestadorServico> lista = prestadorServicoRepository.findAll();
         for (PrestadorServico prestador : lista) {
             if (prestador.getId().equals(id)) {
                 prestador.setAutenticado(0);
                 prestadorServicoRepository.save(prestador);
-                return ResponseEntity.ok().build();
+                return ResponseEntity.status(204).build();
             }
         }
         return ResponseEntity.notFound().build();

@@ -40,6 +40,8 @@ public abstract class Usuario{
 
     private String urlFoto;
 
+    private String cartaApresentacao;
+
     public Boolean autenticar(String email, String senha){
         return this.getEmail().equals(email) && this.getSenha().equals(senha);
     }
@@ -146,5 +148,13 @@ public abstract class Usuario{
 
     public void setUrlFoto(String urlFoto) {
         this.urlFoto = urlFoto;
+    }
+
+    public String getCartaApresentacao() {
+        return cartaApresentacao;
+    }
+
+    public void setCartaApresentacao(String cartaApresentacao) {
+        this.cartaApresentacao = cartaApresentacao;
     }
 }

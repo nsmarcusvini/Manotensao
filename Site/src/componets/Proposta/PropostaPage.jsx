@@ -1,15 +1,12 @@
 import React from 'react';
 import { useState } from 'react'
 import './Proposta.css';
-import SideNavBar from '../SideNavBar/SideNavBar';
 import notification from '../../assets/notifications.svg'
 import arrow from '../../assets/arrow-foward.svg'
 import woman from '../../assets/woman.jpg';
-import heart from '../../assets/heart-outline.svg';
 import share from '../../assets/share-social-outline.svg';
 import alert from '../../assets/alert-circle-outline.svg';
 import { Footer } from '../Footer/Footer';
-import woman2 from '../../assets/woman2.jpeg'
 import { motion } from 'framer-motion'
 import { DataReview } from './DataReview';
 import { LikeButton } from '../Search/HeartLike';
@@ -29,7 +26,7 @@ function Proposta() {
 
             <div className="main">
 
-                <div className='header'>
+                <div className='headerProp'>
                     <span className='title'>ManoTensao</span>
                     <img className='noti' src={notification} />
                 </div>

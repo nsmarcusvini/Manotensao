@@ -40,7 +40,7 @@ export const ItemPesquisa = () => {
                                 0.8KM
                             </span>
                         </div>
-                        <img src={Mulher} alt=""
+                        <img alt=""
                             disabled={!editavel}
                             defaultValue={imagemInput}
                             onChange={(e) => setImagem(e.target.value)} />
@@ -49,7 +49,7 @@ export const ItemPesquisa = () => {
                                 type="text"
                                 defaultValue={nomeInput}
                                 onChange={(e) => setNome(e.target.value)}>
-                                Lana Ribeiro
+                                {props.nome}
                             </span>
                             <img src={Star5} alt="" />
                         </div>

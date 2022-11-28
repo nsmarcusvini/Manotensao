@@ -27,6 +27,13 @@ const SignUpForm = ({ submitForm }) => {
       senha: e.target.elements.senha.value,
     }
     console.log(login);
+
+    if (login.email == '' || login.senha == '') {
+      alert("Preencha os campos");
+      return;
+    }
+    
+
     if (tipoUsuario == "prestador") {
       console.log("entrei no prestador");
       console.log(api);
@@ -35,8 +42,10 @@ const SignUpForm = ({ submitForm }) => {
         .then((res) => {
           console.log(res);
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
+          alert("Bem vindo(a) de volta!");
           window.location.href = 'http://localhost:3000/search';
         }).catch((err) => {
+          alert("Usuário não encontrado")
           console.log(err);
         })
     } else if (tipoUsuario == "cliente") {
@@ -45,6 +54,7 @@ const SignUpForm = ({ submitForm }) => {
         .then((res) => {
           console.log(res);
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
+          alert("Bem vindo(a) de volta!");
           window.location.href = 'http://localhost:3000/search';
         }).catch((err) => {
           console.log(err);
@@ -64,12 +74,22 @@ const SignUpForm = ({ submitForm }) => {
     };
     console.log(novoUsuario);
 
+    if ( novoUsuario.nome == '' || novoUsuario.email == '' || novoUsuario.senha === '') {
+      alert("Preencha os campos");
+      return;
+    }else if(novoUsuario.senha.length < 5) {
+      alert("A senha deve conter no mínimo 5 caractéres");
+      return;
+    }
+
     if (tipoUsuario == "prestador") {
       api
         .post(`/prestadores`, novoUsuario)
         .then((res) => {
           console.log(res);
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
+          alert("Cadastrado com sucesso!");
+          
           window.location.href = 'http://localhost:3000/search';
         }).catch((err) => {
           console.log(err);
@@ -82,6 +102,7 @@ const SignUpForm = ({ submitForm }) => {
         .then((res) => {
           console.log(res);
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
+          alert("Cadastrado com sucesso!");
           window.location.href = 'http://localhost:3000/search';
         }).catch((err) => {
           console.log(err);

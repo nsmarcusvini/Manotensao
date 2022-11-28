@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
-import notification from '../../assets/notifications.svg';
-import homi from '../../assets/man.jpg';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'
 import './Profile.css';
 import api from '../../axios.js';
+import { injectStyle } from "react-toastify/dist/inject-style";
+import { ToastContainer, toast } from "react-toastify";
+
+
+if (typeof window !== "undefined") {
+    injectStyle();
+  }
 
 function ProfilePage() {
 
     const navigate = useNavigate();
 
-    const { register, handleSubmit, setValue, setFocus } = useForm();
+    const { register, setValue, setFocus } = useForm();
 
     const viaCep = (e) => {
         const cep = e.target.value.replace(/\D/g, '');
@@ -25,50 +30,56 @@ function ProfilePage() {
             });
     }
 
+
+
+    const notify = () => {
+        toast.dark("Cadastro atualizado!")
+    };
+
+
+
     function atualizar(e) {
-    e.preventDefault();
 
-    const dados = {
-        nome: e.target.elements.nome.value,
-        cpf: e.target.elements.cpf.value,
-        dtNascimento: e.target.elements.dtNascimento.value,
-        email: e.target.elements.email.value,
-        telefone: e.target.elements.celular.value,
-        cep: e.target.elements.cep.value,
-        bairro: e.target.elements.bairro.value,
-        rua: e.target.elements.logradouro.value,
-        numero: e.target.elements.numero.value,
-        complemento: e.target.elements.complemento.value,
-        senha : JSON.parse(sessionStorage.user).senha,
+        e.preventDefault();
+
+        const dados = {
+            nome: e.target.elements.nome.value,
+            cpf: e.target.elements.cpf.value,
+            dtNascimento: e.target.elements.dtNascimento.value,
+            email: e.target.elements.email.value,
+            telefone: e.target.elements.celular.value,
+            cep: e.target.elements.cep.value,
+            bairro: e.target.elements.bairro.value,
+            rua: e.target.elements.logradouro.value,
+            numero: e.target.elements.numero.value,
+            complemento: e.target.elements.complemento.value,
+            senha: JSON.parse(sessionStorage.user).senha,
+        }
+
+        api
+            .put(`/prestadores/${JSON.parse(sessionStorage.user).id}`, dados)
+            .then((res) => {
+                console.log(res);
+                window.sessionStorage.setItem("user", JSON.stringify(res.data));
+            }).catch((err) => {
+                console.log(err);
+            })
+        console.log(dados);
+
     }
 
-    api
-    .put(`/prestadores/${JSON.parse(sessionStorage.user).id}`, dados)
-    .then((res) => {
-      console.log(res);
-      window.sessionStorage.setItem("user", JSON.stringify(res.data));
-      carregarPagina();
-    }).catch((err) => {
-      console.log(err);
-    })
-    console.log(dados);
-
-    }
-
-    function carregarPagina(){
-        // = JSON.parse(sessionStorage.user).nome;
-        // = JSON.parse(sessionStorage.user).cpf;
-        // = JSON.parse(sessionStorage.user).dtNascimento;
-        // = JSON.parse(sessionStorage.user).nome;
-        // = JSON.parse(sessionStorage.user).nome;
-        // = JSON.parse(sessionStorage.user).nome;
-        // = JSON.parse(sessionStorage.user).nome;
-        // = JSON.parse(sessionStorage.user).nome;
-        // = JSON.parse(sessionStorage.user).nome;
-        // = JSON.parse(sessionStorage.user).nome;
-    }
-
-
+    /*     function carregarPagina() {
+            // = JSON.parse(sessionStorage.user).nome;
+            // = JSON.parse(sessionStorage.user).cpf;
+            // = JSON.parse(sessionStorage.user).dtNascimento;
+            // = JSON.parse(sessionStorage.user).nome;
+            // = JSON.parse(sessionStorage.user).nome;
+            // = JSON.parse(sessionStorage.user).nome;
+            // = JSON.parse(sessionStorage.user).nome;
+            // = JSON.parse(sessionStorage.user).nome;
+            // = JSON.parse(sessionStorage.user).nome;
+            // = JSON.parse(sessionStorage.user).nome;
+        } */
 
     return (
 
@@ -100,17 +111,13 @@ function ProfilePage() {
 
                                 <label>
                                     Nome
-                                    <input required className="nome" type="text" name='nome' value={JSON.parse(sessionStorage.user).nome}/>
+                                    <input required className="nome" type="text" name='nome' value={JSON.parse(sessionStorage.user).nome} />
                                 </label>
 
-                                <label>
-                                    Sobrenome
-                                    <input required className="sobrenome" type="text" name='sobrenome' />
-                                </label>
 
                                 <label>
                                     CPF
-                                    <input required className="cpf" type="text" name='cpf' value={JSON.parse(sessionStorage.user).cpf}/>
+                                    <input required className="cpf" type="text" name='cpf' value={JSON.parse(sessionStorage.user).cpf} />
                                 </label>
 
                                 <label className='dtNasc'>
@@ -139,12 +146,12 @@ function ProfilePage() {
 
                                 <label>
                                     Bairro
-                                    <input required className="bairro" {...register("bairro")} type="text" name='bairro' value={JSON.parse(sessionStorage.user).bairro}/>
+                                    <input required className="bairro" {...register("bairro")} type="text" name='bairro' value={JSON.parse(sessionStorage.user).bairro} />
                                 </label>
 
                                 <label>
                                     Logradouro
-                                    <input required className="logradouro" {...register("logradouro")} type="text" name='logradouro' value={JSON.parse(sessionStorage.user).logradouro} />
+                                    <input required className="logradouro" {...register("logradouro")} type="text" name='logradouro' value={JSON.parse(sessionStorage.user).rua} />
                                 </label>
 
                                 <label>
@@ -154,21 +161,26 @@ function ProfilePage() {
 
                                 <label>
                                     Complemento
-                                    <input required className="complemento" type="text" name='complemento' value={JSON.parse(sessionStorage.user).complemento}/>
+                                    <input required className="complemento" type="text" name='complemento' value={JSON.parse(sessionStorage.user).complemento} />
                                 </label>
                             </div>
 
 
-                            <button className="btnAtt" type="submit">Atualizar dados</button>
+                            <button className="btnAtt" type="submit" onClick={notify}  id="animate.css"> Atualizar dados</button>
+                            
+
+
                             <button className='importTxt'>Importar carta de apresentação</button>
 
                         </form>
                     </div>
+                            <ToastContainer />
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }
+
 
 export default ProfilePage;

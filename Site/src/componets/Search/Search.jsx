@@ -26,49 +26,105 @@ import { ItemPesquisa } from '../ItemPesquisa/ItemPesquisa'
 // });
 // }
 
-function pesquisarPorServico() {
+
+function pesquisarPorServico(){
     var tipoServico = 3;
     var tiposServicos = [];
+    var melhores = false;
 
-    if (tipoServico === 1) {
-        tiposServicos = [1, 4, 5, 7];
-    } else if (tipoServico === 2) {
-        tiposServicos = [2, 4, 6, 7];
-    } else if (tipoServico === 3) {
-        tiposServicos = [3, 5, 6, 7];
+    if(tipoServico === 1){
+        tiposServicos = [1,4,5,7];
+    } else if (tipoServico === 2){
+        tiposServicos = [2,4,6,7];
+    } else if(tipoServico === 3){
+        tiposServicos = [3,5,6,7];
     }
 
-    api
+    if(melhores === false){
+        api
         .get(`/prestadores/filtro-por-servico/${tiposServicos[0]}/${tiposServicos[1]}/${tiposServicos[2]}/${tiposServicos[3]}`)
         .then((res) => {
-            console.log(res);
-            var prestadores = res.data;
-            console.log(prestadores[0]);
+          console.log(res);
+          var prestadores = res.data;
+          console.log(
+          prestadores.map(prestador => (
+            <ItemPesquisa
+                nome={prestador.nome}
+                imagem={prestador.urlFoto}
+                estrela={prestador.media}
+            />
+            )))
         }).catch((err) => {
-            console.log(err);
+          console.log(err);
         })
+    } else {
+        api
+        .get(`/avaliacoes-prestadores/melhores-por-servico/${tiposServicos[0]}/${tiposServicos[1]}/${tiposServicos[2]}/${tiposServicos[3]}`)
+        .then((res) => {
+          console.log(res);
+          var prestadores = res.data;
+          {prestadores.map(prestador => (
+            <ItemPesquisa
+                nome={prestador.nome}
+                imagem={prestador.urlFoto}
+                estrela={prestador.media}
+            />
+            ))}
+        }).catch((err) => {
+          console.log(err);
+        })
+    }
+    
+}
 
+function pesquisarPorAvaliacao(){
+    var tipoServico = null;
+    var tiposServicos = [];
+
+    if(tipoServico == null){
+        api
+        .get(`/avaliacoes-prestadores/melhores`)
+        .then((res) => {
+          console.log(res);
+          var prestadores = res.data;
+          {prestadores.map(prestador => (
+            <ItemPesquisa
+                nome={prestador.nome}
+                imagem={prestador.urlFoto}
+                estrela={prestador.media}
+            />
+            ))}
+        }).catch((err) => {
+          console.log(err);
+        })
+    } else {
+        if(tipoServico === 1){
+            tiposServicos = [1,4,5,7];
+        } else if (tipoServico === 2){
+            tiposServicos = [2,4,6,7];
+        } else if(tipoServico === 3){
+            tiposServicos = [3,5,6,7];
+        }
+
+        api
+        .get(`/avaliacoes-prestadores/melhores-por-servico/${tiposServicos[0]}/${tiposServicos[1]}/${tiposServicos[2]}/${tiposServicos[3]}`)
+        .then((res) => {
+          console.log(res);
+          var prestadores = res.data;
+          {prestadores.map(prestador => (
+            <ItemPesquisa
+                nome={prestador.nome}
+                imagem={prestador.urlFoto}
+                estrela={prestador.media}
+            />
+            ))}
+        }).catch((err) => {
+          console.log(err);
+        })
+    }
 }
 
 export const Search = () => {
-
-    const test = [
-        { name: "Batatao", stars: 3, km: 0.8 },
-        { name: "Batatao", stars: 3, km: 0.8 },
-        { name: "arrudao", stars: 4, km: 1.2 },
-        { name: "baludo", stars: 4, km: 3.2, img: Homem },
-        { name: "baludo", stars: 4, km: 3.2 },
-        { name: "baludo", stars: 4, km: 3.2 },
-        { name: "baludo", stars: 4, km: 3.2 },
-        { name: "baludo", stars: 4, km: 3.2, img: Homem },
-        { name: "baludo", stars: 4, km: 3.2 },
-        { name: "baludo", stars: 4, km: 3.2 },
-        { name: "baludo", stars: 4, km: 3.2 },
-        { name: "baludo", stars: 4, km: 3.2 },
-        { name: "baludo", stars: 4, km: 3.2 },
-    ]
-
-    console.log(test)
 
     return (
         <div className='search-all'>
@@ -102,12 +158,7 @@ export const Search = () => {
                 </div>
 
                 <div className="cradsPrestador">
-                    {test.map(pessoa => (
-                        <ItemPesquisa
-                            nome={pessoa.name}
-                            imagem={pessoa?.img}
-                            estrela={pessoa.stars}
-                        />))}
+                    
                 </div>
             </div>
             <Footer />

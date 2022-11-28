@@ -43,7 +43,7 @@ const SignUpForm = ({ submitForm }) => {
           console.log(res);
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
           alert("Bem vindo(a) de volta!");
-          window.location.href = 'http://localhost:3000/search';
+          window.location.href = 'http://localhost:3000/profile';
         }).catch((err) => {
           alert("Usuário não encontrado")
           console.log(err);
@@ -90,7 +90,7 @@ const SignUpForm = ({ submitForm }) => {
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
           alert("Cadastrado com sucesso!");
           
-          window.location.href = 'http://localhost:3000/search';
+          window.location.href = 'http://localhost:3000/profile';
         }).catch((err) => {
           console.log(err);
         })

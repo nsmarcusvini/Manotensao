@@ -4,7 +4,7 @@ import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import { Row, Col } from "reactstrap";
 import { isValidDateValue } from "@testing-library/user-event/dist/utils";
 
-function Chat({ socket, username, room }) {
+function ChatPage({ socket, username, room }) {
     const [currentMessage, setCurrentMessage] = useState("");
     const [messageList, setMessageList] = useState([]);
 
@@ -34,9 +34,17 @@ function Chat({ socket, username, room }) {
 
 
     const [isDoneOpen, setDoneIsOpen] = useState(false);
-    const togglePopUpDone = () => {
-        setDoneIsOpen(!isDoneOpen);
+    const togglePopUpDone = (e) => {
 
+        const dados = {
+            tipoServico: e.target.elements.campo1.value,
+            descServico: e.target.elements.campo2.value,
+            data: e.target.elements.campo3.value,
+        }
+
+        if(dados.tipoServico != null || dados.descServico != null || dados.data != null) {
+            setDoneIsOpen(!isDoneOpen);
+        }
 
     }
 
@@ -166,7 +174,7 @@ function Chat({ socket, username, room }) {
 
                         <div className="chat-footer">
                             <input
-                            className="iptFooter"
+                                className="iptFooter"
                                 type="text"
                                 value={currentMessage}
                                 placeholder="Hey..."
@@ -189,4 +197,4 @@ function Chat({ socket, username, room }) {
 
 
 
-export default Chat;
+export default ChatPage;

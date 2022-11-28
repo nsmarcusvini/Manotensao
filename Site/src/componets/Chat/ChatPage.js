@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import homi from '../../assets/man2.jpg';
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import { Row, Col } from "reactstrap";
-import { isValidDateValue } from "@testing-library/user-event/dist/utils";
+import { useNavigate } from 'react-router-dom'
+
 
 function ChatPage({ socket, username, room }) {
     const [currentMessage, setCurrentMessage] = useState("");
     const [messageList, setMessageList] = useState([]);
+
+    const navigate = useNavigate();
+
 
     const sendMessage = async () => {
         if (currentMessage !== "") {
@@ -79,6 +83,7 @@ function ChatPage({ socket, username, room }) {
                         <div className="chat-header">
                             <p className="cvCom">Conversa com {username}</p>
                             <button className="proposta" onClick={togglePopUp}>Editar proposta</button>
+                            <button className="verPerfil" onClick={() => navigate("/profile")}>Ver Perfil</button>
                         </div>
 
 

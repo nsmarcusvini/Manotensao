@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 import './Proposta.css';
 import arrow from '../../assets/arrow-foward.svg'
-import woman from '../../assets/woman.jpg';
+import man from '../../assets/man2.jpg';
 import share from '../../assets/share-social-outline.svg';
 import alert from '../../assets/alert-circle-outline.svg';
 import { Footer } from '../Footer/Footer';
@@ -11,7 +11,7 @@ import { DataReview } from './DataReview';
 import { LikeButton } from '../Search/HeartLike';
 import { useNavigate } from 'react-router-dom';
 
-function Proposta() {
+function PropostaPageClient() {
 
     const [selected, setSelected] = useState(0)
     const cLenght = DataReview.length
@@ -27,47 +27,37 @@ function Proposta() {
 
             <div className="main">
 
-                
-                <div className="container">
-                    <div className="con">
-                        <h1 className='logoHeader'>ManoTensao</h1>
-                        <ul className='menu'>
-                            <a className="list" onClick={() => navigate("/home")}>Home</a>
-                            <a className='list' onClick={() => navigate("/chat")}>Chat</a>
-                            <a className='list' onClick={() => navigate("/search")}>Pesquisar</a>
-                        </ul>
-                    </div>
+            <div className="container">
+                <div className="con">
+                    <h1 className='logoHeader'>ManoTensao</h1>
+                    <ul className='menu'>
+                        <a className="list" onClick={() => navigate("/home")}>Home</a>
+                        <a className='list' onClick={() => navigate("/chat")}>Chat</a>
+                        <a className='list' onClick={() => navigate("/search")}>Pesquisar</a>
+
+                    </ul>
                 </div>
+            </div>
 
-                <div className="containerProposta">
+                <div className="containerPropostaClient">
 
-                    <img className='pic' src={woman} />
+                    <img className='picClient' src={man} />
 
-                    <div className="right">
+                    <div className="rightClient">
 
-                        <p className='name'>Maria Silva</p>
+                        <p className='nameClient'>João Oliveira</p>
 
-                        <div className="tool_icons">
+                        <div className="tool_iconsClient">
                             <LikeButton />
                             <img src={share} />
                             <img src={alert} />
                         </div>
-                        <button className='btnFazerProposta'>Fazer uma proposta</button>
-                        <button className='btnConversar'>Conversar com Maria</button>
-
-                        <div className="desc_prestador">
-                            <p className='desc'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam, animi repellat possimus maiores commodi atque? Debitis laudantium explicabo, aliquam tempore, fugit voluptates</p>
-                        </div>
-                        <div className="info_valor">
-                            <span className='valor'>R$ 90</span>
-                            <span className='desc_valor'>por diária</span>
-                        </div>
-                        <div className="disponivel"></div>
+                        <button className='btnConversarClient'>Conversar com João</button>
                     </div>
 
-                    <h3 className='reviewTitle'>Avaliações</h3>
-                    <div className="reviews">
-                        <img className='arrow' src={arrow} alt="" onClick={() => {
+                    <h3 className='reviewTitleClient'>Avaliações</h3>
+                    <div className="reviewsClient">
+                        <img className='arrowClient' src={arrow} alt="" onClick={() => {
                             selected === 0 ? setSelected(cLenght - 1) : setSelected((prev) => prev - 1)
                         }} />
 
@@ -117,4 +107,4 @@ function Proposta() {
     )
 
 }
-export default Proposta;
+export default PropostaPageClient;

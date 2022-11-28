@@ -251,6 +251,19 @@
   font-size: 12px;
   font-weight: 600;
 }
+.chat-window .chat-header .verPerfil {
+  background: #fff;
+  border-radius: 10px;
+  border: none;
+  height: 22px;
+  width: 10%;
+  position: absolute;
+  left: 78%;
+  transform: translate(-50%, 50%);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
 
 .chat-window .chat-body {
   height: calc(408px - (45px + 70px));

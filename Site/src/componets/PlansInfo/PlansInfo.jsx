@@ -7,8 +7,6 @@ import ReactInputMask from 'react-input-mask'
 import { useNavigate } from 'react-router-dom'
 import Boleto from '../../assets/boletoBasic.pdf'
 
-const onlyNumbers = (str) => str.replace(/[^0-9]/g, '')
-
 export const PlansInfo = () => {
 
   const navigate = useNavigate();
@@ -18,7 +16,7 @@ export const PlansInfo = () => {
       <div className="plansInfo">
         <div className="product">
           <div className="backPlan">
-            <img src={SetaPlan} alt="" onClick={() => navigate("/")} />
+            <img src={SetaPlan} alt="" onClick={() => navigate("/home")} />
             <img src={Logo} alt="" />
           </div>
           <div className="informationPlan">

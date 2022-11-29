@@ -25,7 +25,7 @@ export const HeaderLogin = () => {
                 <div className="con">
                     <h1 className='logoHeader'>ManoTensao</h1>
                     <ul className='menu'>
-                        <a className='list' onClick={() => navigate("/")}>Voltar</a>
+                        <a className='list' onClick={() => navigate("/home")}>Voltar</a>
 
                     </ul>
                 </div>

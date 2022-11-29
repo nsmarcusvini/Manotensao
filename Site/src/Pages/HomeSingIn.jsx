@@ -5,7 +5,7 @@ import { HeaderHomeLogin } from '../componets/HeaderHomeLogin/HeaderHomeLogin'
 import { LogoInfo } from '../componets/LogoInfo/LogoInfo'
 import { Mano } from '../componets/Mano/Mano'
 import { Meet } from '../componets/Meet/Meet'
-import { Plans } from '../componets/Plans/Plans'
+import { PlansLogin } from '../componets/PlansLogin/PlansLogin'
 
 export const HomeSingIn = () => {
     return (
@@ -13,7 +13,7 @@ export const HomeSingIn = () => {
             <HeaderHomeLogin />
             <Mano />
             <Meet />
-            <Plans />
+            <PlansLogin />
             <Comments />
             <LogoInfo />
             <Footer />

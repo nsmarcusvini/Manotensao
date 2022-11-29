@@ -5,9 +5,7 @@ import Logo from '../../assets/Logo Construção E Reparos (2).png'
 import Fatura from '../../assets/fatura.png'
 import ReactInputMask from 'react-input-mask'
 import { useNavigate } from 'react-router-dom'
-import Boleto from '../../assets/boletoPro.pdf'
-
-const onlyNumbers = (str) => str.replace(/[^0-9]/g, '')
+import Boleto from '../../assets/boletoPremium.pdf'
 
 export const PlansInfoPro = () => {
 
@@ -18,7 +16,7 @@ export const PlansInfoPro = () => {
       <div className="plansInfo">
         <div className="product">
           <div className="backPlan">
-            <img src={SetaPlan} alt="" onClick={() => navigate("/")} />
+            <img src={SetaPlan} alt="" onClick={() => navigate("/home")} />
             <img src={Logo} alt="" />
           </div>
           <div className="informationPlan">
@@ -26,7 +24,7 @@ export const PlansInfoPro = () => {
               Plano BASIC
             </span>
             <span className="sale">
-              R$74.99
+              R$109,99
             </span>
           </div>
           <div className="power">

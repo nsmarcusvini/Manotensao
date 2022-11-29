@@ -1,5 +1,5 @@
 import React from 'react'
-import './Plans.css'
+import './PlansLogin.css'
 import basicIcon from '../../assets/chave-de-boca-verde2.svg'
 import premiumIcon from '../../assets/crown2.svg'
 import proIcon from '../../assets/tool-verde2.svg'
@@ -7,7 +7,7 @@ import check from '../../assets/whiteTick.png'
 import '../../index'
 import { useNavigate } from 'react-router-dom'
 
-export const Plans = () => {
+export const PlansLogin = () => {
 
   const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ export const Plans = () => {
               <span className="info">Obtenha até 12 propostas</span>
             </div>
           </div>
-          <button className="btn" onClick={() => navigate("/cadastro")}>Junte-se</button>
+          <button className="btn" onClick={() => navigate("/plans-basic")}>Junte-se</button>
         </div>
         <div className="premium">
           <img src={premiumIcon} alt="" />
@@ -57,7 +57,7 @@ export const Plans = () => {
               <span className="info">Obtenha propostas ilimitadas</span>
             </div>
           </div>
-          <button className="btn" onClick={() => navigate("/cadastro")}>Junte-se</button>
+          <button className="btn" onClick={() => navigate("/plans-premium")}>Junte-se</button>
         </div>
         <div className="pro">
           <img src={proIcon} alt="" />
@@ -77,7 +77,7 @@ export const Plans = () => {
               <span className="info">Obtenha até 25 propostas </span>
             </div>
           </div>
-          <button className="btn" onClick={() => navigate("/cadastro")}>Junte-se</button>
+          <button className="btn" onClick={() => navigate("/plans-pro")}>Junte-se</button>
         </div>
       </div>
     </div>

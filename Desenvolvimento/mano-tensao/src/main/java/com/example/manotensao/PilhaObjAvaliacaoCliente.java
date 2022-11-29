@@ -2,14 +2,14 @@ package com.example.manotensao;
 
 import com.example.manotensao.dominio.AvaliacaoCliente;
 
-public class PilhaObj <T> {
+public class PilhaObjAvaliacaoCliente<T> {
 
     // Atributos
     private T[] pilha;
     private int topo;
 
     // Construtor
-    public PilhaObj(int capacidade) {
+    public PilhaObjAvaliacaoCliente(int capacidade) {
         pilha = (T[]) new Object[capacidade];
         topo = -1;
     }

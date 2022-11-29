@@ -1,5 +1,8 @@
 package com.example.manotensao.controle;
 
+import com.example.manotensao.PilhaObjAvaliacaoCliente;
+import com.example.manotensao.PilhaObjAvaliacaoPrestador;
+import com.example.manotensao.dominio.AvaliacaoCliente;
 import com.example.manotensao.dto.FiltroPorAvaliacao;
 import com.example.manotensao.dominio.AvaliacaoPrestadorServico;
 import com.example.manotensao.repositorio.AvaliacaoPrestadorServicoRepository;
@@ -7,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/avaliacoes-prestadores")
@@ -16,6 +18,7 @@ public class AvaliacaoPrestadorServicoController{
     @Autowired
     private AvaliacaoPrestadorServicoRepository avaliacaoPrestadorServicoRepository;
 
+    PilhaObjAvaliacaoPrestador<AvaliacaoPrestadorServico> pilhaAvaliacaoPrestador = new PilhaObjAvaliacaoPrestador<>(30);
     @GetMapping("/melhores")
     public ResponseEntity<List<FiltroPorAvaliacao>> getFiltroAvaliacao(){
         List<FiltroPorAvaliacao> lista = avaliacaoPrestadorServicoRepository.getAvaliacoes();
@@ -66,5 +69,23 @@ public class AvaliacaoPrestadorServicoController{
         }
         return ResponseEntity.status(404).build();
     }
+
+    @DeleteMapping("/delete-avaliacao-prestador/{idAvaliacaoPrestador}")
+    public ResponseEntity deleteAvaliacaoPrestador(@PathVariable Integer idAvaliacaoPrestador){
+        AvaliacaoPrestadorServico aps = avaliacaoPrestadorServicoRepository.getById(idAvaliacaoPrestador);
+        pilhaAvaliacaoPrestador.push(aps);
+        avaliacaoPrestadorServicoRepository.delete(aps);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/desfazer-avaliacao-prestador")
+    public ResponseEntity desfazerAvaliacaoPrestador(){
+        AvaliacaoPrestadorServico aps = pilhaAvaliacaoPrestador.peek();
+        aps.setIdAvaliacaoPrestador(pilhaAvaliacaoPrestador.peek().getIdAvaliacaoPrestador());
+        avaliacaoPrestadorServicoRepository.save(aps);
+        pilhaAvaliacaoPrestador.pop();
+        return ResponseEntity.ok().build();
+    }
+
 
 }

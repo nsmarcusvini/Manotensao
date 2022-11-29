@@ -1,5 +1,6 @@
 package com.example.manotensao.repositorio;
 
+import com.example.manotensao.dominio.AvaliacaoCliente;
 import com.example.manotensao.dto.FiltroPorAvaliacao;
 import com.example.manotensao.dominio.AvaliacaoPrestadorServico;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,4 +25,6 @@ public interface AvaliacaoPrestadorServicoRepository extends JpaRepository<Avali
             "ORDER BY avg(aps.notaPrestadorServico) desc")
     List<FiltroPorAvaliacao> getAvaliacoesPorServico(int idServico, int segundaVariacao, int terceiraVariacao, int quartaVariacao);
 
+
+    AvaliacaoPrestadorServico getById(int idAvaliacaoPrestadorServico);
 }

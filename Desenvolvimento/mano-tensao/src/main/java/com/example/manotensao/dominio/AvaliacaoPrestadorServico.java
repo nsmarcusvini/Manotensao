@@ -12,17 +12,14 @@ public class AvaliacaoPrestadorServico implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAvaliacaoPrestador;
 
-    @Min(0)
-    @NotBlank
+
     @ManyToOne
     private Proposta fkProposta;
 
-    @Size(min = 0,max = 5)
-    @NotBlank
+
     private Double notaPrestadorServico;
 
-    @Size(max = 255)
-    @NotBlank
+
     private String comentarioPrestadorServico;
 
     public Integer getIdAvaliacaoPrestador() {

@@ -26,6 +26,7 @@ export const HeaderHomeLogin = () => {
             .delete(`/prestadores/logoff-prestador/${JSON.parse(sessionStorage.user).id}`)
             .then(() => {
                 window.sessionStorage.setItem("user", "");
+                window.sessionStorage.setItem("tipoUsuario", "");
               window.location.href = 'http://localhost:3000';
             })
         }catch(err){
@@ -33,6 +34,7 @@ export const HeaderHomeLogin = () => {
             .delete(`/clientes/logoff-cliente/${JSON.parse(sessionStorage.user).id}`)
             .then(() => {
                 window.sessionStorage.setItem("user", "");
+                window.sessionStorage.setItem("tipoUsuario", "");
               window.location.href = 'http://localhost:3000';
             }).catch((err) => {
                 console.log(err);

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'
 import './Profile.css';
 import api from '../../axios.js';
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import { MDBFile } from 'mdb-react-ui-kit';
 
 function ProfilePage() {
@@ -57,7 +57,8 @@ function ProfilePage() {
             senha: JSON.parse(sessionStorage.user).senha,
         }
 
-        api
+        if(sessionStorage.tipoUsuario == "prestador"){
+            api
             .put(`/prestadores/${JSON.parse(sessionStorage.user).id}`, dados)
             .then((res) => {
                 console.log(res);
@@ -66,6 +67,18 @@ function ProfilePage() {
             }).catch((err) => {
                 console.log(err);
             })
+        } else if(sessionStorage.tipoUsuario == "cliente"){
+            api
+            .put(`/clientes/${JSON.parse(sessionStorage.user).id}`, dados)
+            .then((res) => {
+                console.log(res);
+                window.sessionStorage.setItem("user", JSON.stringify(res.data));
+                alert("Cadastro atualizado!")
+            }).catch((err) => {
+                console.log(err);
+            })
+        }
+        
         console.log(dados);
 
     }

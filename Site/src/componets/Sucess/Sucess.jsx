@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BsBagCheckFill } from 'react-icons/bs';
 import { RiInstagramFill } from 'react-icons/ri'
 import { BsLinkedin } from 'react-icons/bs'

@@ -38,8 +38,6 @@ export const ItemPesquisa = (props) => {
 
     const cardImage = imagem ? imagem : User
 
-    console.log(imagem)
-
     return (
         <>
 

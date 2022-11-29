@@ -1,5 +1,6 @@
 package com.example.manotensao.controle;
 
+import com.example.manotensao.FilaObjProposta;
 import com.example.manotensao.dto.PropostaCSV;
 import com.example.manotensao.dominio.Proposta;
 import com.example.manotensao.repositorio.PropostaRepository;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Formatter;
 import java.util.FormatterClosedException;
 import java.util.List;
@@ -20,6 +22,7 @@ public class PropostaController {
     @Autowired
     private PropostaRepository propostaRepository;
 
+    FilaObjProposta<Proposta> filaProposta = new FilaObjProposta<>(30);
     @GetMapping
     public ResponseEntity<List<Proposta>> get() {
         List<Proposta> lista = propostaRepository.findAll();
@@ -100,6 +103,17 @@ public class PropostaController {
                 : ResponseEntity.status(200).body(lista);
     }
 
-
+//    @GetMapping("/propostas-recentes")
+//    public ResponseEntity<List<Proposta>> getListarPropostas() {
+//        List<Proposta> listaPropostas = propostaRepository.findAll();
+//
+//        for (Proposta p : listaPropostas) {
+//            filaProposta.insert(p);
+//        }
+//        if (filaProposta.peek().getDataProposta().plusDays(7).equals(LocalDate.now())){
+//            propostaRepository.deleteById(filaProposta.poll().getIdProposta());
+//        }
+//        return ResponseEntity.status(200).body(listaPropostas);
+//    }
 
 }

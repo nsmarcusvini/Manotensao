@@ -18,4 +18,6 @@ public interface PropostaRepository extends JpaRepository<Proposta,Integer>{
 
     Proposta getById(int idProposta);
 
+
+
 }

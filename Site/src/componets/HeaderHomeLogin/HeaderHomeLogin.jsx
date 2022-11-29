@@ -50,7 +50,7 @@ export const HeaderHomeLogin = () => {
                     <h1 className='logoHeader'>ManoTensao</h1>
                     <ul className='menu'>
                         <a className="list" onClick={() => navigate("/profile")}>Perfil</a>
-                        <a className='list' onClick={() => navigate("/chat")}>Chat</a>
+                        <a className='list' onClick={() => navigate("/connect")}>Chat</a>
                         <a className='list' onClick={() => navigate("/search")}>Pesquisar</a>
                         <a className='list' onClick={logoff}>Sair</a>
 

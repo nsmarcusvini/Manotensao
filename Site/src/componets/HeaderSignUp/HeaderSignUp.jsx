@@ -51,7 +51,7 @@ export const HeaderSignUp = () => {
                     <ul className='menu'>
                     <a className="list" onClick={() => navigate("/home")}>Home</a>
                     <a className="list" onClick={() => navigate("/profile")}>Perfil</a>
-                        <a className='list' onClick={() => navigate("/chat")}>Chat</a>
+                        <a className='list' onClick={() => navigate("/connect")}>Chat</a>
                         <a className='list' onClick={logoff}>Sair</a>
 
                     </ul>

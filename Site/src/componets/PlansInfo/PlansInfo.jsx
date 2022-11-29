@@ -58,7 +58,7 @@ export const PlansInfo = () => {
             <span className="nameCard">Nome do cartão</span>
             <input type="text" />
           </div>
-          <button className="cardButton" onClick={() => navigate("/sucess")}>Pagar</button>
+          <button className="cardButton" onClick={() => navigate("/sucess")} id="btnInfo">Pagar</button>
         </div>
       </div>
     </div>

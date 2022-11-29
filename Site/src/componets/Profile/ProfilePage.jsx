@@ -5,6 +5,7 @@ import './Profile.css';
 import api from '../../axios.js';
 import Button from '@material-ui/core/Button';
 import { MDBFile } from 'mdb-react-ui-kit';
+import Uploader from './Uploader';
 
 function ProfilePage() {
 
@@ -108,7 +109,7 @@ function ProfilePage() {
                         id="root"
 
                     />
-                    <MDBFile label='Default file input example' id='customFile' />
+                    <Uploader/>
 
 
                 </div>

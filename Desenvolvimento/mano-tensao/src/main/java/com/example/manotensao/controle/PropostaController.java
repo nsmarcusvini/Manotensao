@@ -103,17 +103,18 @@ public class PropostaController {
                 : ResponseEntity.status(200).body(lista);
     }
 
-//    @GetMapping("/propostas-recentes")
-//    public ResponseEntity<List<Proposta>> getListarPropostas() {
-//        List<Proposta> listaPropostas = propostaRepository.findAll();
-//
-//        for (Proposta p : listaPropostas) {
-//            filaProposta.insert(p);
-//        }
-//        if (filaProposta.peek().getDataProposta().plusDays(7).equals(LocalDate.now())){
-//            propostaRepository.deleteById(filaProposta.poll().getIdProposta());
-//        }
-//        return ResponseEntity.status(200).body(listaPropostas);
-//    }
+    @GetMapping("/propostas-salvas")
+    public ResponseEntity<List<Proposta>> getListarPropostas() {
+        List<Proposta> listaPropostas = propostaRepository.findAll();
+
+        for (Proposta p : listaPropostas) {
+            if (p.getPropostaAceita().equals(0))
+            filaProposta.insert(p);
+            else {
+                return ResponseEntity.status(204).build();
+            }
+        }
+        return ResponseEntity.status(200).body(listaPropostas);
+    }
 
 }

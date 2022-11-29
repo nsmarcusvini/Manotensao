@@ -3,12 +3,25 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'
 import './Profile.css';
 import api from '../../axios.js';
+import Button from '@material-ui/core/Button';
+import { MDBFile } from 'mdb-react-ui-kit';
 
 function ProfilePage() {
 
     const navigate = useNavigate();
 
     const { register, setValue, setFocus } = useForm();
+
+
+    const hiddenFileInput = React.useRef(null);
+
+    const handleChange = event => {
+    };
+
+    const handleClick = event => {
+        hiddenFileInput.current.click();
+    };
+
 
     const viaCep = (e) => {
         const cep = e.target.value.replace(/\D/g, '');
@@ -22,6 +35,7 @@ function ProfilePage() {
                 setFocus('numero');
             });
     }
+
 
 
 
@@ -88,7 +102,15 @@ function ProfilePage() {
                     <img src={JSON.parse(sessionStorage.user).urlFoto} />
                     <p>{JSON.parse(sessionStorage.user).nome}</p>
                     <span>{JSON.parse(sessionStorage.user).email}</span>
-                    <button>Escolher foto</button>
+                    <input type="file"
+                        accept="image/*"
+                        style={{ display: 'none' }}
+                        id="root"
+
+                    />
+                    <MDBFile label='Default file input example' id='customFile' />
+
+
                 </div>
                 <div className='menu-info'>
                     <div className="bodyPro" id="bodyPro" >
@@ -154,15 +176,15 @@ function ProfilePage() {
                             </div>
 
 
-                            <button className="btnAtt" type="submit"  id="animate.css"> Atualizar dados</button>
-                            
+                            <button className="btnAtt" type="submit" id="animate.css"> Atualizar dados</button>
+
 
 
                             <button className='importTxt'>Importar carta de apresentação</button>
 
                         </form>
                     </div>
-                        
+
                 </div>
             </div>
         </div >

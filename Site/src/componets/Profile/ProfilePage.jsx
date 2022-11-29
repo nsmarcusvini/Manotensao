@@ -3,8 +3,6 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'
 import './Profile.css';
 import api from '../../axios.js';
-//import Button from '@material-ui/core/Button';
-import { MDBFile } from 'mdb-react-ui-kit';
 import Uploader from './Uploader';
 
 function ProfilePage() {
@@ -13,15 +11,6 @@ function ProfilePage() {
 
     const { register, setValue, setFocus } = useForm();
 
-
-    const hiddenFileInput = React.useRef(null);
-
-    const handleChange = event => {
-    };
-
-    const handleClick = event => {
-        hiddenFileInput.current.click();
-    };
 
 
     const viaCep = (e) => {
@@ -84,18 +73,7 @@ function ProfilePage() {
 
     }
 
-    /*     function carregarPagina() {
-            // = JSON.parse(sessionStorage.user).nome;
-            // = JSON.parse(sessionStorage.user).cpf;
-            // = JSON.parse(sessionStorage.user).dtNascimento;
-            // = JSON.parse(sessionStorage.user).nome;
-            // = JSON.parse(sessionStorage.user).nome;
-            // = JSON.parse(sessionStorage.user).nome;
-            // = JSON.parse(sessionStorage.user).nome;
-            // = JSON.parse(sessionStorage.user).nome;
-            // = JSON.parse(sessionStorage.user).nome;
-            // = JSON.parse(sessionStorage.user).nome;
-        } */
+ 
 
     return (
 
@@ -120,7 +98,6 @@ function ProfilePage() {
                         accept="image/*"
                         style={{ display: 'none' }}
                         id="root"
-
                     />
                     <Uploader/>
 

@@ -1,5 +1,6 @@
 package com.example.manotensao.controle;
 
+import com.example.manotensao.PilhaObj;
 import com.example.manotensao.dto.PropostaCSV;
 import com.example.manotensao.dominio.Proposta;
 import com.example.manotensao.repositorio.PropostaRepository;
@@ -99,6 +100,7 @@ public class PropostaController {
         return lista.isEmpty() ? ResponseEntity.status(204).build()
                 : ResponseEntity.status(200).body(lista);
     }
+
 
 
 }

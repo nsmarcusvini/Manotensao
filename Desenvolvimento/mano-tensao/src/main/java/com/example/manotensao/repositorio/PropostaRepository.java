@@ -16,6 +16,6 @@ public interface PropostaRepository extends JpaRepository<Proposta,Integer>{
             "where ps.idPrestador = ?1 and p.propostaAceita = 1")
     List<PropostaCSV> testeCsv(int idPrestador);
 
-
+    Proposta getById(int idProposta);
 
 }

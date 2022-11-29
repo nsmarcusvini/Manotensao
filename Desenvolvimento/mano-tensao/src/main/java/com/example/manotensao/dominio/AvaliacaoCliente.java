@@ -11,18 +11,16 @@ public class AvaliacaoCliente implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAvaliacaoCliente;
 
-    @Min(0)
-    @NotBlank
+
+
     @ManyToOne
     private Proposta fkProposta;
 
 
-    @Size(min = 0,max = 5)
-    @NotBlank
+
     private Double notaCliente;
 
-    @Size(max = 255)
-    @NotBlank
+
     private String comentarioCliente;
 
     public Integer getIdAvaliacao() {

@@ -1,6 +1,8 @@
 package com.example.manotensao.controle;
 
+import com.example.manotensao.PilhaObj;
 import com.example.manotensao.dominio.AvaliacaoCliente;
+import com.example.manotensao.dominio.Proposta;
 import com.example.manotensao.repositorio.AvaliacaoClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ public class AvaliacaoClienteController{
     @Autowired
     private AvaliacaoClienteRepository avaliacaoClienteRepository;
 
+    PilhaObj<AvaliacaoCliente> pilhaAvaliacaoCliente = new PilhaObj<>(30);
     @GetMapping
     public ResponseEntity<List<AvaliacaoCliente>> get(){
         List<AvaliacaoCliente> lista = avaliacaoClienteRepository.findAll();
@@ -48,4 +51,23 @@ public class AvaliacaoClienteController{
         }
         return ResponseEntity.status(404).build();
     }
+
+    @DeleteMapping("/delete/{idAvaliacaoCliente}")
+    public ResponseEntity deleteAvaliacaoCliente(@PathVariable Integer idAvaliacaoCliente){
+        AvaliacaoCliente ac = avaliacaoClienteRepository.getById(idAvaliacaoCliente);
+        pilhaAvaliacaoCliente.push(ac);
+        avaliacaoClienteRepository.delete(ac);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/desfazer")
+    public ResponseEntity desfazerAvaliacaoCliente(){
+        AvaliacaoCliente ac = pilhaAvaliacaoCliente.peek();
+        ac.setIdAvaliacao(pilhaAvaliacaoCliente.peek().getIdAvaliacao());
+        avaliacaoClienteRepository.save(ac);
+        pilhaAvaliacaoCliente.pop();
+        return ResponseEntity.ok().build();
+    }
+
+
 }

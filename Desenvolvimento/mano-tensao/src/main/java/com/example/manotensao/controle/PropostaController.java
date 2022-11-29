@@ -108,7 +108,7 @@ public class PropostaController {
         List<Proposta> listaPropostas = propostaRepository.findAll();
 
         for (Proposta p : listaPropostas) {
-            if (p.getPropostaAceita().equals(0))
+            if (p.getPropostaAceita().equals(1))
             filaProposta.insert(p);
             else {
                 return ResponseEntity.status(204).build();

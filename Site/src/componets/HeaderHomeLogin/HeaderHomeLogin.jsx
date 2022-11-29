@@ -21,15 +21,17 @@ export const HeaderHomeLogin = () => {
     window.addEventListener('scroll', changeColor)
 
     function logoff(){
-        try{
+        if(sessionStorage.tipoUsuario == "prestador"){
             api
             .delete(`/prestadores/logoff-prestador/${JSON.parse(sessionStorage.user).id}`)
             .then(() => {
                 window.sessionStorage.setItem("user", "");
                 window.sessionStorage.setItem("tipoUsuario", "");
               window.location.href = 'http://localhost:3000';
+            }).catch((err) => {
+                console.log(err);
             })
-        }catch(err){
+        } else if(sessionStorage.tipoUsuario == "cliente"){
             api
             .delete(`/clientes/logoff-cliente/${JSON.parse(sessionStorage.user).id}`)
             .then(() => {

@@ -110,9 +110,9 @@ public class PropostaController {
         for (Proposta p : listaPropostas) {
             if (p.getPropostaAceita().equals(1))
             filaProposta.insert(p);
-            else {
-                return ResponseEntity.status(204).build();
-            }
+        }
+        if(filaProposta.isEmpty()){
+            ResponseEntity.status(204).build();
         }
         return ResponseEntity.status(200).body(listaPropostas);
     }

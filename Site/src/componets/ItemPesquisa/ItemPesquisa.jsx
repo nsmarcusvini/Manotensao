@@ -45,7 +45,7 @@ export const ItemPesquisa = (props) => {
                 <div className="provider">
                     <div className="distance">
                         <span className="distan">
-                            0.8KM
+                            {((Math.random() * 4) + 1).toFixed(1)}
                         </span>
                     </div>
                     <img src={cardImage} alt="" className="persona" />
@@ -56,7 +56,7 @@ export const ItemPesquisa = (props) => {
                             </span>
                         </div>
                         <div className="stars">
-                            {Array.from({ length: props.estrela }, () => (
+                            {Array.from({ length: props.estrela/2 }, () => (
                                 <img src={Star} className="star" />
                             ))}
                         </div>

@@ -112,13 +112,13 @@ function ProfilePage() {
 
                                 <label>
                                     Nome
-                                    <input required className="nome" type="text" name='nome' value={JSON.parse(sessionStorage.user).nome} />
+                                    <input required className="nome" type="text" name='nome' minLength={5} value={JSON.parse(sessionStorage.user).nome} />
                                 </label>
 
 
                                 <label>
                                     CPF
-                                    <input required className="cpf" type="text" name='cpf' value={JSON.parse(sessionStorage.user).cpf} />
+                                    <input required pattern='[0-9]{11}' className="cpf" type="text" name='cpf' maxLength={11} minLength={1} value={JSON.parse(sessionStorage.user).cpf} />
                                 </label>
 
                                 <label className='dtNasc'>
@@ -133,7 +133,7 @@ function ProfilePage() {
 
                                 <label>
                                     Celular
-                                    <input required className="celular" type="text" name='celular' value={JSON.parse(sessionStorage.user).telefone} />
+                                    <input required pattern="([0-9]{1}" className="celular" type="text" minLength={1} maxLength={9} name='celular' value={JSON.parse(sessionStorage.user).telefone} />
                                 </label>
                             </div>
 
@@ -142,7 +142,7 @@ function ProfilePage() {
 
                                 <label>
                                     CEP
-                                    <input required className="cep" type="text" {...register("cep")} onBlur={viaCep} name="cep" value={JSON.parse(sessionStorage.user).cep} />
+                                    <input required pattern='[0-9]{0,5}' className="cep" type="text" {...register("cep")} onBlur={viaCep} name="cep" value={JSON.parse(sessionStorage.user).cep} />
                                 </label>
 
                                 <label>
@@ -157,12 +157,12 @@ function ProfilePage() {
 
                                 <label>
                                     Número
-                                    <input required className="number" type="text" name='numero' value={JSON.parse(sessionStorage.user).numero} />
+                                    <input required pattern='[0-9]{0,5}' className="number" type="text" name='numero' value={JSON.parse(sessionStorage.user).numero} />
                                 </label>
 
                                 <label>
                                     Complemento
-                                    <input required className="complemento" type="text" name='complemento' value={JSON.parse(sessionStorage.user).complemento} />
+                                    <input  className="complemento" type="text" name='complemento' value={JSON.parse(sessionStorage.user).complemento} />
                                 </label>
                             </div>
 

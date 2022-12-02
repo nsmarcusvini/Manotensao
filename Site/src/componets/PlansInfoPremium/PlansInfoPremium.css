@@ -89,15 +89,6 @@
     cursor: pointer;
 }
 
-.payments .bolDown {
-    text-decoration: none;
-    color: transparent;
-}
-
-.payments .bolButton img {
-    width: 1.3rem;
-}
-
 .payments .bolButton:hover {
     transform: scale(1.03, 1.03);
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
@@ -106,6 +97,10 @@
 .payments .bolDown {
     text-decoration: none;
     color: transparent;
+}
+
+.payments .bolButton img {
+    width: 1.3rem;
 }
 
 .payments .boletoButton {
@@ -146,20 +141,19 @@
 
 .informationCard .numberCard {
     width: 44rem;
-    border-radius: 7px 7px 0 0;
+    border-radius: 10px;
 }
 
 .informationCard .dateCard {
-    width: 22rem;
-    border-radius: 0 0 0 7px;
-    border-top: none;
+    border: 1px solid rgb(155, 155, 155);
+    width: 44rem;
+    border-radius: 10px;
 }
 
 .informationCard .cvcCard {
-    width: 21.7rem;
-    border-radius: 0 0 7px 0;
-    border-left: none;
-    border-top: none;
+    border: 1px solid rgb(155, 155, 155);
+    width: 44rem;
+    border-radius: 10px;
 }
 
 .cardName {
@@ -190,4 +184,10 @@
 .cardButton:hover {
     transform: scale(1.03, 1.03);
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+.error {
+    position: absolute;
+    color: red;
+    font-size: .6rem;
 }

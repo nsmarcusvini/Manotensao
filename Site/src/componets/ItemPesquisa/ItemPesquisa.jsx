@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import api from '../../axios'
 import { LikeButton } from "../Search/HeartLike";
 import User from '../../assets/user.jpg'
-import Star from '../../assets/star.svg'
+import Star from '../../assets/star.png'
 
 export const ItemPesquisa = (props) => {
 

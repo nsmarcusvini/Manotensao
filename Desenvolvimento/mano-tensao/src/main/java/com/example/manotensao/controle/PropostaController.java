@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/propostas")
+@CrossOrigin(origins = "http://3.215.198.136:3000/")
 public class PropostaController {
 
     @Autowired

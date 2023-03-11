@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/chat-prestador")
+@CrossOrigin(origins = "http://3.215.198.136:3000/")
 public class ChatPrestadorController {
 
     @Autowired

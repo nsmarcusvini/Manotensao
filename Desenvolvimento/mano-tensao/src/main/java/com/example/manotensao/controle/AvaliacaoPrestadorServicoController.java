@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/avaliacoes-prestadores")
+@CrossOrigin(origins = "http://3.215.198.136:3000/")
 public class AvaliacaoPrestadorServicoController{
 
     @Autowired

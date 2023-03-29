@@ -5,7 +5,7 @@ import ChatPage from "./ChatPage";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("http://3-215-198-136:3001");
 
 function Connect() {
   const navigate = useNavigate();

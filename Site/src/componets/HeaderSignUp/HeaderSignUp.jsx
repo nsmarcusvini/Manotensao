@@ -27,7 +27,7 @@ export const HeaderSignUp = () => {
             .then(() => {
                 window.sessionStorage.setItem("user", "");
                 window.sessionStorage.setItem("tipoUsuario", "");
-              window.location.href = 'http://localhost:3000';
+              window.location.href = 'http://3-215-198-136:3000';
             })
         }catch(err){
             api
@@ -35,7 +35,7 @@ export const HeaderSignUp = () => {
             .then(() => {
                 window.sessionStorage.setItem("user", "");
                 window.sessionStorage.setItem("tipoUsuario", "");
-              window.location.href = 'http://localhost:3000';
+              window.location.href = 'http://3-215-198-136:3000';
             }).catch((err) => {
                 console.log(err);
             })

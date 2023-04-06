@@ -13,6 +13,8 @@ public class PrestadorServico extends Usuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPrestador;
 
+    private String linkWhatsapp;
+
     @ManyToOne
     private Servico fkServico;
 
@@ -43,4 +45,11 @@ public class PrestadorServico extends Usuario implements Serializable{
         this.fkPlano = fkPlano;
     }
 
+    public String getLinkWhatsapp() {
+        return linkWhatsapp;
+    }
+
+    public void setLinkWhatsapp(String linkWhatsapp) {
+        this.linkWhatsapp = linkWhatsapp;
+    }
 }

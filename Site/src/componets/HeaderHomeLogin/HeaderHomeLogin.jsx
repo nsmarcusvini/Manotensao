@@ -27,7 +27,7 @@ export const HeaderHomeLogin = () => {
             .then(() => {
                 window.sessionStorage.setItem("user", "");
                 window.sessionStorage.setItem("tipoUsuario", "");
-              window.location.href = 'http://3-215-198-136:3000';
+              window.location.href = 'http://3.215.198.136:3000';
             }).catch((err) => {
                 console.log(err);
             })
@@ -37,7 +37,7 @@ export const HeaderHomeLogin = () => {
             .then(() => {
                 window.sessionStorage.setItem("user", "");
                 window.sessionStorage.setItem("tipoUsuario", "");
-              window.location.href = 'http://3-215-198-136:3000';
+              window.location.href = 'http://3.215.198.136:3000';
             }).catch((err) => {
                 console.log(err);
             })

@@ -44,7 +44,7 @@ const SignUpForm = ({ submitForm }) => {
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
           window.sessionStorage.setItem("tipoUsuario", "prestador");
           alert("Bem vindo(a) de volta!");
-          window.location.href = 'http://3-215-198-136:3000/home';
+          window.location.href = 'http://3.215.198.136:3000/home';
         }).catch((err) => {
           alert("Usuário não encontrado")
           console.log(err);
@@ -57,7 +57,7 @@ const SignUpForm = ({ submitForm }) => {
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
           window.sessionStorage.setItem("tipoUsuario", "cliente");
           alert("Bem vindo(a) de volta!");
-          window.location.href = 'http://3-215-198-136:3000/search';
+          window.location.href = 'http://3.215.198.136:3000/search';
         }).catch((err) => {
           console.log(err);
       })
@@ -92,7 +92,7 @@ const SignUpForm = ({ submitForm }) => {
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
           window.sessionStorage.setItem("tipoUsuario", "prestador");
           alert("Cadastrado com sucesso!");
-          window.location.href = 'http://3-215-198-136:3000/profile';
+          window.location.href = 'http://3.215.198.136:3000/profile';
         }).catch((err) => {
           console.log(err);
         })
@@ -106,7 +106,7 @@ const SignUpForm = ({ submitForm }) => {
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
           window.sessionStorage.setItem("tipoUsuario", "cliente");
           alert("Cadastrado com sucesso!");
-          window.location.href = 'http://3-215-198-136:3000/profile';
+          window.location.href = 'http://3.215.198.136:3000/profile';
         }).catch((err) => {
           console.log(err);
         });

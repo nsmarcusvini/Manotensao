@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/chat-cliente")
-@CrossOrigin(origins = "http://3.215.198.136:3000/")
+@CrossOrigin(origins = "http://3.85.249.208:3000/")
 public class ChatClienteController {
 
     @Autowired

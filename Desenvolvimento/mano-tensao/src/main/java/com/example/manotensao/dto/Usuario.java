@@ -1,5 +1,6 @@
 package com.example.manotensao.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.br.CPF;
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -24,6 +25,7 @@ public abstract class Usuario{
 
     private String cpf;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dtNascimento;
 
     private String cep;

@@ -27,6 +27,7 @@ public abstract class Usuario{
     private String cpf;
 
     @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dtNascimento;
 
     private String cep;
@@ -159,5 +160,8 @@ public abstract class Usuario{
 
     public void setCartaApresentacao(String cartaApresentacao) {
         this.cartaApresentacao = cartaApresentacao;
+    }
+
+    public Usuario() {
     }
 }

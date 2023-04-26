@@ -26,9 +26,7 @@ public abstract class Usuario{
 
     private String cpf;
 
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate dtNascimento;
+    private String dtNascimento;
 
     private String cep;
 
@@ -74,11 +72,11 @@ public abstract class Usuario{
         this.senha = senha;
     }
 
-    public LocalDate getDtNascimento() {
+    public String getDtNascimento() {
         return dtNascimento;
     }
 
-    public void setDtNascimento(LocalDate dtNascimento) {
+    public void setDtNascimento(String dtNascimento) {
         this.dtNascimento = dtNascimento;
     }
 

@@ -5,7 +5,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                        echo 'Hello, World!'
+                        sh "docker pull nsmarcusvini/mano-tensao:latest"
+ 				sh "docker run -d -p 80:8080 nsmarcusvini/mano-tensao:latest"
                 }
             }
         }

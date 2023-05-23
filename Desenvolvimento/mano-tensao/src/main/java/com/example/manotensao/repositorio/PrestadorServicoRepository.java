@@ -14,7 +14,7 @@ public interface PrestadorServicoRepository extends JpaRepository<PrestadorServi
             "join aps.fkProposta p " +
             "join p.fkPrestadorServico ps " +
             "join ps.fkServico s WHERE s.idTipoServico = ?1 or s.idTipoServico = ?2 or s.idTipoServico = ?3 " +
-            "or s.idTipoServico = ?4 GROUP BY ps.nome, ps.email, ps.urlFoto, ps.telefone, ps.cep")
+            "or s.idTipoServico = ?4 GROUP BY ps.nome, ps.email, ps.urlFoto, ps.telefone, ps.cep, ps.bairro, ps.rua, ps.numero")
     List<FiltroPorAvaliacao> getPrestadorPorServico(int idServico, int segundaVariacao,
                                                     int terceiraVariacao, int quartaVariacao);
 

@@ -13,7 +13,7 @@ public interface AvaliacaoPrestadorServicoRepository extends JpaRepository<Avali
     @Query("select new com.example.manotensao.dto.FiltroPorAvaliacao(ps.nome, ps.email, ps.urlFoto, ps.telefone, avg(aps.notaPrestadorServico), ps.cep, ps.bairro, ps.rua, ps.numero) from AvaliacaoPrestadorServico aps " +
             "join aps.fkProposta p " +
             "join p.fkPrestadorServico ps " +
-            "GROUP BY ps.nome, ps.email, ps.urlFoto, ps.telefone, ps.cep " +
+            "GROUP BY ps.nome, ps.email, ps.urlFoto, ps.telefone, ps.cep, ps.bairro, ps.rua, ps.numero " +
             "ORDER BY avg(aps.notaPrestadorServico) desc")
     List<FiltroPorAvaliacao> getAvaliacoes();
 
@@ -21,7 +21,7 @@ public interface AvaliacaoPrestadorServicoRepository extends JpaRepository<Avali
             "join aps.fkProposta p " +
             "join p.fkPrestadorServico ps " +
             "join ps.fkServico s WHERE s.idTipoServico = ?1  or s.idTipoServico = ?2 or s.idTipoServico = ?3 or s.idTipoServico = ?4 " +
-            "GROUP BY ps.nome, ps.email, ps.urlFoto, ps.telefone, ps.cep " +
+            "GROUP BY ps.nome, ps.email, ps.urlFoto, ps.telefone, ps.cep, ps.bairro, ps.rua, ps.numero " +
             "ORDER BY avg(aps.notaPrestadorServico) desc")
     List<FiltroPorAvaliacao> getAvaliacoesPorServico(int idServico, int segundaVariacao, int terceiraVariacao, int quartaVariacao);
 

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PrestadorServicoRepository extends JpaRepository<PrestadorServico, Integer>{
-    @Query("select new com.example.manotensao.dto.FiltroPorAvaliacao(ps.nome, ps.email, ps.urlFoto, ps.telefone, avg(aps.notaPrestadorServico), ps.cep) from AvaliacaoPrestadorServico aps " +
+    @Query("select new com.example.manotensao.dto.FiltroPorAvaliacao(ps.nome, ps.email, ps.urlFoto, ps.telefone, avg(aps.notaPrestadorServico), ps.cep, ps.bairro, ps.rua, ps.numero) from AvaliacaoPrestadorServico aps " +
             "join aps.fkProposta p " +
             "join p.fkPrestadorServico ps " +
             "join ps.fkServico s WHERE s.idTipoServico = ?1 or s.idTipoServico = ?2 or s.idTipoServico = ?3 " +

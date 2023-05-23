@@ -8,13 +8,23 @@ public class FiltroPorAvaliacao{
     private Double media;
     private String cep;
 
-    public FiltroPorAvaliacao(String nome, String email, String urlFoto, String telefone, Double media, String cep) {
+    private String bairro;
+
+    private String rua;
+
+    private Integer numero;
+
+
+    public FiltroPorAvaliacao(String nome, String email, String urlFoto, String telefone, Double media, String cep, String bairro, String rua, Integer numero) {
         this.nome = nome;
         this.email = email;
         this.urlFoto = urlFoto;
         this.telefone = telefone;
         this.media = media;
         this.cep = cep;
+        this.bairro = bairro;
+        this.rua = rua;
+        this.numero = numero;
     }
 
     public String getNome() {
@@ -39,5 +49,17 @@ public class FiltroPorAvaliacao{
 
     public String getCep() {
         return cep;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public Integer getNumero() {
+        return numero;
     }
 }

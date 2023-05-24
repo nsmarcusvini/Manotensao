@@ -1,6 +1,8 @@
 package com.example.manotensao.dto;
 
 public class FiltroPorAvaliacao{
+
+    private Integer id;
     private String nome;
     private String email;
     private String urlFoto;
@@ -15,7 +17,8 @@ public class FiltroPorAvaliacao{
     private Integer numero;
 
 
-    public FiltroPorAvaliacao(String nome, String email, String urlFoto, String telefone, Double media, String cep, String bairro, String rua, Integer numero) {
+    public FiltroPorAvaliacao(Integer id, String nome, String email, String urlFoto, String telefone, Double media, String cep, String bairro, String rua, Integer numero) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.urlFoto = urlFoto;
@@ -26,6 +29,8 @@ public class FiltroPorAvaliacao{
         this.rua = rua;
         this.numero = numero;
     }
+
+    public Integer getId(){return id;}
 
     public String getNome() {
         return nome;

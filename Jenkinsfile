@@ -7,7 +7,7 @@ pipeline {
                 script {
                         sh "docker pull nsmarcusvini/mano-tensao:latest"
  				sh "docker run -d -p 80:8090 nsmarcusvini/mano-tensao:latest"
-				sh "git pull"
+				sh "git pull origin main"
                 }
             }
         }

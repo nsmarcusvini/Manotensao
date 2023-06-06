@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/prestadores")
-@CrossOrigin(origins = "http://3.85.249.208:3000/")
+@CrossOrigin(origins = "https://3.85.249.208:3000/")
 public class PrestadorServicoController {
 
     @Autowired

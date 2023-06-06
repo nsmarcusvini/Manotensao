@@ -27,7 +27,7 @@ export const HeaderSignUp = () => {
             .then(() => {
                 window.sessionStorage.setItem("user", "");
                 window.sessionStorage.setItem("tipoUsuario", "");
-              window.location.href = 'https://lbmanotensao.hopto.org:3000';
+              window.location.href = 'https://lbmanotensao.hopto.org';
             })
         }catch(err){
             api
@@ -35,7 +35,7 @@ export const HeaderSignUp = () => {
             .then(() => {
                 window.sessionStorage.setItem("user", "");
                 window.sessionStorage.setItem("tipoUsuario", "");
-              window.location.href = 'https://lbmanotensao.hopto.org:3000';
+              window.location.href = 'https://lbmanotensao.hopto.org';
             }).catch((err) => {
                 console.log(err);
             })

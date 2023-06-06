@@ -44,7 +44,7 @@ const SignUpForm = ({ submitForm }) => {
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
           window.sessionStorage.setItem("tipoUsuario", "prestador");
           alert("Bem vindo(a) de volta!");
-          window.location.href = 'https://lbmanotensao.hopto.org:3000/home';
+          window.location.href = 'https://lbmanotensao.hopto.org/home';
         }).catch((err) => {
           alert("Usuário não encontrado")
           console.log(err);
@@ -57,7 +57,7 @@ const SignUpForm = ({ submitForm }) => {
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
           window.sessionStorage.setItem("tipoUsuario", "cliente");
           alert("Bem vindo(a) de volta!");
-          window.location.href = 'https://lbmanotensao.hopto.org:3000/search';
+          window.location.href = 'https://lbmanotensao.hopto.org/search';
         }).catch((err) => {
           console.log(err);
       })
@@ -92,7 +92,7 @@ const SignUpForm = ({ submitForm }) => {
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
           window.sessionStorage.setItem("tipoUsuario", "prestador");
           alert("Cadastrado com sucesso!");
-          window.location.href = 'https://lbmanotensao.hopto.org:3000/profile';
+          window.location.href = 'https://lbmanotensao.hopto.org/profile';
         }).catch((err) => {
           console.log(err);
         })
@@ -106,7 +106,7 @@ const SignUpForm = ({ submitForm }) => {
           window.sessionStorage.setItem("user", JSON.stringify(res.data)); // JSON.parse(sessionStorage.user).nome
           window.sessionStorage.setItem("tipoUsuario", "cliente");
           alert("Cadastrado com sucesso!");
-          window.location.href = 'https://lbmanotensao.hopto.org:3000/profile';
+          window.location.href = 'https://lbmanotensao.hopto.org/profile';
         }).catch((err) => {
           console.log(err);
         });

@@ -5,7 +5,7 @@ import ChatPage from "./ChatPage";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
 
-const socket = io.connect("https://lbmanotensao.hopto.org:3000");
+const socket = io.connect("https://lbmanotensao.hopto.org:3001");
 
 function Connect() {
   const navigate = useNavigate();

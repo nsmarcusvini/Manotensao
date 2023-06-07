@@ -1,7 +1,5 @@
 package com.example.manotensao.controle;
 
-import com.example.manotensao.dominio.Plano;
-import com.example.manotensao.dominio.Servico;
 import com.example.manotensao.dto.CartaApresentacao;
 import com.example.manotensao.dominio.PrestadorServico;
 import com.example.manotensao.dto.FiltroPorAvaliacao;
@@ -68,20 +66,7 @@ public class PrestadorServicoController {
 
     @PostMapping
     public ResponseEntity<PrestadorServico> post(@RequestBody PrestadorServico novoPrestador) {
-        Servico servicoIndefinido = new Servico();
-        Plano planoIndefinido = new Plano();
-
-
-        servicoIndefinido.setIdTipoServico(22);
-        servicoIndefinido.setTipoServico("INDEFINIDO");
-        planoIndefinido.setIdPlano(4);
-        planoIndefinido.setValorPlano(0.0);
-        planoIndefinido.setTipoPlano("INDEFINIDO");
-        novoPrestador.setFkServico(servicoIndefinido);
-        novoPrestador.setFkPlano(planoIndefinido);
         novoPrestador.setAutenticado(1);
-
-
         prestadorServicoRepository.save(novoPrestador);
         return ResponseEntity.status(201).body(novoPrestador);
     }
